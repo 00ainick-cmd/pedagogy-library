@@ -1,0 +1,22 @@
+{
+  "name": "pedagogy-library",
+  "owner": {
+    "name": "Nick Brown",
+    "url": "https://github.com/00ainick-cmd"
+  },
+  "plugins": [
+    {
+      "name": "pedagogy-library",
+      "source": "./skills",
+      "description": "Lesson craft skills from the Pedagogy Library: a router plus audit-lesson, author-card and ingest-voice. Gold 16:9 cards are the source of truth.",
+      "homepage": "https://github.com/00ainick-cmd/pedagogy-library",
+      "license": "MIT",
+      "skills": [
+        "./html-training-craft",
+        "./audit-lesson",
+        "./author-card",
+        "./ingest-voice"
+      ]
+    }
+  ]
+}

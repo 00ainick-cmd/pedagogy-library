@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>How the CAET Course Was Built</title>
+<meta name="description" content="How Nick Brown's CAET avionics technician course was built: the method, the ten rules, live demos of its lesson parts, and links to the real lessons and the pedagogy library.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/core/lesson-parts.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111318" stroke="#262b34"/><path d="M6 20h5l3-9 4 13 3-8h5" fill="none" stroke="#39d7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>How the CAET Course Was Built</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#method">Method</a><a href="#rules">Rules</a><a href="#demos">Demos</a><a href="#lessons">Real lessons</a><a href="#library">Library</a>
+    </nav>
+    <a class="btn nav-short" href="#demos">Demos</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Pedagogy library showcase</div>
+      <h1>How the CAET Course Was <span class="u">Built</span></h1>
+      <p class="lede">The CAET course trains entry-level avionics technicians. Nick Brown&rsquo;s course team, people and AI coding agents, built it to one written method under one subject expert&rsquo;s review. This site shows that method, the rules behind it, and the lesson parts themselves, live, so you can try them in your browser.</p>
+      <div class="cta">
+        <a class="btn active" href="#demos">Try the live demos</a>
+        <a class="btn" href="https://github.com/00ainick-cmd/pedagogy-library">Read the library on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE COURSE -->
+  <section class="sec" id="course" aria-labelledby="course-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The course</div>
+        <h2 id="course-h">The CAET Course</h2>
+        <p>CAET is the Certified Avionics Electronics Technician certification of the Aircraft Electronics Association (AEA). The course that prepares students for it has 51 lessons and 25 hands-on labs in 14 topic rooms, from Shop Safety to Surveillance. Each lesson is one web page that moves left to right, one idea per page, built to one written standard. Students reach the same lessons through two front doors: a 3D training hangar they walk through in the browser, and a plain course library.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">51</div><div class="l">Lessons</div><p class="d">Each one a run of pages in the same order, one idea per page.</p></div>
+        <div class="stat"><div class="n">25</div><div class="l">Labs</div><p class="d">Hands-on work on simulated circuits, instruments and a wiring bench.</p></div>
+        <div class="stat"><div class="n">14</div><div class="l">Topic rooms</div><p class="d">From Shop Safety and Regulations to Navigation and Surveillance.</p></div>
+      </div>
+      <div class="links-row">
+        <a class="btn" href="https://aero-hangar-claude.onrender.com/aero/topics.html">Open the course library</a>
+        <a class="btn" href="https://aero-hangar-claude.onrender.com/aero/hangar/">Walk the training hangar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE METHOD -->
+  <section class="sec" id="method" aria-labelledby="method-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The method</div>
+        <h2 id="method-h">From Plan to Lecture</h2>
+        <p>Every lesson goes through the same nine steps. A builder, a person or an AI agent, does the work; the course owner approves the plan, reviews every page and publishes. A page that needs work goes back to the build step until the owner signs it off.</p>
+      </div>
+      <svg class="pipe-svg" viewBox="0 0 1000 156" role="img" aria-label="The nine steps in a line: plan, brief, page copy, build, checks, test, publish, review and lecture video. An arrow runs from review back to build.">
+        <line x1="60" y1="96" x2="940" y2="96" stroke="#262b34" stroke-width="3"/>
+        <path d="M830,72 C830,14 390,14 390,66" fill="none" stroke="#ff9e3d" stroke-width="2.5" stroke-dasharray="7 6"/>
+        <polygon points="382,60 398,60 390,73" fill="#ff9e3d"/>
+        <text class="pr" x="610" y="54" text-anchor="middle">A squawk goes back to build</text>
+        <g>
+          <circle cx="60" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="60" y="104" text-anchor="middle">1</text><text class="pl" x="60" y="146" text-anchor="middle">Plan</text>
+          <circle cx="170" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="170" y="104" text-anchor="middle">2</text><text class="pl" x="170" y="146" text-anchor="middle">Brief</text>
+          <circle cx="280" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="280" y="104" text-anchor="middle">3</text><text class="pl" x="280" y="146" text-anchor="middle">Page copy</text>
+          <circle cx="390" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="390" y="104" text-anchor="middle">4</text><text class="pl" x="390" y="146" text-anchor="middle">Build</text>
+          <circle cx="500" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="500" y="104" text-anchor="middle">5</text><text class="pl" x="500" y="146" text-anchor="middle">Checks</text>
+          <circle cx="610" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="610" y="104" text-anchor="middle">6</text><text class="pl" x="610" y="146" text-anchor="middle">Test</text>
+          <circle cx="720" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="720" y="104" text-anchor="middle">7</text><text class="pl" x="720" y="146" text-anchor="middle">Publish</text>
+          <circle cx="830" cy="96" r="23" fill="#1b1730" stroke="#ff9e3d" stroke-width="2"/><text class="pn" x="830" y="104" text-anchor="middle">8</text><text class="pl" x="830" y="146" text-anchor="middle">Review</text>
+          <circle cx="940" cy="96" r="23" fill="#1b1730" stroke="#6ba7c4" stroke-width="2"/><text class="pn" x="940" y="104" text-anchor="middle">9</text><text class="pl" x="940" y="146" text-anchor="middle">Lecture</text>
+        </g>
+      </svg>
+      <ol class="steps">
+        <li><div class="sn"><span>1</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-1-plan">Plan</a></h3></div><p>The lesson gets its place in the course: its scope, objectives tied to CAET codes, prerequisites and a page plan.</p><p class="out">Out: one entry in the course Blueprint</p></li>
+        <li><div class="sn"><span>2</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-2-brief">Brief</a></h3></div><p>The builder reads the one build standard and walks the approved model lesson. A rebuild lists every part of the old lesson and gets a storyboard approved.</p><p class="out">Out: an approved storyboard</p></li>
+        <li><div class="sn"><span>3</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-3-page-copy">Page copy</a></h3></div><p>Every word of every page is written before anything is built: the label, the plain heading, the goal, the on-screen text, the interaction and the sources.</p><p class="out">Out: the page copy file</p></li>
+        <li><div class="sn"><span>4</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/lesson-format.md">Build</a></h3></div><p>The words go in a data file, the layouts in templates, and one script assembles the lesson. Working sims are lifted from the old lesson, never redrawn.</p><p class="out">Out: the lesson page</p></li>
+        <li><div class="sn"><span>5</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-5-checks">Checks</a></h3></div><p>Five check questions, one per objective focus. Every wrong option is a real mistake, and every option has one sentence of feedback that teaches.</p><p class="out">Out: the lesson&rsquo;s check file</p></li>
+        <li><div class="sn"><span>6</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/tooling-and-publishing.md">Test</a></h3></div><p>Unit tests, a browser test that drives every page on a desktop and a phone, and a person looking at a screenshot of every page.</p><p class="out">Out: a review packet</p></li>
+        <li><div class="sn"><span>7</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/tooling-and-publishing.md#publishing-the-preview">Publish</a></h3></div><p>Only the course owner publishes. The preview site is rebuilt from committed files.</p><p class="out">Out: the lesson on the preview</p></li>
+        <li class="loop"><div class="sn"><span>8</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-8-review-on-the-squawk-board">Review</a></h3></div><p>The owner reads every page on a phone and writes a squawk, the aviation word for a reported defect, against any page that needs work. Each squawk is fixed and signed off.</p><p class="back">A squawk goes back to step 4.</p><p class="out">Out: every page signed off</p></li>
+        <li><div class="sn"><span>9</span><h3><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/hyperframes.md#use-2-classroom-lecture-decks">Lecture video</a></h3></div><p>The classroom lecture, two narrated instructors at an animated whiteboard, is re-cut to match the signed-off lesson.</p><p class="out">Out: a narrated lecture deck</p></li>
+      </ol>
+      <div class="links-row"><a class="btn" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md">Read the full method</a><a class="btn" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/README.md">The build section and its tools</a></div>
+    </div>
+  </section>
+
+  <!-- THE TEN RULES -->
+  <section class="sec" id="rules" aria-labelledby="rules-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">What makes it work</div>
+        <h2 id="rules-h">Ten Rules</h2>
+        <p>Each rule came from a review decision on a real lesson, and each one rests on a principle in the library.</p>
+      </div>
+      <ol class="rules">
+        <li><span class="rn">1</span><h3>NEETS-Style Writing</h3><p>Write like the Navy Electricity and Electronics Training Series (NEETS): state the fact, define the term, show how it is applied. Plain noun headings, no slogans, no em or en dashes. Every term is defined the first time it appears.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/05-tutor-personas/plain-language-simplified-technical-english.md">plain language and Simplified Technical English</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#the-writing-rules">the writing rules</a></p></li>
+        <li><span class="rn">2</span><h3>One Idea per Page</h3><p>Each page names one subject, opens with its point set big, and fits about one and a half phone screens. Key content is never hidden in a drop-down.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/cognitive-load-theory.md">cognitive load</a>, <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/segmenting-and-pretraining.md">segmenting</a></p></li>
+        <li><span class="rn">3</span><h3>An Interaction on Every Page</h3><p>Every page has at least one interaction or graphical block, never two plain paragraphs in a row. Each interaction must make the student think about the page&rsquo;s idea, and no two pages in a row use the same one.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/icap-engagement-framework.md">the ICAP framework</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/mixing-guide.md">the mixing guide</a></p></li>
+        <li><span class="rn">4</span><h3>Real Documents</h3><p>Students read the real regulation, safety data sheet, form or FAA figure and tap its parts, instead of reading a summary of it. Every document is credited on the page.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/transfer-of-learning.md">transfer of learning</a>. Try it: <a href="demos/real-document.html">the 91.411 demo</a></p></li>
+        <li><span class="rn">5</span><h3>Keep the Real Sims</h3><p>A rebuilt lesson lifts its working simulations and real schematics from the old lesson. It never replaces them with a drawing. A proof that lost the sims was rejected.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/simulation-fidelity.md">simulation and fidelity</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/sims-circuit-lab.md">the Circuit Lab</a></p></li>
+        <li><span class="rn">6</span><h3>Picture Questions</h3><p>Where a picture is the skill, the options are pictures: three schematics, three meter faces, three parts, each beside a one-line description.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/dual-coding.md">dual coding</a>. Try it: <a href="demos/picture-options.html">the picture options demo</a></p></li>
+        <li><span class="rn">7</span><h3>History and Incidents from Official Reports</h3><p>A person gets a page only when the story carries the concept to the bench. A real accident is told from the official report, with what a technician would have caught, and no blame beyond the report.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/error-management-training.md">learning from incident cases</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/history-incidents/README.md">history and incidents</a></p></li>
+        <li><span class="rn">8</span><h3>3D Where Shape Teaches</h3><p>A 3D model only when turning the part shows what a flat drawing cannot: a generator loop, a micro switch, a gyro that precesses. Each one has view buttons, labels and a still picture for weak phones.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/animation-video-immersive-media.md">animation, video and 3D</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/media-motion/three-d.md">3D in lessons</a></p></li>
+        <li><span class="rn">9</span><h3>Phone First</h3><p>Every page is tested at 390 pixels wide and looked at: text 16 px or larger, tap targets 44 px or larger, no sideways scroll, and every drag also works by tap and by keyboard.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/02-instructional-design/accessible-design-wcag-udl.md">accessible design</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/visual-design/electric-ink-look.md">the Electric Ink look</a></p></li>
+        <li><span class="rn">10</span><h3>The Reviewer Is the Subject Expert</h3><p>The course owner, an avionics subject expert, reads every page and writes a squawk against any page that is wrong or unclear. A lesson is done only when every page is signed off.</p><p class="why">Why: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/02-instructional-design/cognitive-task-analysis.md">expert task analysis</a>. How: <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/method.md#step-8-review-on-the-squawk-board">the Squawk Board</a></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- THE DEMOS -->
+  <section class="sec" id="demos" aria-labelledby="demos-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Live demos</div>
+        <h2 id="demos-h">Try the Lesson Parts</h2>
+        <p>Seven parts from real lessons, with the lessons&rsquo; own words, running on a dated snapshot of the course&rsquo;s shared code. Each one has a short note on why it teaches, linked to the principle and the craft note behind it. Every demo works by tap, by keyboard and on a phone.</p>
+      </div>
+      <div class="cards">
+        <a class="card" href="demos/one-card-sort.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><rect x="100" y="18" width="120" height="48" rx="10" fill="#171a21" stroke="#4a5364" stroke-width="1.5"/><rect x="118" y="34" width="84" height="6" rx="3" fill="#c6ccd6"/><rect x="130" y="46" width="60" height="6" rx="3" fill="#a3abba"/><g fill="#111318" stroke="#3a4150" stroke-width="1.5" stroke-dasharray="5 4"><rect x="22" y="84" width="84" height="58" rx="10"/><rect x="118" y="84" width="84" height="58" rx="10" stroke="#dd8985" stroke-dasharray="0"/><rect x="214" y="84" width="84" height="58" rx="10"/></g><rect x="34" y="98" width="50" height="6" rx="3" fill="#eef1f4"/><rect x="130" y="98" width="50" height="6" rx="3" fill="#eef1f4"/><rect x="226" y="98" width="50" height="6" rx="3" fill="#eef1f4"/><path d="M160 68 v10" stroke="#dd8985" stroke-width="2.5" stroke-linecap="round"/><path d="M154 74 l6 6 6-6" fill="none" stroke="#dd8985" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="body"><span class="from">Safety Data Sheets</span><h3>One-Card Sort</h3><p>Sort five shop moments into when you open the safety data sheet: before the job, during an exposure or a spill, or after the job.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card" href="demos/picture-options.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><g fill="#171a21" stroke="#262b34" stroke-width="1.5"><rect x="24" y="16" width="272" height="38" rx="8" stroke="#5ddb9a"/><rect x="24" y="61" width="272" height="38" rx="8"/><rect x="24" y="106" width="272" height="38" rx="8"/></g><g fill="none" stroke="#3a414d" stroke-width="1.5"><rect x="34" y="27" width="16" height="16" rx="4"/><rect x="34" y="72" width="16" height="16" rx="4"/><rect x="34" y="117" width="16" height="16" rx="4"/></g><g fill="#0d0f14" stroke="#262b34"><rect x="60" y="22" width="56" height="28" rx="5"/><rect x="60" y="67" width="56" height="28" rx="5"/><rect x="60" y="112" width="56" height="28" rx="5"/></g><g fill="none" stroke="#39d7ff" stroke-width="1.6"><rect x="68" y="28" width="40" height="16"/><path d="M68 73h40v16h-40zM88 73v16M100 73v16"/><path d="M68 118h40v16h-40zM96 118v16M104 118v16"/></g><g fill="#a3abba"><rect x="128" y="30" width="140" height="6" rx="3"/><rect x="128" y="75" width="120" height="6" rx="3"/><rect x="128" y="120" width="150" height="6" rx="3"/></g></svg></span>
+          <span class="body"><span class="from">Series Circuits</span><h3>Picture Options</h3><p>Pick the drawing that shows a series circuit, from three small schematics, and read the feedback for your answer.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card" href="demos/flip-cards.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><rect x="40" y="18" width="110" height="124" rx="12" fill="#111318" stroke="#262b34" stroke-width="1.5"/><path d="M78 40c0 0-12 14-12 23a12 12 0 0 0 24 0c0-9-12-23-12-23z" fill="none" stroke="#39d7ff" stroke-width="2.5"/><rect x="58" y="98" width="70" height="8" rx="4" fill="#eef1f4"/><rect x="58" y="112" width="50" height="8" rx="4" fill="#eef1f4"/><rect x="170" y="18" width="110" height="124" rx="12" fill="#121a1f" stroke="#6ba7c4" stroke-width="1.5"/><rect x="186" y="36" width="44" height="6" rx="3" fill="#6ba7c4"/><rect x="186" y="50" width="64" height="9" rx="4" fill="#eef1f4"/><g fill="#c6ccd6"><rect x="186" y="72" width="78" height="5" rx="2.5"/><rect x="186" y="84" width="70" height="5" rx="2.5"/><rect x="186" y="96" width="76" height="5" rx="2.5"/><rect x="186" y="108" width="52" height="5" rx="2.5"/></g></svg></span>
+          <span class="body"><span class="from">Pitot-Static Systems</span><h3>Flip Cards</h3><p>Name the part that guards a pitot or static line against water, ice, insects or a blocked port, then turn the card.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card" href="demos/real-document.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><rect x="22" y="12" width="178" height="138" rx="5" fill="#f4f0e7" stroke="#23201b" stroke-width="1.5"/><rect x="34" y="22" width="120" height="7" rx="3" fill="#23201b"/><g fill="#fbf8f1" stroke="#b9b2a2" stroke-dasharray="4 3"><rect x="34" y="38" width="154" height="22" rx="4"/><rect x="44" y="96" width="144" height="22" rx="4"/><rect x="44" y="124" width="144" height="18" rx="4"/></g><rect x="44" y="66" width="144" height="24" rx="4" fill="#d4ecdc" stroke="#1f7a4d" stroke-width="1.5"/><g fill="#5c574c"><rect x="42" y="46" width="110" height="5" rx="2.5"/><rect x="52" y="104" width="100" height="5" rx="2.5"/><rect x="52" y="130" width="80" height="5" rx="2.5"/></g><rect x="52" y="75" width="104" height="5" rx="2.5" fill="#1f7a4d"/><rect x="212" y="12" width="88" height="96" rx="10" fill="#111318" stroke="#262b34"/><rect x="212" y="12" width="88" height="4" rx="2" fill="#82a0d6"/><g fill="#c6ccd6"><rect x="222" y="28" width="62" height="5" rx="2.5"/><rect x="222" y="40" width="68" height="5" rx="2.5"/><rect x="222" y="52" width="48" height="5" rx="2.5"/></g><rect x="222" y="70" width="68" height="20" rx="6" fill="#39d7ff"/></svg></span>
+          <span class="body"><span class="from">The Certification Checks</span><h3>Hotspot on a Real Document</h3><p>Work three lookups on the current text of 14 CFR 91.411, and read what each paragraph means in plain words.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card" href="demos/process-stepper.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><g fill="#171a21" stroke="#262b34"><rect x="20" y="16" width="40" height="26" rx="7" stroke="#ce89c0"/><rect x="66" y="16" width="40" height="26" rx="7"/><rect x="112" y="16" width="40" height="26" rx="7"/><rect x="158" y="16" width="40" height="26" rx="7"/><rect x="204" y="16" width="40" height="26" rx="7"/><rect x="250" y="16" width="50" height="26" rx="7"/></g><g fill="#a3abba"><circle cx="40" cy="29" r="7" fill="#ce89c0"/><circle cx="86" cy="29" r="7"/><circle cx="132" cy="29" r="7"/><circle cx="178" cy="29" r="7"/><circle cx="224" cy="29" r="7"/><circle cx="275" cy="29" r="7"/></g><rect x="20" y="52" width="280" height="96" rx="10" fill="#111318" stroke="#262b34"/><rect x="34" y="64" width="80" height="8" rx="4" fill="#eef1f4"/><g fill="#c6ccd6"><rect x="34" y="80" width="110" height="5" rx="2.5"/><rect x="34" y="90" width="100" height="5" rx="2.5"/></g><rect x="34" y="102" width="116" height="30" rx="4" fill="#fbfaf6"/><rect x="34" y="102" width="3" height="30" fill="#0b5cd5"/><rect x="170" y="62" width="118" height="76" rx="8" fill="#fff"/><ellipse cx="229" cy="100" rx="40" ry="22" fill="#d2ccd2" stroke="#8a8590"/><line x1="182" y1="100" x2="276" y2="100" stroke="#e0443a" stroke-dasharray="5 3"/></svg></span>
+          <span class="body"><span class="from">Antennas and Coax</span><h3>Process Stepper</h3><p>Step through an antenna installation, with the FAA figure and the advisory circular&rsquo;s own words for each step.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card" href="demos/predict-reveal.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><g fill="#c6ccd6"><rect x="22" y="22" width="70" height="7" rx="3.5"/><rect x="22" y="70" width="60" height="7" rx="3.5"/><rect x="22" y="118" width="74" height="7" rx="3.5"/></g><g fill="#171a21" stroke="#3a414d" stroke-width="1.5"><rect x="118" y="14" width="52" height="24" rx="12" stroke="#5ddb9a"/><rect x="178" y="14" width="56" height="24" rx="12"/><rect x="242" y="14" width="52" height="24" rx="12" stroke="#6ba7c4"/><rect x="118" y="62" width="52" height="24" rx="12"/><rect x="178" y="62" width="56" height="24" rx="12" stroke="#5ddb9a"/><rect x="242" y="62" width="52" height="24" rx="12"/><rect x="118" y="110" width="52" height="24" rx="12"/><rect x="178" y="110" width="56" height="24" rx="12"/><rect x="242" y="110" width="52" height="24" rx="12" stroke="#5ddb9a"/></g><g stroke-width="6" stroke-linecap="round"><path d="M22 44h44" stroke="#39d7ff"/><path d="M22 52h36" stroke="#ff9e3d"/><path d="M22 92h54" stroke="#39d7ff"/><path d="M22 100h36" stroke="#ff9e3d"/><path d="M22 140h66" stroke="#39d7ff"/><path d="M22 148h36" stroke="#ff9e3d"/></g></svg></span>
+          <span class="body"><span class="from">Blocked Ports and Altimeter Setting</span><h3>Predict, Then Reveal</h3><p>Predict what the airspeed indicator shows with the static line blocked, then see the two pressures behind the reading.</p><span class="go">Open the demo</span></span>
+        </a>
+        <a class="card wide" href="demos/paged-lesson.html">
+          <span class="thumb"><svg viewBox="0 0 320 160" aria-hidden="true"><rect x="40" y="26" width="250" height="124" rx="8" fill="#0d0f14" stroke="#262b34"/><rect x="32" y="20" width="250" height="124" rx="8" fill="#0d0f14" stroke="#262b34"/><rect x="24" y="14" width="250" height="124" rx="8" fill="#0a0b0d" stroke="#3a414d"/><rect x="24" y="14" width="250" height="18" rx="8" fill="#111318"/><rect x="24" y="30" width="150" height="2" fill="#6ba7c4"/><rect x="34" y="20" width="60" height="5" rx="2.5" fill="#6ba7c4"/><rect x="24" y="32" width="40" height="106" fill="#0d0f14"/><g fill="none" stroke="#3a414d" stroke-width="1.5"><circle cx="44" cy="46" r="7" fill="#5ddb9a" stroke="#5ddb9a"/><circle cx="44" cy="66" r="7" fill="#5ddb9a" stroke="#5ddb9a"/><circle cx="44" cy="86" r="7" stroke="#6ba7c4"/><circle cx="44" cy="106" r="7"/><circle cx="44" cy="126" r="7"/></g><rect x="78" y="46" width="110" height="12" rx="4" fill="#eef1f4"/><g fill="#c6ccd6"><rect x="78" y="66" width="170" height="5" rx="2.5"/><rect x="78" y="76" width="150" height="5" rx="2.5"/></g><rect x="78" y="88" width="80" height="26" rx="6" fill="#111318" stroke="#262b34"/><rect x="166" y="88" width="80" height="26" rx="6" fill="#111318" stroke="#262b34"/><rect x="78" y="122" width="54" height="10" rx="4" fill="#39d7ff"/></svg></span>
+          <span class="body"><span class="from">Series Circuits</span><h3>A Paged Lesson</h3><p>Six pages in the course&rsquo;s page order (problem, objectives, recall, a concept page, the check and the field card) on the course&rsquo;s own pager, with a note on each page saying why it is there.</p><span class="go">Open the demo</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL LESSONS -->
+  <section class="sec" id="lessons" aria-labelledby="lessons-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The real course</div>
+        <h2 id="lessons-h">Try a Real Lesson</h2>
+        <p>The course runs on a public preview. These lessons show the method at its best, and each link opens the lesson at the page named. The lessons are built for students, so they save your place in your own browser.</p>
+      </div>
+      <div class="lcards">
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/handling-safety/lessons/safety-data-sheets.html#reader"><span class="room">Shop Safety</span><h3>Safety Data Sheets</h3><p>The approved model lesson, 23 pages. Read a real Safety-Kleen safety data sheet, section by section, with job lookups.</p><span class="go">Open at &ldquo;Reading&rdquo;</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/regulations/lessons/certification-checks.html#test411"><span class="room">Regulations and Records</span><h3>The Certification Checks</h3><p>Tap each paragraph of the current eCFR text of 14 CFR 91.411 and 91.413 to read what it means on the job.</p><span class="go">Open at &ldquo;91.411 test&rdquo;</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/ac-fundamentals/lessons/ac-principles.html#generator"><span class="room">AC Electricity</span><h3>AC Principles</h3><p>Turn the loop of a 3D generator and watch the meter swing, then meet Michael Faraday, who discovered induction in 1831.</p><span class="go">Open at &ldquo;Generator&rdquo;</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/digital-databus/lessons/digital-logic.html#switch"><span class="room">Solid-State and Digital Electronics</span><h3>Basic Logic Gates</h3><p>A 3D micro switch on a landing gear: set the gear down and locked, try it out of rig, and read the gear-down signal.</p><span class="go">Open at &ldquo;Downlock&rdquo;</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/flight-instruments/lessons/gyroscopic-instruments.html#precession"><span class="room">Flight Instruments</span><h3>Gyro Instruments</h3><p>Push the rim of a spinning 3D rotor and see the motion appear 90 degrees later in the direction of spin: precession.</p><span class="go">Open at &ldquo;Precession&rdquo;</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/courses/dc-fundamentals/lessons/series-circuits.html#onepath"><span class="room">DC Electricity</span><h3>Series Circuits</h3><p>The picture-option question that started the rule, a path traced on an FAA figure, and a dim landing light to solve.</p><span class="go">Open at &ldquo;One path&rdquo;</span></a>
+        <a class="lcard span" href="https://aero-hangar-claude.onrender.com/aero/courses/aircraft-wiring/lessons/harness-fabrication.html#bench"><span class="room">Aircraft Wiring</span><h3>Harness Fabrication</h3><p>The Harness Bench: build twelve cable ends from the drawing with real crimp tool data, ring out the harness and find a planted fault.</p><span class="go">Open at &ldquo;Harness Bench&rdquo;</span></a>
+      </div>
+      <h3 class="sub-h">The Course Around the Lessons</h3>
+      <div class="lcards places">
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/topics.html"><span class="room">Front door</span><h3>The Course Library</h3><p>Every lesson in a plain list of topic courses, one per room.</p><span class="go">Open the course library</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/aero/hangar/"><span class="room">Front door</span><h3>The Training Hangar</h3><p>A 3D building students walk through: classrooms with lecturing instructors, desks that open the lessons, lab benches and a library.</p><span class="go">Walk the hangar</span></a>
+        <a class="lcard" href="https://aero-hangar-claude.onrender.com/simulators/circuit-lab/"><span class="room">Simulator</span><h3>The Avionics Circuit Lab</h3><p>The circuit simulator and avionics bench behind the labs. Every meter reading comes from a real circuit solver, not a script.</p><span class="go">Open the Circuit Lab</span></a>
+      </div>
+      <p class="note-line">If a page is slow to open the first time, the preview server is starting. Give it a minute.</p>
+    </div>
+  </section>
+
+  <!-- THE LIBRARY -->
+  <section class="sec" id="library" aria-labelledby="library-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The pedagogy library</div>
+        <h2 id="library-h">Read the Library</h2>
+        <p>Everything on this site is written up in full in the pedagogy library on GitHub: the learning science behind each move, how each part should look and teach, and how a lesson is built, step by step.</p>
+      </div>
+      <div class="lcards">
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/tree/main/principles"><span class="room">principles</span><h3>Principles</h3><p>66 chapters in seven groups, from learning science to assessment and motivation. Each gives the evidence, the effect size and when not to use it.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/README.md"><span class="room">craft/interactions</span><h3>Interactions</h3><p>31 interaction patterns: what the student does, when it teaches, when it does not, and how the course builds it. Plus the mixing guide.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/media-motion/README.md"><span class="room">craft/media-motion</span><h3>Media and Motion</h3><p>Figures, animation, simulations, 3D and short video: when each one teaches and how to build it for a phone.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/history-incidents/README.md"><span class="room">craft/history-incidents</span><h3>History and Incidents</h3><p>How to tell a person&rsquo;s story or a real accident from the official report, and how to check an image&rsquo;s licence.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/visual-design/README.md"><span class="room">craft/visual-design</span><h3>Visual Design</h3><p>Electric Ink, the one look every lesson uses: tokens, type, the accent per room, cards, documents and the phone rules.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/build/README.md"><span class="room">build</span><h3>Build</h3><p>The method and the tools: the pipeline, the paged lesson format, the sims, the hangar, testing and publishing.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/tree/main/skills"><span class="room">skills</span><h3>Skills</h3><p>The written instructions AI agents load to build, so a rule set in one review reaches every later build.</p><span class="go">Open on GitHub</span></a>
+        <a class="lcard" href="https://github.com/00ainick-cmd/pedagogy-library/tree/main/showcase"><span class="room">showcase</span><h3>This Site</h3><p>The source of this showcase: plain HTML, CSS and JavaScript with no build step, and the snapshot of the course&rsquo;s shared parts.</p><span class="go">Open on GitHub</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="sec" id="credits" aria-labelledby="credits-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Credits</div>
+        <h2 id="credits-h">Credits and Licence</h2>
+        <p>The CAET course and this library are the work of Nick Brown, Aircraft Electronics Association, and his course team.</p>
+      </div>
+      <div class="lic">
+        <div><h3>Text</h3><p>The text of this site is licensed under Creative Commons Attribution 4.0 (CC BY 4.0). Share and adapt it with credit.</p></div>
+        <div><h3>Code</h3><p>The code, including the snapshot of the course&rsquo;s shared lesson parts in <code>assets/core/</code>, is licensed under the MIT licence.</p></div>
+        <div><h3>FAA figures and federal text</h3><p>FAA handbook and advisory circular figures, the FAA handbook text and the eCFR text of 14 CFR 91.411 are US government works in the public domain. Each is credited where it appears.</p></div>
+        <div><h3>Other images</h3><p>Every other image is credited where it appears. The drawings and icons in the demos were drawn for the course.</p></div>
+      </div>
+      <ul class="srcs">
+        <li>FAA-H-8083-30B, Aviation Maintenance Technician Handbook, General, Figure 12-82.</li>
+        <li>FAA-H-8083-31B, Aviation Maintenance Technician Handbook, Airframe, Figures 11-161 and 11-162.</li>
+        <li>FAA Advisory Circular 43.13-2B, Acceptable Methods, Techniques, and Practices: Aircraft Alterations, Figure 3-1 and the quoted paragraphs.</li>
+        <li>FAA-H-8083-25B, Pilot&rsquo;s Handbook of Aeronautical Knowledge, Chapter 8, quoted text.</li>
+        <li>14 CFR 91.411, from the eCFR (www.ecfr.gov), up to date as of 29 September 2026.</li>
+        <li>Typefaces: Space Grotesk, IBM Plex Sans, IBM Plex Mono and Newsreader, under the SIL Open Font License, served by Google Fonts.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p>How the CAET Course Was Built. A showcase of the pedagogy library behind the CAET avionics course, by Nick Brown, Aircraft Electronics Association. Last updated 1 October 2026.</p>
+  <p><a href="https://github.com/00ainick-cmd/pedagogy-library">The pedagogy library on GitHub</a></p>
+</footer>
+</body>
+</html>

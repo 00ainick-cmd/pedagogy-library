@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Flip Cards | How the CAET Course Was Built</title>
+<meta name="description" content="Live flip cards from the CAET Pitot-Static Systems lesson: a problem on the front, the part that guards against it on the back.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/core/lesson-parts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/demo.css">
+<style>:root{--hero:#6ba7c4}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demo</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111318" stroke="#262b34"/><path d="M6 20h5l3-9 4 13 3-8h5" fill="none" stroke="#39d7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>How the CAET Course Was Built</a>
+    <nav class="site-nav" aria-label="Showcase">
+      <a href="../index.html#method">Method</a><a href="../index.html#rules">Rules</a><a href="../index.html#demos">Demos</a><a href="../index.html#lessons">Real lessons</a><a href="../index.html#library">Library</a>
+    </nav>
+    <a class="btn nav-short" href="../index.html#demos">All demos</a>
+  </div>
+</header>
+
+<header class="demo-head wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Showcase home</a><a href="../index.html#demos">All demos</a></nav>
+  <div class="kicker">Live demo 3 of 7</div>
+  <h1>Flip Cards</h1>
+  <p class="lede">A few cards with a cue on the front and the answer on the back. A flip card teaches only when the front asks something the student can answer before turning it.</p>
+  <p class="from-line">From the lesson Pitot-Static Systems (Flight Instruments), page 14, "Protection". <a href="https://aero-hangar-claude.onrender.com/aero/courses/flight-instruments/lessons/pitot-static.html#protect">Open it in the real lesson</a></p>
+</header>
+
+<main id="main" class="wrap">
+  <div class="stage">
+    <div class="stage-bar"><i></i>Lesson page, as the student sees it</div>
+    <div class="stage-in">
+      <div class="ph">
+        <div class="kicker">Flight instruments</div>
+        <h2>Drains, Pitot Heat and the Alternate Static Source</h2>
+        <p class="lede">Water, ice and insects are what most often stop a pitot or static line from working. Each protective part on the airplane answers one of them.</p>
+      </div>
+      <p class="flip-hint-line">Name the part that guards against each problem, then select the card to turn it over.</p>
+      <div class="flips">
+<button class="flip" type="button" data-name="Water in the lines" aria-pressed="false" aria-label="Water in the lines. Select to turn the card over."><span class="flip-inner"><span class="flip-face flip-front"><svg class="fi" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6C24 6 12 20 12 29a12 12 0 0 0 24 0C36 20 24 6 24 6Z" fill="none" stroke="#39d7ff" stroke-width="3" stroke-linejoin="round"/></svg><span class="fk">Problem</span><span class="fn">Water in the lines</span></span><span class="flip-face flip-back" aria-hidden="true"><span class="fk">Protection</span><span class="fh">Drains</span><span class="ft">Humid air enters the ports, and water condenses (turns from vapor to liquid) on the walls of the lines and runs to the low points. Drain holes in the pitot tube and a drain at each low point of the static line let it out.</span></span></span></button>
+<button class="flip" type="button" data-name="Ice on the pitot tube" aria-pressed="false" aria-label="Ice on the pitot tube. Select to turn the card over."><span class="flip-inner"><span class="flip-face flip-front"><svg class="fi" viewBox="0 0 48 48" aria-hidden="true"><g stroke="#bfe6f5" stroke-width="3" stroke-linecap="round"><path d="M24 5v38M7.5 14.5l33 19M7.5 33.5l33-19"/><path d="M19 8l5 5 5-5M19 40l5-5 5 5"/></g></svg><span class="fk">Problem</span><span class="fn">Ice on the pitot tube</span></span><span class="flip-face flip-back" aria-hidden="true"><span class="fk">Protection</span><span class="fh">Pitot heat</span><span class="ft">An electric element inside the pitot tube, switched on from the cockpit, keeps ice from closing the opening.</span></span></span></button>
+<button class="flip" type="button" data-name="Insects and dirt" aria-pressed="false" aria-label="Insects and dirt. Select to turn the card over."><span class="flip-inner"><span class="flip-face flip-front"><svg class="fi" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#ffb547" stroke-width="3" stroke-linecap="round"><ellipse cx="24" cy="27" rx="7" ry="11"/><circle cx="24" cy="13" r="4"/><path d="M17 22l-8-5M17 28H8M17 34l-8 5M31 22l8-5M31 28h9M31 34l8 5M22 10l-4-5M26 10l4-5"/></g></svg><span class="fk">Problem</span><span class="fn">Insects and dirt</span></span><span class="flip-face flip-back" aria-hidden="true"><span class="fk">Protection</span><span class="fh">Covers and inspection</span><span class="ft">A cover keeps insects out of the pitot tube while the airplane is parked, and it must come off before flight. Probe the drain holes with a fine wire to clear dirt.</span></span></span></button>
+<button class="flip" type="button" data-name="Blocked static ports" aria-pressed="false" aria-label="Blocked static ports. Select to turn the card over."><span class="flip-inner"><span class="flip-face flip-front"><svg class="fi" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="5"/><path d="M12 12l24 24"/></g></svg><span class="fk">Problem</span><span class="fn">Blocked static ports</span></span><span class="flip-face flip-back" aria-hidden="true"><span class="fk">Protection</span><span class="fh">Alternate static source</span><span class="ft">A valve the pilot opens to take static pressure from inside the cabin when the outside ports are blocked. What it does to the needles is taught in Blocked Ports and Altimeter Setting.</span></span></span></button>
+      </div>
+      <div class="rulebox caps">NEVER BLOW AIR INTO A PITOT OR STATIC LINE THAT IS CONNECTED TO THE INSTRUMENTS.</div>
+      <p class="plain">The diaphragms and capsules inside the instruments are thin, and a sudden pressure ruins them. AC 43.13-1B, the FAA advisory circular of acceptable maintenance practices, allows low-pressure air through a line only after the line is disconnected from the instruments. Follow the maintenance manual&rsquo;s procedure.</p>
+    </div>
+  </div>
+
+  <section class="why-box" aria-labelledby="why-h">
+    <div>
+      <h2 id="why-h">Why It Teaches</h2>
+      <p>Each front names a problem the student met on the pages before: water, ice, insects, a blocked port. Naming the protection before turning the card is a retrieval attempt, not a click to read. Practice testing was rated high utility in a large review of study techniques (Dunlosky and colleagues, 2013).</p>
+      <p>Placed before the teaching, the same front works as a small pretest. Reviewed again on a later page or on the field card, the cards space the retrieval.</p>
+      <p>A flip card fails when the front has nothing to answer ("Card 1", "Learn more") or when key content lives only on the back. The course rule: key content is never hidden behind a click. Here the protections are also taught in the lesson text; the cards are practice.</p>
+    </div>
+    <div>
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/testing-effect.md">Testing effect and retrieval practice</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/pretesting-effect.md">Pretesting effect</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/spaced-retrieval.md">Spaced retrieval</a></li>
+      </ul>
+      <h3>Craft note</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/flip-cards.md">Flip cards</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="made" aria-labelledby="made-h">
+    <h2 id="made-h">How It Is Built</h2>
+    <p>Flip cards are a local part: each lesson carries its own copy, lifted from the best example, and a shared version is listed as a gap in the library. Each card is one real button, so it works by keyboard. <code>aria-pressed</code> says whether it is turned, the hidden face carries <code>aria-hidden</code>, and the label a screen reader hears changes with the face.</p>
+    <p>Under reduced motion the faces swap with no fade. The cards are one column on a phone, sized to the longer face so the layout does not jump. The one safety rule on the page is the only text in capitals.</p>
+  </section>
+
+  <nav class="demo-nav" aria-label="Other demos">
+    <a class="prev" href="picture-options.html"><span>Previous demo</span><b>Picture Options</b></a>
+    <a class="next" href="real-document.html"><span>Next demo</span><b>Hotspot on a Real Document</b></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <p>How the CAET Course Was Built. A showcase of the pedagogy library behind the CAET avionics course, by Nick Brown, Aircraft Electronics Association.</p>
+  <p>Text CC BY 4.0. Code MIT. <a href="../index.html#credits">Credits and licence</a></p>
+</footer>
+<script src="../assets/demo.js"></script>
+</body>
+</html>

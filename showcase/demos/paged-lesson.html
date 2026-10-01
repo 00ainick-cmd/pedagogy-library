@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>A Paged Lesson | How the CAET Course Was Built</title>
+<meta name="description" content="A six-page sample lesson in the CAET course page order, running on the course&#x27;s own pager and shared parts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/core/lesson-parts.css">
+<link rel="stylesheet" href="../assets/core/lesson-pager.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/demo.css">
+<style>:root{--hero:#6ba7c4}</style>
+</head>
+<body data-pager data-course="Sample lesson" data-title="Series Circuits">
+<a class="skip" href="#lpStage">Skip to the lesson</a>
+<div class="sc-strip"><div class="wrap"><a href="../index.html">How the CAET Course Was Built</a><span class="tag">Live demo 7 of 7: a paged lesson in the course&rsquo;s page order</span><a href="../index.html#demos">All demos</a></div></div>
+
+<!-- 1. THE PROBLEM -->
+<section class="section pgr-page" data-beat="Problem" id="hook">
+<div class="wrap">
+<div class="ph two">
+<div>
+<div class="kicker">Fundamentals of DC</div>
+<h1>Series Circuits</h1>
+<p class="lede">The flight crew reports a dim landing light. You install a new lamp and check that the circuit breaker has not opened. With the light on, you measure 28 V at the bus but only 22.3 V across the lamp.</p>
+</div>
+<div class="ph-vis"><figure class="dia bleed" style="margin:0"><svg class="fig-svg sc-fig lc-hook" viewBox="0 0 600 400" role="img" aria-label="The landing light circuit from the 28 volt bus through a circuit breaker, feed wire, switch and connector to the landing light, then a ground wire to the aircraft structure. A voltmeter at the bus reads 28 volts and a voltmeter across the lamp reads 22.3 volts."><rect x="24" y="112" width="72" height="16" rx="3" fill="#c98a4b" stroke="#e8b07a" stroke-width="1.5"/><text class="sl" x="60" y="88" text-anchor="middle" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">28 V bus</text><line x1="96" y1="120" x2="146" y2="120" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="190" y1="120" x2="256" y2="120" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="294" y1="120" x2="378" y2="120" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="402" y1="120" x2="450" y2="120" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><circle cx="146" cy="120" r="4.5" fill="#0d0f14" stroke="#39d7ff" stroke-width="2.5"/><circle cx="190" cy="120" r="4.5" fill="#0d0f14" stroke="#39d7ff" stroke-width="2.5"/><path d="M149,115 Q168,94 187,115" fill="none" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><text class="sl" x="168" y="62" text-anchor="middle" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">Circuit</text><text class="sl" x="168" y="88" text-anchor="middle" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">breaker</text><circle cx="256" cy="120" r="4.5" fill="#0d0f14" stroke="#39d7ff" stroke-width="2.5"/><circle cx="294" cy="120" r="4.5" fill="#0d0f14" stroke="#39d7ff" stroke-width="2.5"/><line x1="259" y1="117" x2="292" y2="113" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><text class="sl" x="275" y="88" text-anchor="middle" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">Switch</text><polyline points="378,120 388,120" fill="none" stroke="#39d7ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><polyline points="382,113 390,120 382,127" fill="none" stroke="#39d7ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M404,110 Q394,120 404,130" fill="none" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="399" y1="120" x2="402" y2="120" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><text class="sl" x="391" y="88" text-anchor="middle" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">Connector</text><line x1="450" y1="120" x2="450" y2="188" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><circle cx="450" cy="210" r="22" fill="#0d0f14" stroke="#ff9e3d" stroke-width="3"/><line x1="434.6" y1="194.6" x2="465.4" y2="225.4" stroke="#ff9e3d" stroke-width="3" stroke-linecap="round"/><line x1="434.6" y1="225.4" x2="465.4" y2="194.6" stroke="#ff9e3d" stroke-width="3" stroke-linecap="round"/><line x1="450" y1="232" x2="450" y2="294" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><circle cx="450" cy="300" r="6" fill="#0d0f14" stroke="#eef1f4" stroke-width="2.5"/><line x1="450" y1="306" x2="450" y2="318" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><line x1="426" y1="318" x2="474" y2="318" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><line x1="435" y1="327" x2="465" y2="327" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><line x1="443" y1="336" x2="457" y2="336" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><text class="sl" x="486" y="204" text-anchor="start" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">Landing</text><text class="sl" x="486" y="230" text-anchor="start" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">light</text><text class="sl" x="486" y="304" text-anchor="start" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">Ground</text><text class="sl" x="486" y="330" text-anchor="start" fill="#c6ccd6" font-size="16" font-weight="500" font-family="'IBM Plex Sans',system-ui,sans-serif">terminal</text><circle cx="60" cy="128" r="4.5" fill="#b48cff"/><line x1="60" y1="128" x2="60" y2="193" stroke="#b48cff" stroke-width="2.5" stroke-linecap="round"/><circle cx="60" cy="215" r="22" fill="#0d0f14" stroke="#b48cff" stroke-width="3"/><text class="sm" x="60" y="223" text-anchor="middle" fill="#b48cff" font-size="22" font-weight="700" font-family="'IBM Plex Sans',system-ui,sans-serif">V</text><line x1="60" y1="237" x2="60" y2="318" stroke="#b48cff" stroke-width="2.5" stroke-linecap="round"/><line x1="36" y1="318" x2="84" y2="318" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><line x1="45" y1="327" x2="75" y2="327" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><line x1="53" y1="336" x2="67" y2="336" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/><rect x="96" y="199" width="104" height="34" rx="7" fill="#1b1730" stroke="#b48cff" stroke-width="1.5"/><text class="sr" x="148.0" y="223.0" text-anchor="middle" fill="#b48cff" font-size="20" font-weight="600" font-family="'IBM Plex Mono',monospace">28.0 V</text><circle cx="450" cy="165" r="4.5" fill="#b48cff"/><circle cx="450" cy="255" r="4.5" fill="#b48cff"/><polyline points="450,165 360,165 360,188" fill="none" stroke="#b48cff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="360" cy="210" r="22" fill="#0d0f14" stroke="#b48cff" stroke-width="3"/><text class="sm" x="360" y="218" text-anchor="middle" fill="#b48cff" font-size="22" font-weight="700" font-family="'IBM Plex Sans',system-ui,sans-serif">V</text><polyline points="360,232 360,255 450,255" fill="none" stroke="#b48cff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><rect x="236" y="194" width="104" height="34" rx="7" fill="#1b1730" stroke="#b48cff" stroke-width="1.5"/><text class="sr" x="288.0" y="218.0" text-anchor="middle" fill="#b48cff" font-size="20" font-weight="600" font-family="'IBM Plex Mono',monospace">22.3 V</text></svg><figcaption class="figcap"><b>FIG 1</b> The landing light circuit.</figcaption></figure></div>
+</div>
+<div class="stats two">
+<div class="stat"><div class="n">28 V</div><div class="l">At the bus</div><p class="d">Measured at the bus with the light on.</p></div>
+<div class="stat bad"><div class="n">22.3 V</div><div class="l">Across the lamp</div><p class="d">Measured across the new lamp. It is 5.7 V less than the bus.</p></div>
+</div>
+<p class="plain">The lamp shares one path with the circuit breaker, the switch, a connector, the wiring and the ground, so the other 5.7 V is being dropped across one of those parts. Finding which part starts with one idea: in a series circuit, every part is on the same single path.</p>
+<div class="terms">
+<div class="term"><h3>Bus</h3><p>A metal bar that is the common point where electrical power is shared out to the circuits. The circuit breakers take their power from it.</p></div>
+<div class="term"><h3>Circuit breaker</h3><p>A switch that opens by itself when the current is too high, to protect the wire. A fuse does the same job by melting open, and it must be replaced. A circuit breaker can be reset by hand, but only after the fault that tripped it has been found and fixed.</p></div>
+</div>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="here" aria-current="step">Problem</li><li class="in">Objectives</li><li class="">Lecture</li><li class="in">Recall</li><li class="in">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="in">Check</li><li class="in">Field card</li></ol><p><strong>The problem.</strong> Every lesson opens with its title and a real job in a few plain sentences: a technician, a task, what goes wrong. Two real readings and the 5.7 V that went missing set up everything that follows. Each term the hook uses is defined on the spot, and nothing is overplayed: no drama, no slogan.</p><p>The pager built the header, the page count, the side panel (the menu button opens it on a phone) and Continue from plain page sections. The arrow keys also move between pages.</p></aside>
+</div>
+</section>
+
+<!-- 2. LEARNING OBJECTIVES -->
+<section class="section pgr-page" data-beat="Objectives" id="goals">
+<div class="wrap">
+<div class="ph">
+<h2>Learning Objectives</h2>
+<p class="lede">When you finish this sample you can do the two things below. The check at the end asks about each of them.</p>
+</div>
+<ol class="goals">
+<li><span class="gn">1</span><span class="gv">Identify</span><span class="gt">Identify a series circuit by tracing its one path from the source and back.</span></li>
+<li><span class="gn">2</span><span class="gv">Apply</span><span class="gt">Apply the rule that the current is the same at every point in a series circuit.</span></li>
+</ol>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="in">Problem</li><li class="here" aria-current="step">Objectives</li><li class="">Lecture</li><li class="in">Recall</li><li class="in">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="in">Check</li><li class="in">Field card</li></ol><p><strong>Learning objectives.</strong> A full lesson has four, specific and testable, with plain verbs, each tied to a CAET objective code. The codes stay off the page. The full Series Circuits lesson has four; this sample teaches the first one, split in two, so it promises only what it teaches.</p><p><strong>Next in a full lesson: the lecture video</strong>, on page 3. It is the only page where Continue waits, for the video to end, and it always offers Skip for now. This sample leaves it out.</p></aside>
+</div>
+</section>
+
+<!-- 3. RECALL -->
+<section class="section pgr-page" data-beat="Recall" id="recall">
+<div class="wrap">
+<div class="ph two">
+<div>
+<h2>Current Through One Load</h2>
+<p class="lede">In the Ohm&rsquo;s Law lesson, you worked with one load, the part that does the work, on one source. This lesson uses the same law on circuits with more than one load. The question below uses a single load.</p>
+</div>
+<div class="ph-vis"><figure class="dia" style="margin:0"><svg class="fig-svg sc-fig one-load" viewBox="0 0 340 214" role="img" aria-label="A 9 volt source with a single 20 ohm resistor in one loop."><line x1="60" y1="96" x2="60" y2="40" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="60" y1="40" x2="150" y2="40" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><polyline points="150,40 155.0,31 165.0,49 175.0,31 185.0,49 195.0,31 205.0,49 210,40" fill="none" stroke="#ff9e3d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><line x1="210" y1="40" x2="300" y2="40" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="300" y1="40" x2="300" y2="190" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="300" y1="190" x2="60" y2="190" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="60" y1="190" x2="60" y2="126" stroke="#39d7ff" stroke-width="3" stroke-linecap="round"/><line x1="46.0" y1="96" x2="74.0" y2="96" stroke="#b48cff" stroke-width="3" stroke-linecap="round"/><line x1="53.0" y1="106" x2="67.0" y2="106" stroke="#b48cff" stroke-width="5" stroke-linecap="round"/><line x1="46.0" y1="116" x2="74.0" y2="116" stroke="#b48cff" stroke-width="3" stroke-linecap="round"/><line x1="53.0" y1="126" x2="67.0" y2="126" stroke="#b48cff" stroke-width="5" stroke-linecap="round"/><text class="sl2" x="180" y="22" text-anchor="middle" fill="#ff9e3d" font-size="18" font-weight="600" font-family="'IBM Plex Sans',system-ui,sans-serif">20 Ω</text><text class="sl2" x="22" y="118" text-anchor="middle" fill="#b48cff" font-size="18" font-weight="600" font-family="'IBM Plex Sans',system-ui,sans-serif">9 V</text><text class="sl2" x="84" y="100" text-anchor="middle" fill="#b48cff" font-size="18" font-weight="700" font-family="'IBM Plex Sans',system-ui,sans-serif">+</text><text class="sl2" x="84" y="136" text-anchor="middle" fill="#c6ccd6" font-size="18" font-weight="700" font-family="'IBM Plex Sans',system-ui,sans-serif">−</text></svg><figcaption class="figcap"><b>FIG 2</b> One load: a 20 ohm resistor across a 9 V source.</figcaption></figure></div>
+</div>
+<div class="rulebox formula">E = I &times; R &nbsp; I = E / R &nbsp; R = E / I</div>
+<div class="ask" id="ask-recall" data-ans="0" data-fb="[&quot;Right. I = E / R = 9 V / 20 ohms = 0.45 A.&quot;, &quot;Not quite. 180 comes from multiplying 9 by 20. Current is the voltage divided by the resistance: 9 V / 20 ohms = 0.45 A.&quot;, &quot;Not quite. 2.2 comes from dividing 20 by 9. Divide the voltage by the resistance: 9 V / 20 ohms = 0.45 A.&quot;]">
+<div class="ask-k">Quick recall</div>
+<p class="ask-q">A 9 V source is connected across a single 20 ohm load. What current flows?</p>
+<div class="ask-opts">
+<button class="ask-opt" data-i="0" type="button"><span class="key">A</span><span>0.45 A</span></button>
+<button class="ask-opt" data-i="1" type="button"><span class="key">B</span><span>180 A</span></button>
+<button class="ask-opt" data-i="2" type="button"><span class="key">C</span><span>2.2 A</span></button>
+</div>
+</div>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="in">Problem</li><li class="in">Objectives</li><li class="">Lecture</li><li class="here" aria-current="step">Recall</li><li class="in">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="in">Check</li><li class="in">Field card</li></ol><p><strong>Recall.</strong> One ask card that ties back to a lesson the student has already done, here Ohm&rsquo;s Law. Each wrong answer is a real mistake (multiplying, or dividing the wrong way round), and its feedback walks the student to the right method. The first lesson in a room asks about the student&rsquo;s own experience instead.</p></aside>
+</div>
+</section>
+
+<!-- 4. ONE PATH -->
+<section class="section pgr-page" data-beat="One path" id="onepath">
+<div class="wrap">
+<div class="ph">
+<h2>Identifying a Series Circuit</h2>
+<p class="lede">Series circuits have only one path for current to flow. Start at the source, trace through each part in turn, and you come back to the source without reaching a branch, a point where the path splits into two or more paths.</p>
+</div>
+<div class="terms one">
+<div class="term"><h3>Series circuit</h3><p>A circuit with only one path for current. The parts are connected end to end, so the same current flows through each one.</p></div>
+</div>
+<figure class="dia faa trace" id="traceFig">
+<div class="faa-img trace-img"><img src="../assets/img/faa-12-82.png" width="502" height="328" alt="A 12 volt battery with R1, 10 ohms, on the top wire and R2, 30 ohms, on the bottom wire, in one loop."><svg class="trace-ov" viewBox="0 0 502 328" preserveAspectRatio="none" aria-hidden="true"><path class="tr-glow" d="M88.5,155 V73.5 H481 V293.5 H88.5 V211" fill="none" stroke="#39d7ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path class="tr-core" d="M88.5,155 V73.5 H481 V293.5 H88.5 V211" fill="none" stroke="#0a7fa3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="tr-dot" r="8" cx="88.5" cy="155" fill="#39d7ff" stroke="#fff" stroke-width="2.5"/></svg></div>
+<div class="fig-acts"><button class="btn active" id="traceBtn" type="button">Trace the path</button></div>
+<figcaption class="figcap"><b>FIG 3</b> A 12 V source with two resistors, R1 (10 ohms) and R2 (30 ohms), connected end to end. Source: FAA-H-8083-30B, Figure 12-82.</figcaption>
+<p class="plain trace-note" id="traceNote" hidden>The path goes from the source, through R1, through R2 and back to the source. There is one path and no branch, so this is a series circuit.</p>
+</figure>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="in">Problem</li><li class="in">Objectives</li><li class="">Lecture</li><li class="in">Recall</li><li class="here" aria-current="step">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="in">Check</li><li class="in">Field card</li></ol><p><strong>Concept pages.</strong> One idea per page, simple to complex. The figure is the real FAA handbook figure, not a redraw, and the page&rsquo;s one doing moment is tracing the path on it. Under reduced motion the trace shows at once.</p><p><strong>Next in a full lesson:</strong> more concept pages (current, resistance, voltage drops, opens), then the aircraft pages, the math pages, history where a person earns it, a hands-on lab on the Avionics Circuit Lab, and the procedure that solves the opening problem. Concept, then aircraft, then math, always.</p></aside>
+</div>
+</section>
+
+<!-- 5. CHECK -->
+<section class="section pgr-page" data-beat="Check" id="check">
+<div class="wrap">
+<div class="ph">
+<h2>Check</h2>
+<p class="lede">Two questions on what this sample taught. The feedback for each answer pops up over the question.</p>
+</div>
+<div class="ask pics" id="ask-pick" data-ans="0" data-fb="[&quot;Right. There is one loop and no branch, so the current has one path through both lamps.&quot;, &quot;Not quite. Each lamp sits on its own path between the same two wires, so the current has two paths.&quot;, &quot;Not quite. The current passes through the first lamp on one path, but the path splits at the other two lamps, so the whole circuit is not series.&quot;]">
+<div class="ask-k">Question 1 of 2</div>
+<p class="ask-q">Which drawing shows a series circuit?</p>
+<div class="ask-opts">
+<button class="ask-opt" data-i="0" type="button"><span class="key">A</span><svg class="pick-fig" viewBox="0 0 124 80" role="img" aria-label="A battery and two lamps connected end to end in one loop."><polyline points="20,36 20,12 112,12 112,68 20,68 20,44" fill="none" stroke="#39d7ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="48" cy="12" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="41.7" y1="5.7" x2="54.3" y2="18.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="41.7" y1="18.3" x2="54.3" y2="5.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><circle cx="84" cy="12" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="77.7" y1="5.7" x2="90.3" y2="18.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="77.7" y1="18.3" x2="90.3" y2="5.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="10" y1="36" x2="30" y2="36" stroke="#b48cff" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="44" x2="26" y2="44" stroke="#b48cff" stroke-width="4" stroke-linecap="round"/></svg><span>A battery and two lamps connected end to end in one loop.</span></button>
+<button class="ask-opt" data-i="1" type="button"><span class="key">B</span><svg class="pick-fig" viewBox="0 0 124 80" role="img" aria-label="A battery and two lamps, each lamp connected across the same two wires."><polyline points="20,36 20,12 112,12" fill="none" stroke="#39d7ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><polyline points="20,44 20,68 112,68" fill="none" stroke="#39d7ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><line x1="62" y1="12" x2="62" y2="68" stroke="#39d7ff" stroke-width="2.4" stroke-linecap="round"/><line x1="102" y1="12" x2="102" y2="68" stroke="#39d7ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="62" cy="40" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="55.7" y1="33.7" x2="68.3" y2="46.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="55.7" y1="46.3" x2="68.3" y2="33.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><circle cx="102" cy="40" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="95.7" y1="33.7" x2="108.3" y2="46.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="95.7" y1="46.3" x2="108.3" y2="33.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="10" y1="36" x2="30" y2="36" stroke="#b48cff" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="44" x2="26" y2="44" stroke="#b48cff" stroke-width="4" stroke-linecap="round"/></svg><span>A battery and two lamps, each lamp connected across the same two wires.</span></button>
+<button class="ask-opt" data-i="2" type="button"><span class="key">C</span><svg class="pick-fig" viewBox="0 0 124 80" role="img" aria-label="A battery and one lamp in the main wire, then two lamps each connected across the same two wires."><polyline points="20,36 20,12 112,12" fill="none" stroke="#39d7ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><polyline points="20,44 20,68 112,68" fill="none" stroke="#39d7ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="44" cy="12" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="37.7" y1="5.7" x2="50.3" y2="18.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="37.7" y1="18.3" x2="50.3" y2="5.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="76" y1="12" x2="76" y2="68" stroke="#39d7ff" stroke-width="2.4" stroke-linecap="round"/><line x1="106" y1="12" x2="106" y2="68" stroke="#39d7ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="76" cy="40" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="69.7" y1="33.7" x2="82.3" y2="46.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="69.7" y1="46.3" x2="82.3" y2="33.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><circle cx="106" cy="40" r="9" fill="#0d0f14" stroke="#ff9e3d" stroke-width="2.2"/><line x1="99.7" y1="33.7" x2="112.3" y2="46.3" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="99.7" y1="46.3" x2="112.3" y2="33.7" stroke="#ff9e3d" stroke-width="2.2" stroke-linecap="round"/><line x1="10" y1="36" x2="30" y2="36" stroke="#b48cff" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="44" x2="26" y2="44" stroke="#b48cff" stroke-width="4" stroke-linecap="round"/></svg><span>A battery and one lamp in the main wire, then two lamps each connected across the same two wires.</span></button>
+</div>
+</div>
+<div class="ask" id="ask-current" data-ans="0" data-fb="[&quot;Right. A series circuit has one path, so the current is the same at every point, and the ammeter after the lamp reads the same 2.4 A.&quot;, &quot;Not quite. The lamp uses energy, not current. The same 2.4 A leaves the lamp that entered it.&quot;, &quot;Not quite. If no current left the lamp, no current could enter it. The reading is 2.4 A at every point.&quot;]">
+<div class="ask-k">Question 2 of 2</div>
+<p class="ask-q">A 28 V bus feeds a lamp through a circuit breaker, a switch and a wire. An ammeter between the circuit breaker and the switch reads 2.4 A. What does an ammeter in the return wire, after the lamp, read?</p>
+<div class="ask-opts">
+<button class="ask-opt" data-i="0" type="button"><span class="key">A</span><span>2.4 A</span></button>
+<button class="ask-opt" data-i="1" type="button"><span class="key">B</span><span>Less than 2.4 A, because the lamp uses some current.</span></button>
+<button class="ask-opt" data-i="2" type="button"><span class="key">C</span><span>0 A, because the lamp uses all of the current.</span></button>
+</div>
+</div>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="in">Problem</li><li class="in">Objectives</li><li class="">Lecture</li><li class="in">Recall</li><li class="in">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="here" aria-current="step">Check</li><li class="in">Field card</li></ol><p><strong>The check.</strong> In a full lesson: five questions, one per objective focus, three or four options of similar length, a teaching sentence for every option, and a pass mark of 4 of 5. Wherever a picture is the skill, the options are pictures. This sample has two questions, on the same shared ask card. No live certification question ever appears in a lesson.</p></aside>
+</div>
+</section>
+
+<!-- 6. FIELD CARD -->
+<section class="section pgr-page" data-beat="Field card" id="wrap-up">
+<div class="wrap">
+<div class="ph">
+<h2>Field Card</h2>
+</div>
+<ul class="canlist">
+<li>You can now identify a series circuit by tracing its one path, from the source and back, with no branch.</li>
+<li>You can now apply the rule that the current is the same at every point in a series circuit.</li>
+</ul>
+<div class="plates">
+<article class="plate"><p class="big">Path</p>
+<div class="pr"><span class="pl">Paths</span><span class="v">one</span></div>
+<div class="pr"><span class="pl">Current</span><span class="v">the same at every point</span></div>
+<div class="pr"><span class="pl">Two readings differ</span><span class="v">look for a second path</span></div>
+</article>
+<article class="plate"><p class="big">Tracing</p>
+<div class="pr"><span class="pl">Start</span><span class="v">at the source</span></div>
+<div class="pr"><span class="pl">Follow</span><span class="v">each part in turn</span></div>
+<div class="pr"><span class="pl">Series</span><span class="v">back to the source with no branch</span></div>
+</article>
+</div>
+<p class="credit">Sources: FAA Aviation Maintenance Technician Handbook, General (FAA-H-8083-30B), Chapter 12.</p>
+<div class="finish"><a class="btn active" href="../index.html#demos">Back to the showcase</a><span class="finish-note">In the course, Finish lesson records completion once every page is read and the check is passed.</span></div>
+<aside class="dnote" aria-label="Showcase note"><p class="dk">Showcase note: where this page sits in the course order</p><ol class="order"><li class="in">Problem</li><li class="in">Objectives</li><li class="">Lecture</li><li class="in">Recall</li><li class="in">Concepts</li><li class="">Aircraft</li><li class="">Math</li><li class="">History</li><li class="">Hands-on</li><li class="">Apply</li><li class="in">Check</li><li class="here" aria-current="step">Field card</li></ol><p><strong>The field card.</strong> The last page of every lesson: &ldquo;You can now&rdquo; with one line per objective, a plate of the facts to take to work, and the sources.</p><p>The full lesson has 24 pages in this same order. <a href="https://aero-hangar-claude.onrender.com/aero/courses/dc-fundamentals/lessons/series-circuits.html">Open Series Circuits in the course</a></p></aside>
+</div>
+</section>
+
+<script src="../assets/core/lesson-parts.js"></script>
+<script src="../assets/demo.js"></script>
+<script src="../assets/core/lesson-pager.js"></script>
+</body>
+</html>

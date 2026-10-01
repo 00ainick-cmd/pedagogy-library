@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 Concept Page - Click torque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f0e7;
+    --ink: #23201b;
+    --ink-soft: #3a352c;
+    --green: #145c4f;
+    --line: #d9d2c2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #e9e3d6;
+    color: var(--ink);
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 24px 72px; }
+  .kick {
+    font: 600 11px/1 "Hanken Grotesk";
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-family: "Newsreader", serif;
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0 0 8px;
+  }
+  .lede { font-size: 18px; color: var(--ink-soft); max-width: 60ch; }
+  .cc-card { margin-top: 28px; }
+  .spec {
+    font: 600 11px/1 "Hanken Grotesk";
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 12px;
+  }
+  .cc-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    container-type: size;
+    background: var(--paper);
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  .pad {
+    position: absolute;
+    inset: 0;
+    padding: 7cqh 6cqw;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2cqh;
+  }
+  .ey {
+    font: 600 1.5cqw/1 "Hanken Grotesk";
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .term {
+    font-family: "Newsreader", serif;
+    font-weight: 600;
+    font-size: 6.4cqw;
+    line-height: 1;
+    margin: 0;
+  }
+  .claim { font-size: 2.1cqw; line-height: 1.35; max-width: 42ch; margin: 0; }
+  .rows { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2cqw; margin-top: auto; }
+  .row {
+    border-top: 1px solid var(--line);
+    padding-top: 1.6cqh;
+  }
+  .row b {
+    display: block;
+    font-size: 1.5cqw;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8cqh;
+  }
+  .row p { margin: 0; font-size: 1.7cqw; line-height: 1.35; color: var(--ink-soft); }
+  button {
+    margin-top: 20px;
+    font: 600 16px/1 "Hanken Grotesk";
+    background: var(--green);
+    color: #f4f0e7;
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 6px;
+  }
+  button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="kick">Catalog 03</p>
+    <h1>Click torque</h1>
+    <p class="lede">A Concept Page teaches a term plus two or three distinctions. It is not a paragraph wall.</p>
+    <article class="cc-card">
+      <p class="spec">03 Concept Page · teach</p>
+      <div class="cc-stage" role="region" aria-label="Click torque concept">
+        <div class="pad">
+          <div class="ey">The click is the reading</div>
+          <h2 class="term">Click torque</h2>
+          <p class="claim">You stop when the wrench clicks. That click is the torque value you set. Turning past it is not more tightness. It is a broken spec.</p>
+          <div class="rows">
+            <div class="row">
+              <b>Set</b>
+              <p>Dial the wrench to the spec before you put it on the fastener.</p>
+            </div>
+            <div class="row">
+              <b>Pull</b>
+              <p>Smooth pull until the click. One click. Then stop.</p>
+            </div>
+            <div class="row">
+              <b>Never</b>
+              <p>Do not use a click wrench as a breaker bar. That wrecks the calibration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <button type="button" id="got">I can teach this</button>
+  </div>
+  <script>
+    document.getElementById("got").addEventListener("click", function () {
+      this.textContent = "Locked in";
+    });
+  </script>
+</body>
+</html>

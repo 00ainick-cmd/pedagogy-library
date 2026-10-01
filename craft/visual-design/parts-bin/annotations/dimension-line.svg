@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dimension line, the drafting convention. Electric Ink parts bin.
+  Extension lines at each end of what is measured, the dimension line
+  between them with an arrowhead at each end, and the value above the
+  line in clear space (never on the line).
+
+  Scale: drawn for a host drawing about 600 units wide. Lines 1.5 units in
+  the leader gray #8b95a7, the same gray as leader lines. For another host
+  width, scale the group by (host width / 600).
+
+  Text: the value is IBM Plex Mono in #a3abba (tertiary text, 8:1 on the
+  page), class lbl, set at 27 units, which reads at 16 px on a phone in a
+  600 wide drawing (16 x 600 / 358). In a drawing of another width, set
+  it to 16 x (viewBox width) / 358. Always a space between the number and
+  the unit: 12.5 in, 300 mm.
+
+  Restyle from the page with the classes pb-dim, pb-arrow and pb-dim-text.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" width="340" height="100" role="img" aria-label="Dimension line showing 12.5 in">
+  <path class="pb-dim" d="M 20 30 V 92 M 320 30 V 92 M 32 70 H 308" fill="none" stroke="#8b95a7" stroke-width="1.5"/>
+  <path class="pb-arrow" d="M 20 70 L 32 65 L 32 75 Z M 320 70 L 308 65 L 308 75 Z" fill="#8b95a7"/>
+  <text class="lbl pb-dim-text" x="170" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="27" font-weight="500" fill="#a3abba">12.5 in</text>
+</svg>

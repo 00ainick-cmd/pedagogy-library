@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- MARKETING PAGES ONLY, NEVER LESSONS. Reference copy of the ACE landing page, kept in the pedagogy
+     library at visual-design/other-surfaces/landing-page/ (read notes.md beside it). Lessons use the
+     Electric Ink look in visual-design/electric-ink-look.md. Updated 2026-10-01: dashes removed, and no
+     text under 16 px on phones. -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ACE Avionics Training: CAET &amp; A&amp;P Exam Prep, Cleared to Pass</title>
+<meta name="description" content="Adaptive exam prep for the CAET and FAA A&P knowledge tests. Every question source-cited to the FAA handbooks, every miss diagnosed to its knowledge code. 14-day refund guarantee." />
+<meta property="og:title" content="ACE Avionics Training: Cleared to Pass" />
+<meta property="og:description" content="Adaptive drills for CAET and FAA A&P certification. Earning your avionics certifications shouldn't be rocket science." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 L92 92 H74 L50 42 L26 92 H8 Z' fill='%230084EA'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   ACE AVIONICS TRAINING, LANDING PAGE
+   Design language: glass cockpit / professional avionics
+   ============================================================ */
+:root{
+  --ink:#04070d;
+  --ink-2:#070c15;
+  --panel:rgba(12,19,31,.72);
+  --panel-solid:#0a1119;
+  --azure:#0084EA;
+  --azure-lt:#72C0FC;
+  --green:#2fe39a;
+  --amber:#ffb223;
+  --red:#ff5d5d;
+  --text:#d3e4f6;
+  --text-dim:#8fa6bd;
+  --text-faint:#5d7186;
+  --line:rgba(114,192,252,.16);
+  --line-strong:rgba(114,192,252,.34);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sans:'Saira',system-ui,sans-serif;
+  --disp:'Saira Condensed','Saira',system-ui,sans-serif;
+  --max:1240px;
+  --pad:clamp(20px,4.5vw,56px);
+  --chamfer:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(0,132,234,.45);color:#fff}
+img,svg{display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--azure);color:#fff;
+  padding:10px 18px;border-radius:6px;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+
+:focus-visible{outline:2px solid var(--azure-lt);outline-offset:3px;border-radius:2px}
+
+/* ============ fixed scene + atmosphere ============ */
+#scene{position:fixed;inset:0;z-index:0;width:100%;height:100%;}
+.atmo{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+  radial-gradient(130% 80% at 50% 118%, rgba(0,132,234,.22), transparent 55%),
+  radial-gradient(90% 60% at 80% -10%, rgba(0,132,234,.10), transparent 60%);}
+.atmo::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.16) 3px 4px);
+  opacity:.35;mix-blend-mode:multiply;}
+.atmo::after{content:"";position:absolute;inset:0;
+  box-shadow:inset 0 0 220px 50px rgba(0,0,0,.72);}
+.dim{position:fixed;inset:0;z-index:1;pointer-events:none;background:var(--ink);opacity:0;}
+
+/* ============ boot preloader (JS-gated) ============ */
+.boot{display:none}
+html.js .boot{
+  display:flex;position:fixed;inset:0;z-index:100;background:var(--ink);
+  flex-direction:column;align-items:center;justify-content:center;gap:26px;
+}
+.boot-mark{width:52px;filter:drop-shadow(0 0 18px rgba(0,132,234,.7))}
+.boot-lines{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text-faint);
+  text-transform:uppercase;display:flex;flex-direction:column;gap:7px;min-height:78px;width:min(330px,80vw);}
+.boot-lines span{opacity:0}
+.boot-lines b{color:var(--green);font-weight:500;float:right}
+.boot-bar{width:min(330px,80vw);height:3px;background:rgba(114,192,252,.12);border-radius:2px;overflow:hidden}
+.boot-bar i{display:block;height:100%;width:0;background:var(--azure);box-shadow:0 0 12px var(--azure)}
+
+/* ============ nav ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:16px var(--pad);transition:background .35s,border-color .35s,backdrop-filter .35s;
+  border-bottom:1px solid transparent;}
+.nav.scrolled{background:rgba(4,7,13,.78);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+/* while the fullscreen menu is open the nav sits above it (so the burger stays
+   clickable); strip its bar styling so no seam shows over the overlay */
+body.menu-open .nav{background:transparent;backdrop-filter:none;border-bottom-color:transparent}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand svg{width:34px;height:34px;filter:drop-shadow(0 0 10px rgba(0,132,234,.55))}
+.brand-t{line-height:1.05}
+.brand-t .wm{font-family:var(--disp);font-weight:800;font-size:21px;letter-spacing:.06em;color:#eaf4ff}
+.brand-t .wm b{color:var(--azure-lt);font-weight:800}
+.brand-t .sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.4em;color:var(--text-dim);text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;gap:clamp(16px,2.6vw,38px);list-style:none}
+.nav-links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);text-decoration:none;transition:color .2s;padding:6px 2px}
+.nav-links a:hover{color:var(--azure-lt)}
+.nav-cta{display:inline-flex}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line-strong);border-radius:8px;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;background:rgba(8,13,21,.6)}
+.burger i{display:block;width:18px;height:2px;background:var(--azure-lt);transition:transform .3s,opacity .3s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* fullscreen menu */
+.menu{position:fixed;inset:0;z-index:55;background:rgba(4,7,13,.96);backdrop-filter:blur(18px);
+  display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);
+  visibility:hidden;opacity:0;}
+.menu ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.menu a{font-family:var(--disp);font-weight:800;font-size:clamp(40px,9vw,76px);text-transform:uppercase;
+  text-decoration:none;color:var(--text);letter-spacing:.02em;line-height:1.12;display:inline-block;
+  transition:color .2s}
+.menu a:hover{color:var(--azure-lt)}
+.menu .m-tag{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--text-faint);
+  text-transform:uppercase;margin-bottom:22px}
+
+/* ============ buttons ============ */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  padding:15px 26px;position:relative;white-space:nowrap;
+  clip-path:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer));
+  transition:transform .2s,box-shadow .25s,background .25s,color .25s;}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--azure);color:#fff;box-shadow:0 0 24px rgba(0,132,234,.45)}
+.btn-primary:hover{background:#1592f5;box-shadow:0 0 36px rgba(0,132,234,.75)}
+.btn-ghost{color:var(--azure-lt);background:rgba(0,132,234,.07);
+  box-shadow:inset 0 0 0 1px var(--line-strong)}
+.btn-ghost:hover{background:rgba(0,132,234,.16);box-shadow:inset 0 0 0 1px var(--azure-lt)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-sm{padding:11px 18px;font-size:11px}
+
+/* ============ layout helpers ============ */
+main{position:relative;z-index:2}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sec{position:relative;padding:clamp(84px,12vh,150px) 0}
+
+.phase{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.phase .ln{height:1px;width:46px;background:var(--line-strong)}
+.phase .tx{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--azure-lt)}
+.phase .ft{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text-faint)}
+
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(38px,5.6vw,72px);line-height:.98;
+  text-transform:uppercase;letter-spacing:.005em;color:#eaf4ff;max-width:13em;text-wrap:balance}
+h2 em{font-style:normal;color:var(--azure-lt)}
+.lede{font-size:clamp(16px,1.6vw,19px);font-weight:300;color:var(--text-dim);max-width:56ch;margin-top:22px}
+.lede strong{color:var(--text);font-weight:500}
+
+/* ============ hero ============ */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:110px;padding-bottom:40px;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+  padding:8px 15px;border:1px solid var(--line-strong);border-radius:999px;
+  background:linear-gradient(180deg,rgba(0,132,234,.15),rgba(0,132,234,.04));margin-bottom:clamp(20px,3vh,34px)}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 10px var(--green);animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:.45}50%{opacity:1}}
+.hero-eyebrow span{font-family:var(--mono);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--azure-lt)}
+
+/* glow lives on a pseudo-element, because shadows/filters on the text itself get
+   clipped to hard-edged boxes by the .lmask overflow:hidden reveal masks */
+h1{font-family:var(--disp);font-weight:800;text-transform:uppercase;
+  font-size:clamp(64px,13.5vw,182px);line-height:.88;letter-spacing:.005em;color:#eaf4ff;
+  position:relative}
+h1::before{content:"";position:absolute;left:-12%;top:-18%;width:90%;height:130%;z-index:-1;
+  background:radial-gradient(55% 55% at 38% 50%,rgba(0,132,234,.17),transparent 72%);
+  pointer-events:none}
+h1 .lmask{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+h1 .l1,h1 .l2{display:block}
+/* NOTE: .l2 must directly contain its text: background-clip:text breaks
+   through nested overflow-hidden spans in Chrome. Never char-split this line. */
+h1 .l2{color:transparent;background:linear-gradient(100deg,var(--azure) 10%,var(--azure-lt) 60%,#bfe2ff 95%);
+  -webkit-background-clip:text;background-clip:text}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+h1 .c{display:inline-block;will-change:transform}
+
+.hero-sub{margin-top:clamp(22px,3.4vh,38px);max-width:58ch;font-size:clamp(15.5px,1.7vw,19px);color:var(--text-dim)}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-sub .tag{color:var(--azure-lt);font-weight:400}
+.hero-ctas{display:flex;gap:16px;margin-top:clamp(26px,4vh,42px);flex-wrap:wrap}
+
+.hud{display:flex;gap:clamp(14px,2.4vw,34px);margin-top:clamp(34px,6.5vh,72px);flex-wrap:wrap}
+.hud-chip{display:flex;flex-direction:column;gap:4px;padding:11px 16px;min-width:128px;
+  border:1px solid var(--line);background:rgba(8,13,21,.55);
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.hud-chip .k{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;color:var(--text-faint);text-transform:uppercase}
+.hud-chip .v{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--text);letter-spacing:.04em}
+.hud-chip .v b{color:var(--green);font-weight:700}
+.hud-chip .v i{font-style:normal;color:var(--azure-lt)}
+
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:none}
+.scroll-cue .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.34em;color:var(--text-faint);text-transform:uppercase}
+.scroll-cue .stem{width:1px;height:42px;background:linear-gradient(180deg,var(--azure-lt),transparent);
+  animation:stem 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes stem{0%,100%{transform:scaleY(.45);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* ============ ticker ============ */
+.ticker{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(6,10,17,.7);backdrop-filter:blur(6px);overflow:hidden;padding:13px 0}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 36s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker-seq{display:flex;align-items:center;white-space:nowrap}
+.ticker-seq span{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--text-faint);padding:0 26px;position:relative}
+.ticker-seq span::after{content:"";position:absolute;right:-3px;top:50%;width:5px;height:5px;
+  transform:translateY(-50%) rotate(45deg);background:rgba(0,132,234,.55)}
+.ticker-seq span.hot{color:var(--azure-lt)}
+
+/* ============ annunciator cards (problem) ============ */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:clamp(38px,6vh,64px)}
+.acard{position:relative;padding:clamp(22px,2.6vw,34px);background:var(--panel);
+  border:1px solid var(--line);backdrop-filter:blur(8px);
+  clip-path:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer));
+  transition:border-color .3s,transform .3s}
+.acard:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.acard .num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--text-faint)}
+.acard .ann{display:inline-flex;align-items:center;gap:8px;margin:16px 0 14px;
+  padding:6px 12px;border-radius:4px;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase}
+.acard .ann.warn{color:var(--amber);background:rgba(255,178,35,.09);box-shadow:inset 0 0 0 1px rgba(255,178,35,.35)}
+.acard .ann.warn::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.acard h3{font-family:var(--disp);font-weight:700;font-size:clamp(21px,1.9vw,26px);
+  text-transform:uppercase;letter-spacing:.02em;color:#eaf4ff;line-height:1.05;margin-bottom:10px}
+.acard p{font-size:14.5px;color:var(--text-dim)}
+.punch{margin-top:clamp(36px,5.5vh,56px);padding:clamp(22px,3vw,34px);
+  border-left:3px solid var(--azure);background:linear-gradient(90deg,rgba(0,132,234,.12),transparent 70%);
+  font-size:clamp(17px,2vw,22px);font-weight:400;color:var(--text);max-width:62ch}
+.punch b{color:var(--azure-lt);font-weight:600}
+
+/* ============ course cards ============ */
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,28px);margin-top:clamp(38px,6vh,64px)}
+.course{position:relative;padding:clamp(26px,3vw,42px);background:var(--panel);backdrop-filter:blur(10px);
+  border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;gap:18px;
+  clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px);
+  transition:border-color .35s,transform .35s,box-shadow .35s}
+.course:hover{border-color:var(--line-strong);transform:translateY(-6px);box-shadow:0 24px 60px -20px rgba(0,132,234,.35)}
+.course::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;pointer-events:none;
+  background:radial-gradient(80% 60% at 50% 0%,rgba(0,132,234,.16),transparent 70%)}
+.course:hover::before{opacity:1}
+.course .chead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.course .cert{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--azure-lt);padding:7px 12px;border:1px solid var(--line-strong);border-radius:999px;
+  background:rgba(0,132,234,.08);white-space:nowrap}
+.course .cid{font-family:var(--mono);font-size:11px;color:var(--text-faint);letter-spacing:.18em}
+.course h3{font-family:var(--disp);font-weight:800;font-size:clamp(30px,3.2vw,44px);line-height:.96;
+  text-transform:uppercase;color:#eaf4ff}
+.course h3 small{display:block;font-size:.42em;font-weight:600;letter-spacing:.14em;color:var(--text-dim);margin-top:8px}
+.course p.desc{font-size:15px;color:var(--text-dim)}
+.course ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:4px}
+.course li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--text)}
+.course li::before{content:"";flex:0 0 auto;width:14px;height:14px;margin-top:4px;
+  background:linear-gradient(135deg,var(--azure),var(--azure-lt));
+  clip-path:polygon(0 0,100% 50%,0 100%,28% 50%)}
+.course .cfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.course .price{font-family:var(--mono)}
+.course .price .from{display:block;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--text-faint)}
+.course .price .amt{font-size:30px;font-weight:700;color:#eaf4ff}
+.course .price .amt sup{font-size:.5em;color:var(--azure-lt)}
+
+/* ============ method (pinned) ============ */
+.method-pin{position:relative}
+.method-stage{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(24px,4vw,70px);align-items:center;
+  min-height:72vh}
+.m-left{position:relative}
+.m-count{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--text-faint);margin-bottom:18px}
+.m-count b{color:var(--azure-lt)}
+/* the absolute-positioned titles need a container sized in THEIR font scale,
+   not the inherited 16px body size */
+.m-titles{position:relative;height:clamp(48px,6vw,92px)}
+.m-title{font-family:var(--disp);font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.94;
+  text-transform:uppercase;color:#eaf4ff;position:absolute;top:0;left:0}
+.m-descs{position:relative;margin-top:18px;min-height:9em}
+.m-desc{position:absolute;top:0;left:0;font-size:clamp(15px,1.5vw,17.5px);color:var(--text-dim);max-width:44ch}
+.m-desc b{color:var(--text);font-weight:500}
+.m-progress{display:flex;gap:8px;margin-top:30px}
+.m-progress i{height:4px;flex:1;background:rgba(114,192,252,.14);border-radius:2px;overflow:hidden;position:relative}
+.m-progress i::after{content:"";position:absolute;inset:0;background:var(--azure);box-shadow:0 0 10px var(--azure);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.m-progress i.on::after{transform:scaleX(1)}
+
+.m-right{position:relative;min-height:430px}
+.m-panel{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center}
+.mock{background:var(--panel-solid);border:1px solid var(--line-strong);padding:clamp(20px,2.2vw,30px);
+  clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 50px -20px rgba(0,132,234,.3);
+  font-family:var(--mono)}
+.mock .mhead{display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text-faint);margin-bottom:18px}
+.mock .mhead b{color:var(--azure-lt)}
+.mock .q{font-family:var(--sans);font-weight:500;font-size:16.5px;line-height:1.45;color:var(--text);margin-bottom:18px}
+.mock .opt{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);
+  margin-bottom:9px;font-size:13px;color:var(--text-dim);border-radius:4px}
+.mock .opt b{color:var(--azure-lt);font-weight:700}
+.mock .opt.sel{border-color:var(--green);color:var(--text);background:rgba(47,227,154,.07);
+  box-shadow:0 0 16px -6px rgba(47,227,154,.5)}
+.mock .opt.sel b{color:var(--green)}
+.mock .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 4px;
+  border-bottom:1px solid var(--line);font-size:12px}
+.mock .row .code{color:var(--text);font-weight:500}
+.mock .row .src{color:var(--text-faint);font-size:10.5px}
+.mock .chip{font-size:9px;font-weight:700;letter-spacing:.2em;padding:4px 9px;border-radius:3px}
+.mock .chip.solid{color:var(--green);background:rgba(47,227,154,.1);box-shadow:inset 0 0 0 1px rgba(47,227,154,.4)}
+.mock .chip.review{color:var(--amber);background:rgba(255,178,35,.1);box-shadow:inset 0 0 0 1px rgba(255,178,35,.4)}
+.mock .bar{height:5px;background:rgba(114,192,252,.12);border-radius:3px;overflow:hidden;flex:0 0 90px}
+.mock .bar i{display:block;height:100%;background:var(--azure);box-shadow:0 0 8px var(--azure)}
+.mock .cite{margin-top:16px;padding:12px 14px;border-left:2px solid var(--azure);
+  background:rgba(0,132,234,.07);font-size:11px;line-height:1.7;color:var(--text-dim)}
+.mock .cite b{color:var(--azure-lt)}
+.mock .queue-note{margin-top:14px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+
+/* mobile method (stacked) */
+.method-stack{display:none}
+
+/* ============ results / receipts ============ */
+.results-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4.5vw,72px);
+  align-items:center;margin-top:clamp(38px,6vh,64px)}
+.gauge-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
+.gauge{width:min(330px,72vw);height:auto}
+.gauge .track{stroke:rgba(114,192,252,.12)}
+.gauge .fill{stroke:url(#ggrad);stroke-linecap:round;
+  filter:drop-shadow(0 0 14px rgba(0,132,234,.65))}
+.gauge text{fill:var(--text)}
+.gauge .gv{font-family:var(--mono);font-size:46px;font-weight:700}
+.gauge .gl{font-family:var(--mono);font-size:8.5px;letter-spacing:.3em;fill:var(--text-dim)}
+.gauge-note{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--text-faint)}
+.mastery{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);background:var(--panel);
+  backdrop-filter:blur(8px);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)}
+.mrow{display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;
+  padding:15px clamp(16px,2vw,24px);border-bottom:1px solid var(--line);font-family:var(--mono)}
+.mrow:last-child{border-bottom:none}
+.mrow .code{font-size:12px;font-weight:700;color:var(--azure-lt);letter-spacing:.06em}
+.mrow .obj{font-family:var(--sans);font-size:13.5px;color:var(--text-dim);font-weight:300;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow .bar{height:5px;width:clamp(60px,8vw,110px);background:rgba(114,192,252,.12);border-radius:3px;overflow:hidden}
+.mrow .bar i{display:block;height:100%;width:0;background:var(--azure);box-shadow:0 0 8px var(--azure)}
+.mrow.weak .bar i{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.mrow .chip{font-size:9px;font-weight:700;letter-spacing:.2em;padding:4px 9px;border-radius:3px;min-width:64px;text-align:center}
+.mrow .chip.solid{color:var(--green);background:rgba(47,227,154,.1);box-shadow:inset 0 0 0 1px rgba(47,227,154,.4)}
+.mrow .chip.review{color:var(--amber);background:rgba(255,178,35,.1);box-shadow:inset 0 0 0 1px rgba(255,178,35,.4)}
+
+.receipts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:clamp(40px,6vh,72px)}
+.receipt{padding:clamp(20px,2.4vw,30px);border:1px solid var(--line);background:rgba(8,13,21,.5);
+  clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+.receipt .ic{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--azure-lt);
+  text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.receipt .ic::before{content:"";width:7px;height:7px;background:var(--azure);transform:rotate(45deg);box-shadow:0 0 8px var(--azure)}
+.receipt p{font-size:14px;color:var(--text-dim)}
+.receipt p b{color:var(--text);font-weight:500}
+
+/* ============ pricing ============ */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:clamp(38px,6vh,64px);align-items:stretch}
+.tier{position:relative;display:flex;flex-direction:column;gap:16px;padding:clamp(24px,2.6vw,36px);
+  background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(8px);
+  clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  transition:transform .3s,border-color .3s}
+.tier:hover{transform:translateY(-5px);border-color:var(--line-strong)}
+.tier.hot{border-color:var(--azure);box-shadow:0 0 50px -16px rgba(0,132,234,.55);background:linear-gradient(180deg,rgba(0,132,234,.10),var(--panel) 45%)}
+.tier .flag{position:absolute;top:14px;right:-1px;font-family:var(--mono);font-size:8.5px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:#fff;background:var(--azure);padding:5px 12px}
+.tier .tname{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-dim)}
+.tier .tprice{font-family:var(--mono);font-size:clamp(42px,4vw,56px);font-weight:700;color:#eaf4ff;line-height:1}
+.tier .tprice sup{font-size:.45em;color:var(--azure-lt);font-weight:500}
+.tier .tdesc{font-size:14px;color:var(--text-dim);min-height:3em}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:2px}
+.tier li{display:flex;gap:10px;font-size:13.5px;color:var(--text)}
+.tier li::before{content:"▸";color:var(--azure-lt);flex:0 0 auto}
+.tier .btn{margin-top:auto;justify-content:center}
+.guarantee{margin-top:clamp(26px,4vh,40px);display:flex;align-items:center;gap:14px;justify-content:center;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);
+  flex-wrap:wrap;text-align:center}
+.guarantee b{color:var(--green);font-weight:700}
+.guarantee::before,.guarantee::after{content:"";height:1px;width:clamp(20px,6vw,70px);background:var(--line-strong)}
+
+/* ============ faq ============ */
+.faq-list{margin-top:clamp(34px,5vh,56px);border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:22px 4px;text-align:left;font-family:var(--sans);font-weight:500;
+  font-size:clamp(15.5px,1.6vw,18px);color:var(--text);transition:color .2s}
+.faq-q:hover{color:var(--azure-lt)}
+.faq-q .x{flex:0 0 auto;width:24px;height:24px;position:relative}
+.faq-q .x::before,.faq-q .x::after{content:"";position:absolute;left:50%;top:50%;background:var(--azure-lt);
+  transition:transform .3s}
+.faq-q .x::before{width:14px;height:2px;transform:translate(-50%,-50%)}
+.faq-q .x::after{width:2px;height:14px;transform:translate(-50%,-50%)}
+.faq-item.open .faq-q .x::after{transform:translate(-50%,-50%) scaleY(0)}
+.faq-a{overflow:hidden;height:0}
+.faq-a p{padding:0 4px 24px;font-size:15px;color:var(--text-dim);max-width:64ch}
+.faq-a b{color:var(--text);font-weight:500}
+
+/* ============ finale ============ */
+.finale{position:relative;padding:clamp(110px,18vh,200px) 0;text-align:center}
+.finale .alt-line{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--text-faint);margin-bottom:24px}
+.finale .alt-line b{color:var(--azure-lt)}
+.finale h2{margin:0 auto;font-size:clamp(52px,9vw,128px);max-width:none}
+.finale .lede{margin:26px auto 0;text-align:center}
+.finale .hero-ctas{justify-content:center;margin-top:38px}
+.finale .nocard{margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text-faint)}
+
+/* ============ footer ============ */
+footer{position:relative;z-index:2;border-top:1px solid var(--line);background:rgba(5,8,14,.85);backdrop-filter:blur(10px)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:26px;padding:34px var(--pad);
+  max-width:var(--max);margin:0 auto;flex-wrap:wrap}
+.foot-l{display:flex;align-items:center;gap:12px}
+.foot-l svg{width:28px;height:28px;opacity:.9}
+.foot-l .t{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);line-height:1.8}
+.foot-nav{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+.foot-nav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);text-decoration:none}
+.foot-nav a:hover{color:var(--azure-lt)}
+
+/* ============ altimeter widget ============ */
+.alt-widget{position:fixed;left:18px;bottom:18px;z-index:50;font-family:var(--mono);
+  border:1px solid var(--line-strong);background:rgba(6,10,17,.82);backdrop-filter:blur(10px);
+  padding:10px 14px;display:flex;flex-direction:column;gap:6px;min-width:148px;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;pointer-events:none}
+.alt-widget.show{opacity:1;transform:none}
+.alt-widget .k{font-size:8px;letter-spacing:.3em;color:var(--text-faint);text-transform:uppercase;
+  display:flex;justify-content:space-between}
+.alt-widget .k b{color:var(--azure-lt);font-weight:500}
+.alt-widget .v{font-size:17px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:.05em}
+.alt-widget .v small{font-size:9px;color:var(--text-faint);letter-spacing:.2em}
+.alt-widget .tape{height:3px;background:rgba(114,192,252,.12);border-radius:2px;overflow:hidden}
+.alt-widget .tape i{display:block;height:100%;width:0;background:var(--azure);box-shadow:0 0 8px var(--azure)}
+
+/* ============ reveal defaults (JS enhances) ============ */
+.reveal{will-change:transform,opacity}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ============ responsive ============ */
+@media (max-width:1020px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .cards3{grid-template-columns:1fr}
+  .receipts{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr;gap:44px}
+  .tiers{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
+  .method-pin{display:none}
+  .method-stack{display:flex;flex-direction:column;gap:26px;margin-top:44px}
+  .method-stack .mock{margin-top:16px}
+  .ms-step .m-count{margin-bottom:8px}
+  .ms-step h3{font-family:var(--disp);font-weight:800;font-size:clamp(34px,8vw,52px);
+    text-transform:uppercase;color:#eaf4ff;line-height:1}
+  .ms-step p{margin-top:10px;color:var(--text-dim);font-size:15px;max-width:52ch}
+  .ms-step p b{color:var(--text);font-weight:500}
+}
+@media (max-width:680px){
+  .courses{grid-template-columns:1fr}
+  .nav-cta{display:none}
+  .hud{gap:10px}
+  .hud-chip{min-width:calc(50% - 5px);flex:1}
+  .alt-widget{left:12px;bottom:12px;min-width:124px;padding:8px 11px}
+  .mrow .obj{display:none}
+  .mrow{grid-template-columns:auto 1fr auto}
+  .scroll-cue{display:none}
+  h1{font-size:clamp(58px,18.5vw,96px)}
+  .finale .nocard{letter-spacing:.1em}
+}
+@media (min-width:1021px){.method-stack{display:none}}
+
+/* short viewports (laptops with browser chrome): keep the hero on one screen */
+@media (min-width:681px) and (max-height:800px){
+  h1{font-size:clamp(56px,10vw,124px)}
+  .hero{padding-top:88px}
+  .hero-sub{margin-top:18px;max-width:62ch}
+  .hero-ctas{margin-top:22px}
+  .hud{margin-top:28px}
+  .hero-eyebrow{margin-bottom:16px}
+}
+@media (max-height:820px){.scroll-cue{display:none}}
+
+/* ============ reduced motion ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none}
+  .scroll-cue .stem,.hero-eyebrow .dot{animation:none}
+  *{transition-duration:.01ms!important}
+}
+/* ============ phone text floor (added 2026-10-01) ============
+   The library standard: on phones no text is under 16 px, captions, credits and small labels
+   included. Letter spacing comes down so the wider labels still fit. Desktop sizes are unchanged. */
+@media (max-width:720px){
+  .boot-lines,.brand-t .sub,.nav-links a,.menu .m-tag,.btn,.btn-sm,.phase .tx,.phase .ft,
+  .hero-eyebrow span,.hero-sub,.hud-chip .k,.hud-chip .v,.scroll-cue .t,.ticker-seq span,
+  .acard .num,.acard .ann,.acard p,.course .cert,.course .cid,.course p.desc,.course li,
+  .course .price .from,.m-count,.m-desc,.mock .mhead,.mock .opt,.mock .row,.mock .row .src,
+  .mock .chip,.mock .cite,.mock .queue-note,.gauge .gl,.gauge-note,.mrow .code,.mrow .obj,
+  .mrow .chip,.receipt .ic,.receipt p,.tier .flag,.tier .tname,.tier .tdesc,.tier li,
+  .guarantee,.faq-q,.faq-a p,.finale .alt-line,.finale .nocard,.foot-l .t,.foot-nav a,
+  .alt-widget .k,.alt-widget .v small,.ms-step p{font-size:16px}
+  .boot-lines,.brand-t .sub,.nav-links a,.menu .m-tag,.btn,.phase .tx,.phase .ft,.hero-eyebrow span,
+  .hud-chip .k,.scroll-cue .t,.ticker-seq span,.acard .num,.acard .ann,.course .cert,.course .cid,
+  .course .price .from,.m-count,.mock .mhead,.mock .chip,.mock .queue-note,.gauge .gl,.gauge-note,
+  .mrow .chip,.receipt .ic,.tier .flag,.tier .tname,.guarantee,.finale .alt-line,.finale .nocard,
+  .foot-l .t,.foot-nav a,.alt-widget .k{letter-spacing:.08em}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- boot preloader (only shown when JS is on) -->
+<div class="boot" id="boot" aria-hidden="true">
+  <svg class="boot-mark" viewBox="0 0 100 100" fill="none">
+    <path d="M50 8 L92 92 H74 L50 42 L26 92 H8 Z" fill="#0084EA"/>
+    <rect x="20" y="62" width="60" height="7" fill="#72C0FC" opacity=".85"/>
+  </svg>
+  <div class="boot-lines" id="bootLines">
+    <span>PWR BUS A ............... <b>OK</b></span>
+    <span>ADAPTIVE ENGINE ......... <b>OK</b></span>
+    <span>QUESTION BANK ........... <b>LOADED</b></span>
+    <span>ACS CODE MAP ............ <b>ALIGNED</b></span>
+  </div>
+  <div class="boot-bar"><i id="bootBar"></i></div>
+</div>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="atmo" aria-hidden="true"></div>
+<div class="dim" id="dim" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="ACE Avionics Training, home">
+    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M50 8 L92 92 H74 L50 42 L26 92 H8 Z" fill="#0084EA"/>
+      <rect x="20" y="62" width="60" height="7" fill="#72C0FC" opacity=".85"/>
+    </svg>
+    <span class="brand-t">
+      <span class="wm">ACE<b>›</b></span>
+      <span class="sub">Avionics Training</span>
+    </span>
+  </a>
+  <nav aria-label="Primary">
+    <ul class="nav-links">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn-primary btn-sm nav-cta" href="#pricing">Start free drill</a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <i></i><i></i><i></i>
+  </button>
+</header>
+
+<div class="menu" id="menu" role="navigation" aria-label="Menu" tabindex="-1">
+  <p class="m-tag">ACE Avionics Training // Navigation</p>
+  <ul>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap" id="top">
+    <p class="hero-eyebrow reveal-hero"><span class="dot" aria-hidden="true"></span><span>ACE Avionics Training · Exam Prep Systems</span></p>
+    <h1 id="heroTitle" aria-label="Cleared to pass.">
+      <span class="lmask"><span class="l1">Cleared</span></span>
+      <span class="lmask"><span class="l2" aria-hidden="true">to pass.</span></span>
+    </h1>
+    <p class="hero-sub reveal-hero">
+      Adaptive drills for the <strong>CAET</strong> and <strong>FAA A&amp;P</strong> knowledge tests:
+      every answer cited to its FAA handbook source, every miss diagnosed to its knowledge code,
+      every weak spot re-attacked until it's solid.
+      <span class="tag">Because earning your avionics certifications shouldn't be rocket science.</span>
+    </p>
+    <div class="hero-ctas reveal-hero">
+      <a class="btn btn-primary" href="#pricing">Start the free drill <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="#courses">Explore the courses</a>
+    </div>
+    <div class="hud reveal-hero" role="list" aria-label="System status">
+      <div class="hud-chip" role="listitem"><span class="k">Adaptive engine</span><span class="v"><b>● Online</b></span></div>
+      <div class="hud-chip" role="listitem"><span class="k">ACS knowledge codes</span><span class="v"><i>Tracked</i></span></div>
+      <div class="hud-chip" role="listitem"><span class="k">Every answer</span><span class="v"><i>FAA-sourced</i></span></div>
+      <div class="hud-chip" role="listitem"><span class="k">Guarantee</span><span class="v">14-day refund</span></div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span class="t">Scroll to climb</span>
+      <span class="stem"></span>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-seq">
+        <span class="hot">CAET</span><span>ASTM / NCATT</span><span>FAA-H-8083-30B</span>
+        <span class="hot">General</span><span>Airframe</span><span>Powerplant</span>
+        <span>AMG-BE.K1</span><span>Ohm's Law</span><span class="hot">ACS-Mapped</span>
+        <span>Source-cited</span><span>Adaptive drills</span><span>14-day guarantee</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PREFLIGHT / PROBLEM ============ -->
+  <section class="sec" id="problem">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 01 · Preflight</span><span class="ft">ALT 2,500 FT</span></div>
+      <h2 class="reveal">The question bank isn't the problem. <em>Your feedback loop is.</em></h2>
+      <p class="lede reveal">Most prep is a thousand questions, an answer key, and a prayer.
+        You grind the whole bank, including the 70% you already know, and walk into the test
+        still guessing about the 30% you don't.</p>
+      <div class="cards3">
+        <div class="acard reveal">
+          <span class="num">FAULT 01</span>
+          <span class="ann warn">Rote grinding</span>
+          <h3>You drill what you already know</h3>
+          <p>Re-reading the full bank treats your strong areas like weak ones. That's hours burned on questions you'd never miss, and minutes left for the ones failing you.</p>
+        </div>
+        <div class="acard reveal">
+          <span class="num">FAULT 02</span>
+          <span class="ann warn">No provenance</span>
+          <h3>Answer keys with no receipts</h3>
+          <p>"The answer is C" teaches you to memorize letters, not systems. Without the source (the handbook, the chapter, the principle), the knowledge evaporates after test day.</p>
+        </div>
+        <div class="acard reveal">
+          <span class="num">FAULT 03</span>
+          <span class="ann warn">Zero adaptation</span>
+          <h3>The bank doesn't know you</h3>
+          <p>A static PDF can't tell that you're solid on Ohm's Law but shaky on transponders. So it can't fix it. Every session starts from zero, every time.</p>
+        </div>
+      </div>
+      <p class="punch reveal">ACE drills run a different loop: <b>every miss is diagnosed to its ACS knowledge code</b>,
+        cited to the exact FAA handbook it came from, and queued for re-attack until your mastery bar says <b>SOLID</b>.</p>
+    </div>
+  </section>
+
+  <!-- ============ DEPARTURE / COURSES ============ -->
+  <section class="sec" id="courses">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 02 · Departure</span><span class="ft">ALT 10,000 FT</span></div>
+      <h2 class="reveal">Two flight plans. <em>One standard.</em></h2>
+      <p class="lede reveal">Whether you're on the bench chasing a CAET or in the hangar headed for your A&amp;P,
+        the system is the same: drill, diagnose, adapt, with receipts.</p>
+      <div class="courses">
+        <article class="course reveal">
+          <div class="chead">
+            <span class="cert">ASTM · NCATT Aligned</span>
+            <span class="cid">TRK-01</span>
+          </div>
+          <h3>CAET Prep<small>Certified Aircraft Electronics Technician</small></h3>
+          <p class="desc">For avionics techs proving they own the fundamentals, from electron theory to aircraft digital systems.</p>
+          <ul>
+            <li>Basic electricity through digital logic, drilled to mastery, not just exposure</li>
+            <li>Aligned to the ASTM/NCATT CAET standard, objective by objective</li>
+            <li>Bench-real scenarios: 28-volt buses, real loads, real failure modes</li>
+            <li>Mastery tracking per learning objective: know exactly when you're ready</li>
+          </ul>
+          <div class="cfoot">
+            <span class="price"><span class="from">From</span><span class="amt"><sup>$</sup>49</span></span>
+            <a class="btn btn-ghost btn-sm" href="#pricing">View track <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="course reveal">
+          <div class="chead">
+            <span class="cert">FAA · ACS Mapped</span>
+            <span class="cid">TRK-02</span>
+          </div>
+          <h3>A&amp;P Prep<small>General · Airframe · Powerplant</small></h3>
+          <p class="desc">All three FAA Aviation Mechanic knowledge tests in one adaptive system that knows which test, and which code, needs you most.</p>
+          <ul>
+            <li>Every ACS knowledge code tracked, from AMG-BE.K1 on up</li>
+            <li>Each answer cited to its FAA source: H-8083 handbooks, chapter and verse</li>
+            <li>Oral &amp; practical prep cues woven into the explanations</li>
+            <li>Readiness report tells you when to schedule the real test</li>
+          </ul>
+          <div class="cfoot">
+            <span class="price"><span class="from">From</span><span class="amt"><sup>$</sup>49</span></span>
+            <a class="btn btn-ghost btn-sm" href="#pricing">View track <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLIMB / METHOD ============ -->
+  <section class="sec" id="method">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 03 · Climb</span><span class="ft">ALT 18,000 FT</span></div>
+      <h2 class="reveal">The loop that gets you to <em>solid.</em></h2>
+    </div>
+
+    <!-- desktop: pinned sequence -->
+    <div class="method-pin" id="methodPin">
+      <div class="wrap method-stage">
+        <div class="m-left">
+          <p class="m-count"><b id="mStep">01</b> / 03</p>
+          <div class="m-titles" id="mTitles">
+            <h3 class="m-title" data-step="0">Drill</h3>
+            <h3 class="m-title" data-step="1" style="opacity:0">Diagnose</h3>
+            <h3 class="m-title" data-step="2" style="opacity:0">Adapt</h3>
+          </div>
+          <div class="m-descs" id="mDescs">
+            <p class="m-desc" data-step="0">One question at a time, keyboard-fast. <b>A to D to answer, Enter to advance.</b> No fluff, no filler, just reps that feel like the real test, at the pace of a tech who has somewhere to be.</p>
+            <p class="m-desc" data-step="1" style="opacity:0">Miss one and the annunciator tells you exactly why. <b>The knowledge code, the FAA source, the principle</b>, so you fix the system, not the symptom.</p>
+            <p class="m-desc" data-step="2" style="opacity:0">The queue re-sorts itself around your weak codes. <b>What you miss comes back; what you've mastered gets out of the way.</b> Every session starts where it'll do the most good.</p>
+          </div>
+          <div class="m-progress" aria-hidden="true">
+            <i class="on" data-step="0"></i><i data-step="1"></i><i data-step="2"></i>
+          </div>
+        </div>
+        <div class="m-right">
+          <!-- step 0: drill -->
+          <div class="m-panel" data-step="0">
+            <div class="mock" aria-hidden="true">
+              <div class="mhead"><span>Question <b>04 / 10</b></span><span>BASIC ELECTRICITY</span></div>
+              <p class="q">A 28-volt aircraft circuit feeds a landing light with 7 ohms of resistance. How much current flows through the light?</p>
+              <div class="opt sel"><b>A</b> 4 amperes</div>
+              <div class="opt"><b>B</b> 0.25 ampere</div>
+              <div class="opt"><b>C</b> 35 amperes</div>
+            </div>
+          </div>
+          <!-- step 1: diagnose -->
+          <div class="m-panel" data-step="1" style="opacity:0">
+            <div class="mock" aria-hidden="true">
+              <div class="mhead"><span>Diagnosis</span><span style="color:var(--amber)">▲ MISSED</span></div>
+              <div class="row"><span class="code">AMG-BE.K1</span><span class="src">Apply Ohm's Law: I = E ÷ R</span><span class="chip review">Review</span></div>
+              <div class="cite"><b>Source:</b> FAA-H-8083-30B · Basic Electricity<br/>Ohm's law: I = E ÷ R = 28 ÷ 7 = <b>4 A</b>. Current is what the voltage pushes through the resistance. Solve for it, don't memorize it.</div>
+            </div>
+          </div>
+          <!-- step 2: adapt -->
+          <div class="m-panel" data-step="2" style="opacity:0">
+            <div class="mock" aria-hidden="true">
+              <div class="mhead"><span>Next session · queue</span><span>RE-SORTED</span></div>
+              <div class="row"><span class="code">AMG-BE.K1</span><span class="bar"><i style="width:38%"></i></span><span class="chip review">Review</span></div>
+              <div class="row"><span class="code">AMG-AS.K4</span><span class="bar"><i style="width:55%"></i></span><span class="chip review">Review</span></div>
+              <div class="row"><span class="code">AMG-DC.K2</span><span class="bar"><i style="width:88%"></i></span><span class="chip solid">Solid</span></div>
+              <p class="queue-note">▲ Weak codes promoted to front of queue</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile: stacked sequence -->
+    <div class="method-stack wrap">
+      <div class="ms-step reveal">
+        <p class="m-count"><b>01</b> / 03</p>
+        <h3>Drill</h3>
+        <p>One question at a time, keyboard-fast. <b>A to D to answer, Enter to advance.</b> Reps that feel like the real test, at the pace of a tech who has somewhere to be.</p>
+        <div class="mock" aria-hidden="true">
+          <div class="mhead"><span>Question <b>04 / 10</b></span><span>BASIC ELEC</span></div>
+          <p class="q">A 28-volt circuit feeds a landing light with 7 ohms of resistance. How much current flows?</p>
+          <div class="opt sel"><b>A</b> 4 amperes</div>
+          <div class="opt"><b>B</b> 0.25 ampere</div>
+        </div>
+      </div>
+      <div class="ms-step reveal">
+        <p class="m-count"><b>02</b> / 03</p>
+        <h3>Diagnose</h3>
+        <p>Miss one and the annunciator tells you why: <b>the knowledge code, the FAA source, the principle.</b> Fix the system, not the symptom.</p>
+        <div class="mock" aria-hidden="true">
+          <div class="mhead"><span>Diagnosis</span><span style="color:var(--amber)">▲ MISSED</span></div>
+          <div class="row"><span class="code">AMG-BE.K1</span><span class="chip review">Review</span></div>
+          <div class="cite"><b>Source:</b> FAA-H-8083-30B · Basic Electricity<br/>I = E ÷ R = 28 ÷ 7 = <b>4 A</b>.</div>
+        </div>
+      </div>
+      <div class="ms-step reveal">
+        <p class="m-count"><b>03</b> / 03</p>
+        <h3>Adapt</h3>
+        <p>The queue re-sorts around your weak codes. <b>What you miss comes back</b>, and what you've mastered gets out of the way.</p>
+        <div class="mock" aria-hidden="true">
+          <div class="mhead"><span>Next session</span><span>RE-SORTED</span></div>
+          <div class="row"><span class="code">AMG-BE.K1</span><span class="bar"><i style="width:38%"></i></span><span class="chip review">Review</span></div>
+          <div class="row"><span class="code">AMG-DC.K2</span><span class="bar"><i style="width:88%"></i></span><span class="chip solid">Solid</span></div>
+          <p class="queue-note">▲ Weak codes promoted</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CRUISE / RESULTS ============ -->
+  <section class="sec" id="results">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 04 · Cruise</span><span class="ft">ALT 28,000 FT</span></div>
+      <h2 class="reveal">Walk in knowing. <em>Instrumented, not guessed.</em></h2>
+      <p class="lede reveal">No more "I think I'm ready." Your Knowledge Code Report shows mastery per ACS code,
+        marked <strong>SOLID</strong> or <strong>REVIEW</strong>, so the day you book the real test is a decision, not a gamble.</p>
+
+      <div class="results-grid">
+        <div class="gauge-wrap reveal">
+          <svg class="gauge" viewBox="0 0 240 200" role="img" aria-label="Sample readiness gauge showing 94 percent">
+            <defs>
+              <linearGradient id="ggrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#0084EA"/>
+                <stop offset="1" stop-color="#72C0FC"/>
+              </linearGradient>
+            </defs>
+            <path class="track" d="M 30 170 A 95 95 0 1 1 210 170" fill="none" stroke-width="10"/>
+            <path class="fill" id="gaugeFill" d="M 30 170 A 95 95 0 1 1 210 170" fill="none" stroke-width="10"
+                  stroke-dasharray="448" stroke-dashoffset="448"/>
+            <text class="gv" id="gaugeVal" x="120" y="128" text-anchor="middle">0%</text>
+            <text class="gl" x="120" y="152" text-anchor="middle">READINESS</text>
+          </svg>
+          <p class="gauge-note">Sample knowledge code report</p>
+        </div>
+        <div class="mastery reveal" role="table" aria-label="Sample per-knowledge-code mastery breakdown">
+          <div class="sr-only" role="row">
+            <span role="columnheader">Knowledge code</span><span role="columnheader">Learning objective</span><span role="columnheader">Mastery</span><span role="columnheader">Status</span>
+          </div>
+          <div class="mrow" role="row" data-w="92"><span class="code" role="cell">AMG-BE.K1</span><span class="obj" role="cell">Ohm's Law: current, voltage, resistance</span><span class="bar" aria-hidden="true"><i></i></span><span class="chip solid" role="cell">Solid</span></div>
+          <div class="mrow" role="row" data-w="88"><span class="code" role="cell">AMG-DC.K2</span><span class="obj" role="cell">DC circuits: series &amp; parallel analysis</span><span class="bar" aria-hidden="true"><i></i></span><span class="chip solid" role="cell">Solid</span></div>
+          <div class="mrow weak" role="row" data-w="46"><span class="code" role="cell">AMG-AS.K4</span><span class="obj" role="cell">Aircraft systems: pitot-static instruments</span><span class="bar" aria-hidden="true"><i></i></span><span class="chip review" role="cell">Review</span></div>
+          <div class="mrow" role="row" data-w="81"><span class="code" role="cell">AMG-RG.K3</span><span class="obj" role="cell">Regulations: privileges &amp; limitations</span><span class="bar" aria-hidden="true"><i></i></span><span class="chip solid" role="cell">Solid</span></div>
+          <div class="mrow weak" role="row" data-w="58"><span class="code" role="cell">AMG-WB.K1</span><span class="obj" role="cell">Weight &amp; balance: CG computation</span><span class="bar" aria-hidden="true"><i></i></span><span class="chip review" role="cell">Review</span></div>
+        </div>
+      </div>
+
+      <div class="receipts">
+        <div class="receipt reveal">
+          <p class="ic">ACS-mapped</p>
+          <p>Every question carries its knowledge code. <b>Your report reads like the FAA's own test plan</b>, because it's built from it.</p>
+        </div>
+        <div class="receipt reveal">
+          <p class="ic">FAA-sourced</p>
+          <p>Every explanation cites the handbook it came from: <b>FAA-H-8083 series, chapter and section.</b> You're studying the source, not someone's summary.</p>
+        </div>
+        <div class="receipt reveal">
+          <p class="ic">Built by instructors</p>
+          <p>Written and reviewed by working avionics instructors. <b>If a question wouldn't survive the shop floor, it doesn't ship.</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="sec" id="pricing">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 05 · Final approach</span><span class="ft">ALT 32,000 FT</span></div>
+      <h2 class="reveal">Pick your <em>flight plan.</em></h2>
+      <p class="lede reveal">Start with the free drill: ten real questions, full diagnosis, no card required.
+        Upgrade when you've seen what the loop does.</p>
+      <div class="tiers">
+        <div class="tier reveal">
+          <p class="tname">Single Track</p>
+          <p class="tprice"><sup>$</sup>49</p>
+          <p class="tdesc">One knowledge test: General, Airframe, Powerplant, or one CAET module.</p>
+          <ul>
+            <li>Full adaptive question bank for your track</li>
+            <li>Knowledge code diagnosis on every miss</li>
+            <li>FAA source citations throughout</li>
+            <li>Readiness report</li>
+          </ul>
+          <a class="btn btn-ghost" href="#" data-cta="single">Start single track</a>
+        </div>
+        <div class="tier hot reveal">
+          <span class="flag">Most chosen</span>
+          <p class="tname">Full Program</p>
+          <p class="tprice"><sup>$</sup>99</p>
+          <p class="tdesc">The complete A&amp;P (all three tests) or the complete CAET program.</p>
+          <ul>
+            <li>Everything in Single Track</li>
+            <li>All tests in your program, one adaptive queue</li>
+            <li>Cross-test weak-spot detection</li>
+            <li>Oral &amp; practical prep cues</li>
+            <li>Question bank updates while you study</li>
+          </ul>
+          <a class="btn btn-primary" href="#" data-cta="program">Start full program <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <div class="tier reveal">
+          <p class="tname">Everything</p>
+          <p class="tprice"><sup>$</sup>149</p>
+          <p class="tdesc">CAET + full A&amp;P. For techs stacking certificates back to back.</p>
+          <ul>
+            <li>Everything in Full Program</li>
+            <li>Both certification tracks, lifetime access</li>
+            <li>All future question bank updates</li>
+            <li>Priority instructor support</li>
+          </ul>
+          <a class="btn btn-ghost" href="#" data-cta="everything">Get everything</a>
+        </div>
+      </div>
+      <p class="guarantee">14-day <b>money-back guarantee</b> on every plan, no forms, no friction</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="phase reveal"><span class="ln" aria-hidden="true"></span><span class="tx">Phase 06 · Checklist</span><span class="ft">ALT 34,000 FT</span></div>
+      <h2 class="reveal">Before you <em>commit.</em></h2>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is this enough to pass, or do I still need ground school?<span class="x" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>ACE Prep is a <b>knowledge-test weapon</b>, not a replacement for your 147 program or practical experience. If you've done the work, this is how you convert it into a passing score, and how you find the gaps your program left behind.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How current is the question bank?<span class="x" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Questions are written against the <b>current ACS and FAA handbook revisions</b> (H-8083 series), and the bank is updated as the FAA revises. Full Program and Everything plans include updates while you study.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What's the difference between the CAET and A&amp;P tracks?<span class="x" aria-hidden="true"></span></button>
+          <div class="faq-a"><p><b>CAET</b> (ASTM/NCATT) certifies aircraft electronics fundamentals, the bench credential for avionics techs. <b>A&amp;P</b> is the FAA Aviation Mechanic certificate: General, Airframe, and Powerplant knowledge tests. Same drill engine, different standards: pick the certificate you're chasing, or stack both with Everything.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How does the 14-day refund actually work?<span class="x" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Email us within 14 days of purchase and you get your money back. <b>No forms, no "exit interview," no partial credits.</b> If the loop isn't working for you, you shouldn't pay for it.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I study on my phone between jobs?<span class="x" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Yes. Drills are built for <b>ten-minute sessions on a phone</b>, in the truck or on the bench. Your queue and mastery sync, so the question you miss at lunch comes back tonight.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINALE ============ -->
+  <section class="finale wrap">
+    <p class="alt-line reveal">ALT <b>35,000 FT</b> · CRUISE · TOP OF CLIMB</p>
+    <h2 class="reveal">Ready when <em>you are.</em></h2>
+    <p class="lede reveal">Ten real questions. Full diagnosis. Your first mastery bar.<br/>See what instrumented prep feels like, then decide.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="#" data-cta="free-drill">Begin the free drill <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <p class="nocard reveal">No card required · 14-day guarantee on paid plans</p>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="foot-l">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path d="M50 8 L92 92 H74 L50 42 L26 92 H8 Z" fill="#0084EA"/>
+        <rect x="20" y="62" width="60" height="7" fill="#72C0FC" opacity=".85"/>
+      </svg>
+      <p class="t">© 2026 ACE Avionics Training<br/>Earning your avionics certifications shouldn't be rocket science.</p>
+    </div>
+    <ul class="foot-nav">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#top">Back to top ↑</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- altimeter scroll widget -->
+<div class="alt-widget" id="altWidget" aria-hidden="true">
+  <span class="k"><span>Altitude</span><b id="altPhase">RAMP</b></span>
+  <span class="v"><span id="altVal">00,000</span> <small>FT</small></span>
+  <span class="tape"><i id="altTape"></i></span>
+</div>
+
+<script>document.documentElement.classList.add('js');</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+/* ============================================================
+   MAIN INTERACTIONS (GSAP)
+   Progressive enhancement: everything is readable without JS.
+   ============================================================ */
+(function(){
+  'use strict';
+  var hasGsap = typeof gsap !== 'undefined';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var boot = document.getElementById('boot');
+
+  /* ---------- helper: split hero headline into chars ----------
+     Only .l1 is split; .l2 uses background-clip:text, which breaks
+     if its text gets wrapped in overflow-hidden spans. */
+  function splitChars(el){
+    var lines = el.querySelectorAll('.l1');
+    lines.forEach(function(line){
+      var text = line.textContent;
+      line.textContent = '';
+      line.setAttribute('aria-hidden','true');
+      text.split(' ').forEach(function(word, wi, arr){
+        var w = document.createElement('span');
+        w.className = 'w';
+        word.split('').forEach(function(ch){
+          var c = document.createElement('span');
+          c.className = 'c';
+          c.textContent = ch;
+          w.appendChild(c);
+        });
+        line.appendChild(w);
+        if (wi < arr.length - 1) line.appendChild(document.createTextNode(' '));
+      });
+    });
+  }
+
+  /* ---------- boot sequence ----------
+     rAF (and therefore GSAP) is throttled in hidden/occluded tabs, so the
+     boot must never gate the page on animation completing: skip it when the
+     tab is hidden, and force-finish on a wall-clock timeout regardless. */
+  function runBoot(done){
+    if (!hasGsap || reduceMotion || document.hidden){ if(boot) boot.style.display = 'none'; done(); return; }
+    var finished = false;
+    var tl;
+    function finish(skipWipe){
+      if (finished) return;
+      finished = true;
+      clearTimeout(safety);
+      if (skipWipe){
+        if (tl) tl.kill();
+        boot.style.display = 'none';
+      } else {
+        gsap.to(boot, { yPercent: -100, duration: .6, ease: 'power3.inOut',
+          onComplete: function(){ boot.style.display = 'none'; } });
+      }
+      done();
+    }
+    var safety = setTimeout(function(){ finish(true); }, 3200);
+    var lines = boot.querySelectorAll('.boot-lines span');
+    tl = gsap.timeline({ onComplete: function(){ finish(false); } });
+    tl.to(lines, { opacity: 1, duration: .12, stagger: .16, ease: 'none' }, 0)
+      .to('#bootBar', { width: '100%', duration: .95, ease: 'power2.inOut' }, 0)
+      .to({}, { duration: .18 }); // beat before wipe
+  }
+
+  /* ---------- hero entrance ---------- */
+  function heroIn(){
+    if (!hasGsap) return;
+    if (reduceMotion){ gsap.set('.reveal-hero, #heroTitle .c', { clearProps: 'all' }); return; }
+    var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    tl.from('#heroTitle .c', { yPercent: 115, duration: 1.0, stagger: { each: .024, from: 'start' } }, 0)
+      .from('#heroTitle .l2', { yPercent: 112, duration: 1.1 }, .18)
+      .from('.reveal-hero', { autoAlpha: 0, y: 26, duration: .9, stagger: .09 }, .35)
+      .from('.nav', { autoAlpha: 0, y: -16, duration: .7 }, .5);
+  }
+
+  /* ---------- scroll reveals ---------- */
+  function scrollFX(){
+    if (!hasGsap) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (!reduceMotion){
+      gsap.utils.toArray('.reveal').forEach(function(el){
+        gsap.from(el, {
+          autoAlpha: 0, y: 34, duration: .9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 86%', once: true }
+        });
+      });
+
+      /* canvas dims as you leave the hero so body copy stays readable */
+      gsap.to('#dim', {
+        opacity: .55, ease: 'none',
+        scrollTrigger: { trigger: '#problem', start: 'top bottom', end: 'top 30%', scrub: true }
+      });
+
+      /* gauge fill + counter */
+      var gaugeObj = { v: 0 };
+      var fill = document.getElementById('gaugeFill');
+      var valEl = document.getElementById('gaugeVal');
+      if (fill && valEl){
+        gsap.to(gaugeObj, {
+          v: 94, duration: 1.6, ease: 'power2.out',
+          scrollTrigger: { trigger: '.gauge-wrap', start: 'top 78%', once: true },
+          onUpdate: function(){
+            var p = gaugeObj.v / 100;
+            fill.setAttribute('stroke-dashoffset', String(448 * (1 - p)));
+            valEl.textContent = Math.round(gaugeObj.v) + '%';
+          }
+        });
+      }
+
+      /* mastery bars */
+      gsap.utils.toArray('.mrow').forEach(function(row){
+        var bar = row.querySelector('.bar i');
+        if (!bar) return;
+        gsap.to(bar, {
+          width: (row.dataset.w || 50) + '%', duration: 1.1, ease: 'power3.out',
+          scrollTrigger: { trigger: row, start: 'top 88%', once: true }
+        });
+      });
+
+      /* pinned method sequence (desktop only) */
+      gsap.matchMedia().add('(min-width: 1021px)', function(){
+        var steps = 3;
+        var titles = gsap.utils.toArray('#mTitles .m-title');
+        var descs  = gsap.utils.toArray('#mDescs .m-desc');
+        var panels = gsap.utils.toArray('.m-right .m-panel');
+        var dots   = gsap.utils.toArray('.m-progress i');
+        var stepEl = document.getElementById('mStep');
+        var cur = 0;
+        function show(i){
+          if (i === cur) return;
+          var prev = cur; cur = i;
+          stepEl.textContent = '0' + (i + 1);
+          gsap.to(titles[prev], { autoAlpha: 0, y: -22, duration: .35, ease: 'power2.in' });
+          gsap.fromTo(titles[i], { autoAlpha: 0, y: 26 }, { autoAlpha: 1, y: 0, duration: .45, ease: 'power3.out', delay: .12 });
+          gsap.to(descs[prev], { autoAlpha: 0, y: -14, duration: .3, ease: 'power2.in' });
+          gsap.fromTo(descs[i], { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: .45, ease: 'power3.out', delay: .15 });
+          gsap.to(panels[prev], { autoAlpha: 0, scale: .96, duration: .3, ease: 'power2.in' });
+          gsap.fromTo(panels[i], { autoAlpha: 0, scale: 1.03, y: 16 }, { autoAlpha: 1, scale: 1, y: 0, duration: .5, ease: 'power3.out', delay: .12 });
+          dots.forEach(function(d, di){ d.classList.toggle('on', di <= i); });
+        }
+        var st = ScrollTrigger.create({
+          trigger: '#methodPin', start: 'top top', end: '+=220%', pin: true, scrub: false,
+          onUpdate: function(self){
+            var i = Math.min(steps - 1, Math.floor(self.progress * steps));
+            show(i);
+          }
+        });
+        return function(){ st.kill(); };
+      });
+    } else {
+      /* reduced motion: set final states */
+      var fill2 = document.getElementById('gaugeFill');
+      var val2 = document.getElementById('gaugeVal');
+      if (fill2 && val2){ fill2.setAttribute('stroke-dashoffset', String(448 * .06)); val2.textContent = '94%'; }
+      document.querySelectorAll('.mrow').forEach(function(row){
+        var bar = row.querySelector('.bar i');
+        if (bar) bar.style.width = (row.dataset.w || 50) + '%';
+      });
+    }
+
+    /* altimeter + nav state + phase (cheap, runs even with reduced motion) */
+    var altVal = document.getElementById('altVal');
+    var altTape = document.getElementById('altTape');
+    var altPhase = document.getElementById('altPhase');
+    var altWidget = document.getElementById('altWidget');
+    var nav = document.getElementById('nav');
+    var fmt = function(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+    var phases = [[0,'RAMP'],[ .04,'TAKEOFF'],[ .18,'CLIMB'],[ .55,'CRUISE'],[ .92,'TOP OF CLIMB']];
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function(self){
+        var p = self.progress;
+        var alt = p * 35000;
+        if (altVal){
+          var s = fmt(alt); while (s.length < 6) s = '0' + s;
+          altVal.textContent = s;
+        }
+        if (altTape) altTape.style.width = (p * 100) + '%';
+        if (altPhase){
+          var ph = phases[0][1];
+          phases.forEach(function(en){ if (p >= en[0]) ph = en[1]; });
+          altPhase.textContent = ph;
+        }
+        if (altWidget) altWidget.classList.toggle('show', p > .03 && p < .985);
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+      }
+    });
+  }
+
+  /* ---------- menu ---------- */
+  function menuFX(){
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('menu');
+    if (!burger || !menu) return;
+    var open = false;
+    var links = menu.querySelectorAll('a');
+    function setOpen(v){
+      open = v;
+      burger.setAttribute('aria-expanded', String(v));
+      burger.setAttribute('aria-label', v ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', v);
+      if (hasGsap && !reduceMotion){
+        if (v){
+          gsap.set(menu, { visibility: 'visible' });
+          gsap.to(menu, { opacity: 1, duration: .35, ease: 'power2.out' });
+          gsap.fromTo(links, { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .5, stagger: .06, ease: 'power3.out', delay: .08 });
+        } else {
+          gsap.to(menu, { opacity: 0, duration: .28, ease: 'power2.in',
+            onComplete: function(){ gsap.set(menu, { visibility: 'hidden' }); } });
+        }
+      } else {
+        menu.style.visibility = v ? 'visible' : 'hidden';
+        menu.style.opacity = v ? '1' : '0';
+      }
+      /* keyboard users: focus follows the menu in, returns to the toggle on close.
+         (focus the container, not links[0]; the link stagger starts at
+         visibility:hidden, where focus() would silently no-op) */
+      if (v) menu.focus({ preventScroll: true });
+      else burger.focus({ preventScroll: true });
+    }
+    burger.addEventListener('click', function(){ setOpen(!open); });
+    links.forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  }
+
+  /* ---------- faq accordion ---------- */
+  function faqFX(){
+    document.querySelectorAll('.faq-item').forEach(function(item, i){
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      var p = a.querySelector('p');
+      a.id = 'faq-a-' + i;
+      q.id = 'faq-q-' + i;
+      q.setAttribute('aria-controls', a.id);
+      a.setAttribute('role', 'region');
+      a.setAttribute('aria-labelledby', q.id);
+      q.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        item.classList.toggle('open', !isOpen);
+        q.setAttribute('aria-expanded', String(!isOpen));
+        if (hasGsap && !reduceMotion){
+          gsap.to(a, { height: isOpen ? 0 : p.offsetHeight + 0, duration: .45, ease: 'power3.inOut',
+            onComplete: function(){ if (!isOpen) gsap.set(a, { height: 'auto' }); ScrollTrigger && ScrollTrigger.refresh(); } });
+        } else {
+          a.style.height = isOpen ? '0' : 'auto';
+        }
+      });
+    });
+  }
+
+  /* ---------- placeholder CTAs ----------
+     TODO: point [data-cta] links at the real signup/checkout flow.
+     Until then, route them to the pricing section instead of jumping to top. */
+  function ctaFX(){
+    document.querySelectorAll('[data-cta]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var t = document.getElementById('pricing');
+        if (t) t.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+  }
+
+  /* ---------- init ---------- */
+  function init(){
+    /* the boot intro should always reveal the top of the page, not a
+       restored mid-page scroll position (unless a deep link was used) */
+    if (!location.hash && 'scrollRestoration' in history){
+      history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    }
+    splitChars(document.getElementById('heroTitle'));
+    menuFX(); faqFX(); ctaFX();
+    if (hasGsap){
+      gsap.registerPlugin(ScrollTrigger);
+      runBoot(function(){ heroIn(); });
+      scrollFX();
+    } else if (boot){
+      boot.style.display = 'none';
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+/* ============================================================
+   THREE.JS: wireframe terrain flyover
+   Fixed full-page background. Camera climbs with scroll.
+   Fails silently to the CSS atmosphere if WebGL/CDN is missing.
+   ============================================================ */
+try {
+  const THREE = await import('three');
+  const canvas = document.getElementById('scene');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.matchMedia('(max-width: 680px)').matches;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true, powerPreference: 'low-power' });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x04070d, 60, 430);
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, .1, 900);
+  camera.position.set(0, 14, 96);
+
+  /* ----- terrain ----- */
+  const SEG_X = isMobile ? 64 : 110;
+  const SEG_Z = isMobile ? 42 : 70;
+  const W = 760, D = 560;
+  const geo = new THREE.PlaneGeometry(W, D, SEG_X, SEG_Z);
+  geo.rotateX(-Math.PI / 2);
+  const pos = geo.attributes.position;
+  const baseX = new Float32Array(pos.count);
+  const baseZ = new Float32Array(pos.count);
+  for (let i = 0; i < pos.count; i++){ baseX[i] = pos.getX(i); baseZ[i] = pos.getZ(i); }
+
+  function height(x, z){
+    let h = Math.sin(x * .016) * Math.cos(z * .021) * 10
+          + Math.sin(x * .052 + z * .037) * 3.4
+          + Math.cos(x * .009 - z * .024) * 6.5;
+    const corridor = Math.min(1, Math.abs(x) / 95);     /* valley down the middle */
+    h *= .12 + .88 * corridor * corridor;
+    return h;
+  }
+
+  const terrainMat = new THREE.MeshBasicMaterial({ color: 0x0084EA, wireframe: true, transparent: true, opacity: .34 });
+  const terrain = new THREE.Mesh(geo, terrainMat);
+  terrain.position.z = -120;
+  scene.add(terrain);
+
+  /* dark fill plane just under the wireframe to occlude far lines */
+  const fillGeo = geo.clone();
+  const fillMat = new THREE.MeshBasicMaterial({ color: 0x04070d, transparent: true, opacity: .92 });
+  const fill = new THREE.Mesh(fillGeo, fillMat);
+  fill.position.z = -120; fill.position.y = -.4;
+  scene.add(fill);
+
+  function updateTerrain(t){
+    const fp = fillGeo.attributes.position;
+    for (let i = 0; i < pos.count; i++){
+      const h = height(baseX[i], baseZ[i] + t);
+      pos.setY(i, h);
+      fp.setY(i, h);
+    }
+    pos.needsUpdate = true;
+    fp.needsUpdate = true;
+  }
+
+  /* ----- stars ----- */
+  const starCount = isMobile ? 280 : 620;
+  const starGeo = new THREE.BufferGeometry();
+  const starPos = new Float32Array(starCount * 3);
+  for (let i = 0; i < starCount; i++){
+    starPos[i*3]   = (Math.random() - .5) * 1100;
+    starPos[i*3+1] = 40 + Math.random() * 320;
+    starPos[i*3+2] = -480 + Math.random() * 480;
+  }
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
+    color: 0x72C0FC, size: 1.5, transparent: true, opacity: .75, sizeAttenuation: true }));
+  scene.add(stars);
+
+  /* ----- scroll + pointer state ----- */
+  let scrollP = 0, targetP = 0;
+  let mx = 0, my = 0, tmx = 0, tmy = 0;
+
+  if (window.ScrollTrigger){
+    ScrollTrigger.create({ start: 0, end: 'max', onUpdate: s => { targetP = s.progress; } });
+  } else {
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      targetP = max > 0 ? window.scrollY / max : 0;
+    }, { passive: true });
+  }
+  if (!isMobile){
+    window.addEventListener('pointermove', e => {
+      tmx = (e.clientX / window.innerWidth - .5) * 2;
+      tmy = (e.clientY / window.innerHeight - .5) * 2;
+    }, { passive: true });
+  }
+
+  /* ----- render loop ----- */
+  let t = 0, raf = null, last = performance.now();
+  function frame(now){
+    raf = requestAnimationFrame(frame);
+    const dt = Math.min(.05, (now - last) / 1000); last = now;
+    t += dt * 26;                                   /* forward speed */
+    scrollP += (targetP - scrollP) * .06;
+    mx += (tmx - mx) * .04; my += (tmy - my) * .04;
+
+    updateTerrain(t);
+
+    const climb = scrollP;
+    camera.position.y = 14 + climb * 46;            /* 14 → 60: the climb */
+    camera.position.x = mx * 7;
+    camera.lookAt(mx * 16, 9 - climb * 34 + my * -5, -210);
+    terrainMat.opacity = .34 - climb * .14;
+    stars.material.opacity = .75 + climb * .25;
+
+    renderer.render(scene, camera);
+  }
+
+  function onResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  window.addEventListener('resize', onResize);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden){ if (raf) cancelAnimationFrame(raf), raf = null; }
+    else if (!reduceMotion && !raf){ last = performance.now(); raf = requestAnimationFrame(frame); }
+  });
+
+  if (reduceMotion){
+    updateTerrain(0);
+    renderer.render(scene, camera);                 /* one static frame */
+  } else {
+    raf = requestAnimationFrame(frame);
+  }
+} catch (err) {
+  /* WebGL or CDN unavailable; the CSS atmosphere carries the design */
+  console.warn('3D scene unavailable:', err && err.message);
+}
+</script>
+</body>
+</html>

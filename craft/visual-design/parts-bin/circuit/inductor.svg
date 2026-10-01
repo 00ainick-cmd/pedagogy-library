@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Inductor (coil), four loops. Electric Ink parts bin.
+  Four half circle bumps of radius 8 units. Four is the readable standard;
+  more bumps do not mean more turns.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -48 to 48.
+
+  Color: #c6ccd6 (no quantity of its own). Restyle from the page with the
+  classes pb-body and pb-lead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -14 100 20" width="100" height="20" role="img" aria-label="Inductor schematic symbol">
+  <path class="pb-lead" d="M -48 0 H -32 M 32 0 H 48" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <path class="pb-body" d="M -32 0 A 8 8 0 0 1 -16 0 A 8 8 0 0 1 0 0 A 8 8 0 0 1 16 0 A 8 8 0 0 1 32 0" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+</svg>

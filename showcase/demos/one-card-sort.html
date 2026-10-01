@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>One-Card Sort | How the CAET Course Was Built</title>
+<meta name="description" content="A live one-card sort from the CAET Safety Data Sheets lesson, running on the course's shared lesson parts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/core/lesson-parts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/demo.css">
+<style>:root{--hero:#dd8985}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demo</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111318" stroke="#262b34"/><path d="M6 20h5l3-9 4 13 3-8h5" fill="none" stroke="#39d7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>How the CAET Course Was Built</a>
+    <nav class="site-nav" aria-label="Showcase">
+      <a href="../index.html#method">Method</a><a href="../index.html#rules">Rules</a><a href="../index.html#demos">Demos</a><a href="../index.html#lessons">Real lessons</a><a href="../index.html#library">Library</a>
+    </nav>
+    <a class="btn nav-short" href="../index.html#demos">All demos</a>
+  </div>
+</header>
+
+<header class="demo-head wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Showcase home</a><a href="../index.html#demos">All demos</a></nav>
+  <div class="kicker">Live demo 1 of 7</div>
+  <h1>One-Card Sort</h1>
+  <p class="lede">One card shows at a time. The student drags it to a bucket, taps a bucket, or presses 1, 2 or 3. A wrong drop shakes the bucket and says why that card does not belong there. A right drop says why it does.</p>
+  <p class="from-line">From the lesson Safety Data Sheets (Shop Safety), page 7, "Section sort". <a href="https://aero-hangar-claude.onrender.com/aero/courses/handling-safety/lessons/safety-data-sheets.html#keysort">Open it in the real lesson</a></p>
+</header>
+
+<main id="main" class="wrap">
+  <div class="stage">
+    <div class="stage-bar"><i></i>Lesson page, as the student sees it</div>
+    <div class="stage-in">
+      <div class="ph">
+        <div class="kicker">Shop safety</div>
+        <h2>When Each Section Is Used</h2>
+        <p class="lede">A safety data sheet has 16 sections in a fixed order, and five of them answer most questions on the job. Sort each card into the time in the job when you would open the sheet.</p>
+      </div>
+      <ul class="keylist" aria-label="The five sections used most often">
+        <li><b>4</b>First-aid measures</li>
+        <li><b>6</b>Accidental release (spills)</li>
+        <li><b>7</b>Handling and storage</li>
+        <li><b>8</b>Protective equipment</li>
+        <li><b>13</b>Disposal</li>
+      </ul>
+      <div class="rsort" id="sort-key" data-no="Not quite. Think about when in the job you would open the sheet." data-done="Sections 7 and 8 are read before the job, Sections 4 and 6 after an exposure or a spill, and Section 13 after the job." data-cards="[{&quot;t&quot;: &quot;You need to know which gloves and eye protection to wear.&quot;, &quot;b&quot;: &quot;before&quot;, &quot;why&quot;: &quot;Right. Section 8, exposure controls and personal protection, lists the gloves and the eye protection.&quot;, &quot;no&quot;: &quot;Not quite. You choose gloves and eye protection before the can is open. That is Section 8.&quot;}, {&quot;t&quot;: &quot;A coworker gets solvent in an eye.&quot;, &quot;b&quot;: &quot;problem&quot;, &quot;why&quot;: &quot;Right. Section 4, first-aid measures, tells you what to do right away.&quot;, &quot;no&quot;: &quot;Not quite. An exposure is an emergency, and the first-aid section is Section 4.&quot;}, {&quot;t&quot;: &quot;Before you use a new can, you need to know where it can be stored.&quot;, &quot;b&quot;: &quot;before&quot;, &quot;why&quot;: &quot;Right. Section 7, handling and storage, tells you where the can goes and what to keep it away from.&quot;, &quot;no&quot;: &quot;Not quite. You read the storage rules before you shelve the can. That is Section 7.&quot;}, {&quot;t&quot;: &quot;The can tips over and solvent spreads across the floor.&quot;, &quot;b&quot;: &quot;problem&quot;, &quot;why&quot;: &quot;Right. Section 6, accidental release measures, tells you how to contain and clean up a spill.&quot;, &quot;no&quot;: &quot;Not quite. A spill is a problem to clean up, and the spill section is Section 6.&quot;}, {&quot;t&quot;: &quot;The job is done, and half a can and several wet rags are left.&quot;, &quot;b&quot;: &quot;after&quot;, &quot;why&quot;: &quot;Right. Section 13, disposal considerations, covers leftover product and wet rags.&quot;, &quot;no&quot;: &quot;Not quite. Leftovers after the job are a disposal question. That is Section 13.&quot;}]">
+        <p class="rs-count" aria-live="polite"></p>
+        <div class="rs-arena is-three">
+          <div class="rs-bucket b1" data-bin="before" role="button" tabindex="0" aria-label="Before you start. Storing the product and choosing protective gear."><h4>Before you start</h4><p>Storing the product and choosing protective gear.</p><div class="got"></div></div>
+          <div class="rs-well"><div class="rs-card" tabindex="0" role="group" aria-label="Card to sort. Press the number keys, or the left and right arrow keys, to pick a bucket."></div><p class="rs-hint">Tap the bucket where the card belongs. On a computer you can also drag the card.</p></div>
+          <div class="rs-bucket b2" data-bin="problem" role="button" tabindex="0" aria-label="An exposure or a spill. First aid and cleanup."><h4>An exposure or a spill</h4><p>First aid and cleanup.</p><div class="got"></div></div>
+          <div class="rs-bucket b3" data-bin="after" role="button" tabindex="0" aria-label="After the job. Leftovers and waste."><h4>After the job</h4><p>Leftovers and waste.</p><div class="got"></div></div>
+        </div>
+        <p class="dmsg" aria-live="polite">Which bucket does this card belong in?</p>
+        <button class="btn rs-reset" type="button">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="why-box" aria-labelledby="why-h">
+    <div>
+      <h2 id="why-h">Why It Teaches</h2>
+      <p>To sort a card, the student has to recall which section answers it and when in the job it is needed. That is retrieval with feedback, and retrieval builds memory better than reading the list again.</p>
+      <p>The cards come in mixed order, so each one first asks "what kind of moment is this?" That choice is what interleaving trains. The three buckets give the student the same categories an experienced technician uses.</p>
+      <p>Every card carries its own "why" for a right drop and its own "no" for a wrong one, so a miss teaches the specific mistake instead of saying "try again".</p>
+    </div>
+    <div>
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/testing-effect.md">Testing effect and retrieval practice</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/interleaving.md">Interleaving</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/error-analysis-corrective-feedback.md">Error analysis and corrective feedback</a></li>
+      </ul>
+      <h3>Craft note</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/one-card-sort.md">One-card sort</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="made" aria-labelledby="made-h">
+    <h2 id="made-h">How It Is Built</h2>
+    <p>This is the course's shared sort, <code>.rsort</code> in <code>lesson-parts.js</code>, running unchanged from the <a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/showcase/assets/core/README.md">dated snapshot</a> in this site. The lesson writes the cards as data (each card's text, its bucket, its "why" and its "no"), and the script does the rest: drag, keys, taps, the count, the shake and the messages.</p>
+    <p>The course owner kept this sort from the first rejected proof and made it the standard. An older design, tap a card and then tap a bucket, was rejected as clumsy. In the real lesson the sort has its own page, right after the page that teaches the five sections.</p>
+  </section>
+
+  <nav class="demo-nav" aria-label="Other demos">
+    <a class="prev" href="../index.html#demos"><span>Back to</span><b>All demos</b></a>
+    <a class="next" href="picture-options.html"><span>Next demo</span><b>Picture Options</b></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <p>How the CAET Course Was Built. A showcase of the pedagogy library behind the CAET avionics course, by Nick Brown, Aircraft Electronics Association.</p>
+  <p>Text CC BY 4.0. Code MIT. <a href="../index.html#credits">Credits and licence</a></p>
+</footer>
+<script src="../assets/core/lesson-parts.js"></script>
+</body>
+</html>

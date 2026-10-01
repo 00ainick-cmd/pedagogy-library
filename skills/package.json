@@ -1,0 +1,21 @@
+{
+  "name": "html-training-craft",
+  "version": "0.2.0",
+  "private": false,
+  "description": "Upload HTML training. Fail a craft lint against gold 16:9 cards. Ingest your voice.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/00ainick-cmd/pedagogy-library.git"
+  },
+  "scripts": {
+    "check": "python tools/validate.py"
+  },
+  "keywords": [
+    "instructional-design",
+    "elearning",
+    "html",
+    "agent-skills",
+    "cardcraft"
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  V dipole antenna (the VOR and localizer "cat's whisker"), schematic view.
+  Electric Ink parts bin. Checked against the approved Antennas and Coax
+  lesson and drawn the same way: elements in amber, the mount in gray.
+
+  Facts to keep with it: VOR and localizer, 108 to 118 MHz, often with the
+  glideslope (329 to 335 MHz) from the same antenna through a coupler.
+  Horizontally polarized to match the stations. Each arm is about a
+  quarter wave. Usually on the vertical fin. 50 Ohm coax (for example
+  RG-400) runs from the feed point.
+
+  The feed point is where the two arms meet, at the gray mount. It has no
+  colored dot: the elements are already amber, so an amber dot would
+  vanish. To call it out, put a numbered marker in clear space with a
+  leader line to the mount, and a legend line under the figure.
+
+  Scale: drawn for a host drawing about 900 units wide. Element stroke
+  8 units. For another host width, scale the group by (host width / 900).
+  Origin: the feed point is at 0,0.
+
+  Colors: elements #ff9e3d, mount #5c6470, mast #9aa3ad.
+  Restyle from the page with the classes pb-element, pb-base and pb-mast.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -130 220 180" width="220" height="180" role="img" aria-label="V dipole antenna: two arms rising from one feed point in a V">
+  <line class="pb-mast" x1="0" y1="10" x2="0" y2="44" stroke="#9aa3ad" stroke-width="6" stroke-linecap="round"/>
+  <path class="pb-element" d="M -96 -115 L 0 0 L 96 -115" fill="none" stroke="#ff9e3d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect class="pb-base" x="-18" y="-6" width="36" height="20" rx="4" fill="#5c6470"/>
+</svg>

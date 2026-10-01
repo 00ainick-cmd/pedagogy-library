@@ -1,0 +1,96 @@
+/* Lesson pager (Lesson Revamp Playbook): one idea per page, moving left to right.
+   One slim header, a slim collapsible side panel, no footer. Uses the lesson's own tokens
+   (--ink, --line, --paper, --paper-2, --paper-3, --hero, --ok, --I) so it matches Electric Ink lessons. */
+:root { --pgr-head: 56px; --pgr-panel: 232px; --pgr-strip: 52px; }
+html.pgr-on { scroll-behavior: auto; scroll-padding-top: calc(var(--pgr-head) + 8px); }
+html.pgr-on body { background: var(--ink, #0a0b0d); }
+
+/* ---- the one header ---- */
+.pgr-head { position: sticky; top: 0; z-index: 60; height: var(--pgr-head); display: flex; align-items: center; gap: 12px;
+  padding: 0 14px 0 8px; background: rgba(10,11,13,.96); border-bottom: 1px solid var(--line, #262b34);
+  backdrop-filter: saturate(1.2) blur(12px); }
+.pgr-menu { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border: 0; border-radius: 10px; cursor: pointer;
+  background: transparent; color: var(--paper-2, #c6ccd6); }
+.pgr-menu:hover { background: var(--ink-3, #171a21); color: var(--paper, #eef1f4); }
+.pgr-menu:focus-visible { outline: 2px solid var(--I, #39d7ff); outline-offset: 1px; }
+.pgr-menu svg { width: 22px; height: 22px; }
+.pgr-ident { display: flex; flex-direction: column; justify-content: center; min-width: 0; line-height: 1.15; gap: 2px; }
+.pgr-ident .n { font: 500 11px/1.2 "IBM Plex Mono", monospace; letter-spacing: .18em; text-transform: uppercase; color: var(--hero, #b48cff); }
+.pgr-ident .t { font: 600 17px/1.2 "Space Grotesk", sans-serif; letter-spacing: -.02em; color: var(--paper, #eef1f4); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pgr-count { margin-left: auto; font: 500 12px/1.2 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-3, #a3abba); white-space: nowrap; }
+.pgr-count b { color: var(--hero, #b48cff); font-weight: 600; }
+.pgr-bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: transparent; pointer-events: none; }
+.pgr-bar i { display: block; height: 100%; width: 0; background: var(--hero, #b48cff); transition: width .3s ease; }
+
+/* ---- the slim side panel ---- */
+.pgr-shell { display: flex; align-items: flex-start; min-height: calc(100vh - var(--pgr-head)); }
+.pgr-panel { position: sticky; top: var(--pgr-head); flex: none; width: var(--pgr-panel); height: calc(100vh - var(--pgr-head)); overflow-y: auto; overflow-x: hidden;
+  border-right: 1px solid var(--line, #262b34); background: #0d0f14; padding: 10px 6px 24px; transition: width .2s ease; z-index: 40; }
+.pgr-panel ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.pgr-item { width: 100%; min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 6px 8px; border: 0; border-radius: 9px; cursor: pointer;
+  background: transparent; color: var(--paper-2, #c6ccd6); text-align: left; font: 500 14.5px/1.25 "IBM Plex Sans", system-ui, sans-serif; }
+.pgr-item:hover { background: var(--ink-3, #171a21); color: var(--paper, #eef1f4); }
+.pgr-item:focus-visible { outline: 2px solid var(--I, #39d7ff); outline-offset: -2px; }
+.pgr-item .num { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid #3a414d;
+  font: 600 12px/1 "IBM Plex Mono", monospace; color: var(--paper-3, #a3abba); }
+.pgr-item .lab { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pgr-item.is-seen .num { background: var(--ok, #5ddb9a); border-color: var(--ok, #5ddb9a); color: #06231a; }
+.pgr-item.is-seen .num span { display: none; }
+.pgr-item.is-seen .num::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid #06231a; border-bottom: 2.5px solid #06231a; transform: rotate(-45deg) translate(1px,-1px); }
+.pgr-item.is-here { background: #1b1730; color: var(--paper, #eef1f4); box-shadow: inset 3px 0 0 var(--hero, #b48cff); }
+.pgr-item.is-here .num { border-color: var(--hero, #b48cff); }
+.pgr-item.is-here.is-seen .num { border-color: var(--ok, #5ddb9a); }
+.pgr-scrim { display: none; }
+
+/* collapsed: a thin strip of numbers and checks */
+.pgr-panel.is-closed { width: var(--pgr-strip); }
+.pgr-panel.is-closed .lab { display: none; }
+.pgr-panel.is-closed .pgr-item { justify-content: center; padding: 6px 0; }
+
+.pgr-stage { flex: 1 1 auto; min-width: 0; position: relative; overflow-x: clip; }
+
+/* ---- pages: one visible at a time. The others stay in the page (so a host can still list them and
+   a page's script still finds its parts) but take no room and cannot be reached. ---- */
+.pgr-stage > .pgr-page { border-top: 0; padding: clamp(28px, 5vw, 56px) 0 clamp(40px, 6vw, 72px); }
+.pgr-stage > .pgr-page:not(.is-current) { position: absolute; left: 0; top: 0; width: 100%; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
+.pgr-stage > .pgr-page.is-current { position: relative; animation: lpInR .3s ease both; }
+.pgr-stage.is-back > .pgr-page.is-current { animation-name: lpInL; }
+@keyframes lpInR { from { opacity: 0; transform: translateX(36px); } to { opacity: 1; transform: none; } }
+@keyframes lpInL { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .pgr-stage > .pgr-page.is-current { animation: none; } .pgr-bar i, .pgr-panel { transition: none; } }
+
+/* ---- Continue, at the end of each page ---- */
+.pgr-nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line, #262b34); }
+.pgr-next { min-height: 48px; padding: 12px 26px; border: 0; border-radius: 10px; cursor: pointer; background: var(--I, #39d7ff); color: #04222b;
+  font: 600 15px/1 "IBM Plex Mono", monospace; letter-spacing: .02em; }
+.pgr-next:hover { filter: brightness(1.08); }
+.pgr-next:focus-visible, .pgr-back:focus-visible, .pgr-skip:focus-visible { outline: 2.5px solid var(--hero, #b48cff); outline-offset: 3px; }
+.pgr-next[hidden] { display: none !important; }
+.pgr-back, .pgr-skip { border: 0; background: transparent; cursor: pointer; color: var(--paper-3, #a3abba); font: 500 14px/1 "IBM Plex Mono", monospace; padding: 12px 6px; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.pgr-back:hover, .pgr-skip:hover { color: var(--paper, #eef1f4); }
+
+/* ---- phones: no strip; the panel is a drawer that starts closed ---- */
+@media (max-width: 720px) {
+  .pgr-panel { position: fixed; left: 0; top: var(--pgr-head); bottom: 0; height: auto; width: min(290px, 84vw); transform: translateX(-102%);
+    transition: transform .22s ease; box-shadow: 18px 0 40px rgba(0,0,0,.55); }
+  .pgr-panel.is-closed { width: min(290px, 84vw); }
+  .pgr-panel.is-closed .lab { display: block; }
+  .pgr-panel.is-closed .pgr-item { justify-content: flex-start; padding: 6px 8px; }
+  .pgr-panel:not(.is-closed) { transform: none; }
+  .pgr-scrim { position: fixed; inset: var(--pgr-head) 0 0 0; z-index: 35; background: rgba(0,0,0,.5); }
+  .pgr-panel:not(.is-closed) ~ .pgr-scrim { display: block; }
+  .pgr-count .lab-short { display: none; }
+  .pgr-ident .t { font-size: 16px; }
+}
+.pgr-page:focus, .pgr-page:focus-visible { outline: none; }
+/* New paged lessons use the native hidden attribute; the older player contract stays intact. */
+html[data-lesson-mode="paged"] .pgr-stage > .pgr-page[hidden] { display: none !important; }
+html[data-lesson-mode="paged"] .pgr-skip[hidden] { display: none !important; }
+/* lesson-flow.js adds 40vh of empty room under a lesson that has a knowledge check, so text below the check never
+   moves it. A paged lesson shows one page at a time, so that room is an empty gap under every page: gone, and only the
+   check page keeps some. */
+html.pgr-on body::after { display: none !important; content: none !important; }
+.pgr-stage > .pgr-page.pgr-keeproom { padding-bottom: 26vh; }
+
+/* Inside a host (course player, hangar): no second side strip; the panel is hidden until the lesson's menu button opens it */
+.pgr-hosted .pgr-panel.is-closed { width: 0; min-width: 0; border: 0; overflow: hidden; padding: 0; }

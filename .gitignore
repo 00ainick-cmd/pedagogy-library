@@ -1,0 +1,9 @@
+# Working notes and reviews: kept in the OneDrive folder, not published
+_plan/
+__pycache__/
+.pytest_cache/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ground, three lines under a stub. Electric Ink parts bin.
+  Same geometry as ground() in the approved Series Circuits lesson: lines
+  48, 30 and 14 units long, 9 units apart.
+
+  On an aircraft drawing this is the return through the airframe (chassis
+  ground). Draw the stub from the conductor down to the first line.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: the top of the stub is at 0,-24; the first line is at y = 0.
+
+  Color: #c6ccd6 (no quantity). Restyle from the page with the class
+  pb-body.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-28 -28 56 50" width="56" height="50" role="img" aria-label="Ground symbol">
+  <path class="pb-body" d="M 0 -24 V 0 M -24 0 H 24 M -15 9 H 15 M -7 18 H 7" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+</svg>

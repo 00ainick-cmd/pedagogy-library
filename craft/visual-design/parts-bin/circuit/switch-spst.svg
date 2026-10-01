@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Switch, single pole single throw (SPST), drawn OPEN. Electric Ink parts bin.
+  Terminals match the approved Series Circuits lesson: open circles of
+  radius 4.5 units, dark fill, 2.5 unit outline.
+
+  Closed: move the throw's free end to 16,0 (set x2 and y2), or rotate the
+  throw about the pivot with transform="rotate(30 -16 0)". Always write
+  OPEN or CLOSED beside the switch as well; the angle is not the only cue.
+  If you animate the throw, honor prefers-reduced-motion.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -40 to 40.
+
+  Color: #c6ccd6. Restyle from the page with the classes pb-lead,
+  pb-terminal and pb-throw.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -26 88 34" width="88" height="34" role="img" aria-label="Single pole single throw switch symbol, open">
+  <path class="pb-lead" d="M -40 0 H -20.5 M 20.5 0 H 40" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <line class="pb-throw" x1="-16" y1="0" x2="12.6" y2="-16.5" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <circle class="pb-terminal" cx="-16" cy="0" r="4.5" fill="#0d0f14" stroke="#c6ccd6" stroke-width="2.5"/>
+  <circle class="pb-terminal" cx="16" cy="0" r="4.5" fill="#0d0f14" stroke="#c6ccd6" stroke-width="2.5"/>
+</svg>

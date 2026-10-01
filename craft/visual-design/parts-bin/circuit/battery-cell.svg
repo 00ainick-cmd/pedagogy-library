@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Battery, two cells. Electric Ink parts bin.
+  Same plates as battery_v() in the approved Series Circuits lesson: long
+  plate 26 units, 3 thick (positive); short plate 14 units, 5 thick
+  (negative); 10 units between plates. Drawn on its side here; rotate the
+  group 90 degrees for an upright battery.
+
+  Convention: the LONG plate is positive, the SHORT plate is negative. For
+  one cell, keep the first pair only. For more cells, repeat the pair.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -40 to 40.
+
+  Color: the plates are voltage violet #b48cff (a voltage source). Leads
+  are #c6ccd6; recolor them to current cyan #39d7ff when the wire is the
+  current path you teach.
+
+  Text: the plus and minus signs carry class lbl and are set at 27 units,
+  which reads at 16 px on a phone in a 600 wide drawing (16 x 600 / 358).
+  In a drawing of another width, set them to 16 x (viewBox width) / 358.
+  The shared lesson stylesheet sets .fig-svg .lbl to 21 units on phones,
+  which is enough only up to about 470 units wide; in a wider drawing add
+  a rule for that figure. Delete the signs if the host labels the battery.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -44 88 62" width="88" height="62" role="img" aria-label="Battery schematic symbol, two cells, positive on the left">
+  <path class="pb-lead" d="M -40 0 H -15 M 15 0 H 40" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <g class="pb-body" fill="none" stroke="#b48cff" stroke-linecap="round">
+    <line x1="-15" y1="-13" x2="-15" y2="13" stroke-width="3"/>
+    <line x1="-5" y1="-7" x2="-5" y2="7" stroke-width="5"/>
+    <line x1="5" y1="-13" x2="5" y2="13" stroke-width="3"/>
+    <line x1="15" y1="-7" x2="15" y2="7" stroke-width="5"/>
+  </g>
+  <text class="lbl pb-sign" x="-27" y="-20" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="27" font-weight="600" fill="#eef1f4">+</text>
+  <text class="lbl pb-sign" x="27" y="-20" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="27" font-weight="600" fill="#eef1f4">&#8722;</text>
+</svg>

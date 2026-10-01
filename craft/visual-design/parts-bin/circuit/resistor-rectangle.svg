@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Resistor, rectangle form (IEC 60617 style).
+  Electric Ink parts bin. Use it only when the source document you are
+  redrawing uses the rectangle; the FAA handbooks use the zigzag
+  (resistor-zigzag.svg), so that is the default.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -48 to 48.
+
+  Color: the body is resistance amber #ff9e3d. Leads are #c6ccd6; recolor
+  them to current cyan #39d7ff when the wire is the current path you teach.
+
+  Use: paste the shapes into your drawing inside a group with a transform.
+  Restyle from the page with the classes pb-body and pb-lead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -12 100 24" width="100" height="24" role="img" aria-label="Resistor schematic symbol, rectangle form">
+  <path class="pb-lead" d="M -48 0 H -24 M 24 0 H 48" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <rect class="pb-body" x="-24" y="-9" width="48" height="18" fill="none" stroke="#ff9e3d" stroke-width="3" stroke-linejoin="miter"/>
+</svg>

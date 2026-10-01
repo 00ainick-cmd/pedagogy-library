@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fuse, a rounded body with the conductor through it. Electric Ink parts bin.
+  For a circuit breaker, follow the symbol in the source drawing you are
+  redrawing; do not substitute this fuse.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -48 to 48.
+
+  Color: #c6ccd6 with a dark body fill #0d0f14. A blown fuse is shown by a
+  gap in the inner line AND the word OPEN beside it, never by color alone.
+  Restyle from the page with the classes pb-body, pb-link and pb-lead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -14 100 28" width="100" height="28" role="img" aria-label="Fuse schematic symbol">
+  <path class="pb-lead" d="M -48 0 H -24 M 24 0 H 48" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <rect class="pb-body" x="-24" y="-9" width="48" height="18" rx="9" fill="#0d0f14" stroke="#c6ccd6" stroke-width="3"/>
+  <path class="pb-link" d="M -24 0 H 24" fill="none" stroke="#c6ccd6" stroke-width="2"/>
+</svg>

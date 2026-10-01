@@ -1,0 +1,12 @@
+{
+  "name": "pedagogy-library",
+  "description": "Lesson craft skills from the Pedagogy Library: audit lesson HTML against gold 16:9 cards, author a card, ingest your own voice.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Nick Brown",
+    "url": "https://github.com/00ainick-cmd/pedagogy-library"
+  },
+  "homepage": "https://github.com/00ainick-cmd/pedagogy-library",
+  "repository": "https://github.com/00ainick-cmd/pedagogy-library",
+  "license": "MIT"
+}

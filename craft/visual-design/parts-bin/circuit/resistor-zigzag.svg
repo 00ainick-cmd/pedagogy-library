@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Resistor, zigzag form (IEEE 315 style, the form the FAA handbooks use).
+  Electric Ink parts bin. Same geometry as the zig_h() resistor in the
+  approved Series Circuits lesson: six peaks, 9 units high, 60 units long.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -48 to 48.
+
+  Color: the body is resistance amber #ff9e3d (house code: resistance is
+  amber, voltage is violet, current is cyan). Leads are #c6ccd6; recolor
+  them to current cyan #39d7ff when the wire is the current path you teach.
+
+  Use: paste the two shapes into your drawing inside a group, for example
+  g transform="translate(300 120)". Restyle from the page with the classes
+  pb-body and pb-lead. Put the value label in clear space above the part
+  (class lbl), never on the zigzag.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -14 100 28" width="100" height="28" role="img" aria-label="Resistor schematic symbol, zigzag form">
+  <path class="pb-lead" d="M -48 0 H -30 M 30 0 H 48" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <path class="pb-body" d="M -30 0 L -25 -9 L -15 9 L -5 -9 L 5 9 L 15 -9 L 25 9 L 30 0" fill="none" stroke="#ff9e3d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

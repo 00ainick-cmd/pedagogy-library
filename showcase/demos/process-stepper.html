@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Process Stepper | How the CAET Course Was Built</title>
+<meta name="description" content="A live process stepper from the CAET Antennas and Coax lesson: an antenna installation with FAA figures and the words of AC 43.13-2B.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/core/lesson-parts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/demo.css">
+<style>:root{--hero:#ce89c0}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demo</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111318" stroke="#262b34"/><path d="M6 20h5l3-9 4 13 3-8h5" fill="none" stroke="#39d7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>How the CAET Course Was Built</a>
+    <nav class="site-nav" aria-label="Showcase">
+      <a href="../index.html#method">Method</a><a href="../index.html#rules">Rules</a><a href="../index.html#demos">Demos</a><a href="../index.html#lessons">Real lessons</a><a href="../index.html#library">Library</a>
+    </nav>
+    <a class="btn nav-short" href="../index.html#demos">All demos</a>
+  </div>
+</header>
+
+<header class="demo-head wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Showcase home</a><a href="../index.html#demos">All demos</a></nav>
+  <div class="kicker">Live demo 5 of 7</div>
+  <h1>Process Stepper</h1>
+  <p class="lede">A procedure one step at a time, with a strip that shows every step and lights the current one. Each step has what to do, the real source text and the figure of that step. Nothing is graded, and nothing moves on by itself.</p>
+  <p class="from-line">From the lesson Antennas and Coax (Surveillance), page 13, "Install". <a href="https://aero-hangar-claude.onrender.com/aero/courses/cns/lessons/antennas-coax.html#install">Open it in the real lesson</a></p>
+</header>
+
+<main id="main" class="wrap">
+  <div class="stage">
+    <div class="stage-bar"><i></i>Lesson page, as the student sees it</div>
+    <div class="stage-in">
+      <div class="ph">
+        <div class="kicker">Antennas</div>
+        <h2>Installing an Antenna</h2>
+        <p class="lede">Always follow the antenna manufacturer&rsquo;s instructions. The steps below are the FAA&rsquo;s typical installation, with the real words of Advisory Circular (AC) 43.13-2B for each one.</p>
+      </div>
+      <div class="callout warn"><span class="lbl">Warning</span>Installing an antenna means drilling the skin. Check what is behind it before the drill turns: wire bundles, control cables, fuel lines and structure.</div>
+      <div class="stepper" data-steps="stepsInstall" data-late="#installRule">
+        <ol class="st-strip" aria-label="Installation steps"><li><button class="st-tab" type="button" data-n="1"><span class="st-n">1</span><span class="st-h">Template</span></button></li><li><button class="st-tab" type="button" data-n="2"><span class="st-n">2</span><span class="st-h">Doubler</span></button></li><li><button class="st-tab" type="button" data-n="3"><span class="st-n">3</span><span class="st-h">Bare metal</span></button></li><li><button class="st-tab" type="button" data-n="4"><span class="st-n">4</span><span class="st-h">Mount flat</span></button></li><li><button class="st-tab" type="button" data-n="5"><span class="st-n">5</span><span class="st-h">Bond</span></button></li><li><button class="st-tab" type="button" data-n="6"><span class="st-n">6</span><span class="st-h">Seal</span></button></li></ol>
+        <article class="st-panel">
+          <div class="st-body">
+            <div class="st-text">
+              <p class="st-k" aria-live="polite">Step 1 of 6</p>
+              <h4 class="st-title" tabindex="-1">Template</h4>
+              <p class="st-t">Mark the location from the installation drawing. Tape the template on the fore-and-aft centerline, then drill the mounting holes and the hole for the coax.</p>
+              <blockquote class="acq">&ldquo;Refer to installation drawing before drilling holes in aircraft skin to determine proper size and spacing.&rdquo;</blockquote>
+              <p class="credit st-qs">Source: AC 43.13-2B, par. 309b(1).</p>
+            </div>
+            <figure class="st-fig"><img src="../assets/img/fig11-161-template.png" width="668" height="407" alt="A typical antenna mounting template: a teardrop outline on the centerline with a large hole for the transmission line cable and eight holes marked No. 18 drill."><figcaption class="figcap"><span class="st-cr">Source: FAA-H-8083-31B, Figure 11-161.</span> <a class="st-full" href="../assets/img/fig11-161-template.png" target="_blank" rel="noopener">Open the figure full size</a></figcaption></figure>
+            <div class="st-key" hidden><span class="n"></span><span class="l"></span></div>
+          </div>
+          <div class="st-acts"><button class="btn st-back" type="button">Back</button><button class="btn active st-next" type="button">Next step</button></div>
+        </article>
+      </div>
+      <div class="rulebox" id="installRule" hidden>Follow the antenna manufacturer&rsquo;s instructions first. The bond from the base plate to the skin must measure 0.003 ohm or less.</div>
+      <script type="application/json" id="stepsInstall">[{"h": "Template", "t": "Mark the location from the installation drawing. Tape the template on the fore-and-aft centerline, then drill the mounting holes and the hole for the coax.", "q": "Refer to installation drawing before drilling holes in aircraft skin to determine proper size and spacing.", "qs": "AC 43.13-2B, par. 309b(1)", "img": "../assets/img/fig11-161-template.png", "w": 668, "hgt": 407, "alt": "A typical antenna mounting template: a teardrop outline on the centerline with a large hole for the transmission line cable and eight holes marked No. 18 drill.", "cr": "Source: FAA-H-8083-31B, Figure 11-161."}, {"h": "Doubler", "t": "Install a doubler, a reinforcing plate riveted inside the skin around the antenna, so the skin can carry the antenna's air loads. On a composite or fabric airplane, build the ground plane here and bond through the mounting screws.", "q": "Use of a structural backing plate is highly recommended. Backing plates strengthen the immediate point of attachment but if they are not attached to load carrying structure they do not provide structural load support.", "qs": "AC 43.13-2B, par. 309b(2)", "img": "../assets/img/fig11-162-doubler.png", "w": 660, "hgt": 1029, "alt": "A typical antenna installation on a skin panel: the antenna on the fuselage skin over a reinforcing doubler of Alclad 2024-T3 between existing stringers, riveted at about one inch spacing with 1/8 inch minimum rivets and 1 1/2 inch minimum edge distance.", "cr": "Source: FAA-H-8083-31B, Figure 11-162."}, {"h": "Bare metal", "t": "Remove the paint where the base meets the skin, and protect the bare aluminum with a conversion coat, a chemical film that keeps it from corroding.", "q": "To achieve this electrical bonding, the aircraft paint in the mounting area will need to be removed and the surface covered with an oxide film (i.e., aluminum conversion coat) to protect aluminum against corrosion in accordance with MIL-C-5541B.", "qs": "AC 43.13-2B, par. 307b, note", "key": "Bare metal", "keyl": "Paint removed under the base, then a conversion coat"}, {"h": "Mount flat", "t": "Mount the base on a flat surface. A gasket, a thin seal under the base, takes up slight curvature. If gaps over 0.020 inch appear, use a mounting saddle, a shaped block that fits the skin. Never overtighten the screws to pull the base down: do not exceed 20 inch-pounds on #8-32 screws or 23 inch-pounds on #10-32 screws.", "q": "Mounting screws must never be over torqued in an attempt to distort aircraft structure to reduce gaps between the antenna base plate and aircraft-mounting surface.", "qs": "AC 43.13-2B, par. 303d", "img": "../assets/img/ac-fig3-1-saddle.png", "w": 1306, "hgt": 629, "alt": "An antenna mount with a saddle, looking aft: the antenna base sits on a shaped saddle that fills the gap to the curved upper skin between two stringers.", "cr": "Source: AC 43.13-2B, Figure 3-1."}, {"h": "Bond", "t": "Measure the resistance from the base plate to the skin. It must be 0.003 ohm or less.", "q": "Double check that a reading of 0.003 ohms between the antenna base plate and ground has been achieved.", "qs": "AC 43.13-2B, par. 309b(7)", "key": "0.003 ohm", "keyl": "Or less, from the base plate to the skin"}, {"h": "Seal", "t": "Seal the edges of the base with RTV, a silicone sealant that cures at room temperature, so water cannot reach the bond. Check that it is compatible with the antenna and the finish.", "q": "Antenna performance can be severely degraded from corrosion caused by moisture accumulation where the antenna electrically bonds to its ground plane. It is advisable to apply RTV around the antenna edges to seal the antenna bond; however, always ensure chemical compatibility before using any sealant.", "qs": "AC 43.13-2B, par. 307e", "key": "RTV", "keyl": "Around the edges of the base, once it is checked as compatible"}]</script>
+    </div>
+  </div>
+
+  <section class="why-box" aria-labelledby="why-h">
+    <div>
+      <h2 id="why-h">Why It Teaches</h2>
+      <p>A long procedure given one step at a time, at the student's own pace, beats the same procedure on one screen. That is the segmenting effect, confirmed in a 2019 meta-analysis (Rey and colleagues).</p>
+      <p>Stepping through a solved installation, with the reason for each step, is a worked example. And the 4C/ID model puts the how-to information right beside the step it governs: here, the advisory circular's own words for that step. The strip keeps the whole procedure in view, so the student always knows where they are.</p>
+      <p>When not to use it: when the student should produce the order (the stepper would give it away; the course follows a stepper with a drag-to-order on a later page), or when the steps are really a motion, which is an animation.</p>
+    </div>
+    <div>
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/segmenting-and-pretraining.md">Segmenting and pre-training</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/worked-example-effect.md">Worked example effect</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/02-instructional-design/4c-id-model.md">4C/ID model</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/cognitive-load-theory.md">Cognitive load theory</a></li>
+      </ul>
+      <h3>Craft note</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/process-stepper.md">Process stepper</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="made" aria-labelledby="made-h">
+    <h2 id="made-h">How It Is Built</h2>
+    <p>Each step is data: a heading, the instruction, the quote and where it is from, and the figure with its credit. The figures are FAA handbook and advisory circular figures, US government works in the public domain, credited under each one. A step with no figure shows its one key value instead, so every step still shows its state.</p>
+    <p>Next never advances on its own. The strip marks the current step with <code>aria-current</code>, and the step count is read out. The closing rule appears only after the last step. The stepper is a local part; three lessons carry slightly different versions.</p>
+  </section>
+
+  <nav class="demo-nav" aria-label="Other demos">
+    <a class="prev" href="real-document.html"><span>Previous demo</span><b>Hotspot on a Real Document</b></a>
+    <a class="next" href="predict-reveal.html"><span>Next demo</span><b>Predict, Then Reveal</b></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <p>How the CAET Course Was Built. A showcase of the pedagogy library behind the CAET avionics course, by Nick Brown, Aircraft Electronics Association.</p>
+  <p>Text CC BY 4.0. Code MIT. <a href="../index.html#credits">Credits and licence</a></p>
+</footer>
+<script src="../assets/demo.js"></script>
+</body>
+</html>

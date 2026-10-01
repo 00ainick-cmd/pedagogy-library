@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Capacitor, non polarized: two straight plates. Electric Ink parts bin.
+  For a polarized (electrolytic) capacitor, replace the right plate with a
+  curved line and write a plus sign beside the straight plate, in clear
+  space, class lbl.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -40 to 40.
+
+  Color: #c6ccd6 (no quantity of its own). When a figure is about the
+  voltage across the capacitor, color the reading violet, not the symbol.
+  Restyle from the page with the classes pb-body and pb-lead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -22 88 44" width="88" height="44" role="img" aria-label="Capacitor schematic symbol">
+  <path class="pb-lead" d="M -40 0 H -6 M 6 0 H 40" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <path class="pb-body" d="M -6 -18 V 18 M 6 -18 V 18" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+</svg>

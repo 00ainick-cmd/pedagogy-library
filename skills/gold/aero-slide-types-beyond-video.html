@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AERO Slide Types - Beyond Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f0e7;--ink:#23201b;--ink-soft:#3a352c;
+    --green:#145c4f;--green-bright:#1f7a4d;--rust:#9c4a2f;--amber:#b8862f;
+    --line:#d9d2c2;--line-dk:#473f35;--muted:#8f877a;
+    --on-dark:#f1ede4;--on-dark-soft:#c4bcad;
+    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+    --ease:cubic-bezier(.16,.84,.30,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:#e9e3d6;color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .app{max-width:1040px;margin:0 auto;padding:34px 24px 90px}
+
+  .masthead{margin-bottom:8px}
+  .masthead .kick{font:600 11px/1 "Hanken Grotesk";letter-spacing:.24em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .masthead .kick::before{content:"";width:24px;height:2px;background:var(--green)}
+  .masthead h1{font-family:"Newsreader",serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);margin:0 0 8px;letter-spacing:-.01em;max-width:20ch}
+  .masthead p{margin:0;color:var(--ink-soft);font-size:15px;max-width:60ch}
+
+  .card{margin-top:40px;border-top:1px solid var(--line);padding-top:26px}
+  .spec-top{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+  .spec-num{font-family:"Newsreader",serif;font-weight:500;font-size:22px;color:var(--green);min-width:1.4em}
+  .spec-name{font-family:"Newsreader",serif;font-weight:600;font-size:26px;margin:0;letter-spacing:-.01em}
+  .spec-job{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:100px;padding:5px 11px}
+  .why{margin:8px 0 20px;color:var(--ink-soft);font-size:15.5px;max-width:64ch}
+  .why b{color:var(--ink);font-weight:600}
+
+  .stage{position:relative;width:100%;aspect-ratio:16/9;container-type:size;border-radius:9px;overflow:hidden;
+    box-shadow:0 2px 0 rgba(35,32,27,.05),0 22px 52px -30px rgba(35,32,27,.55)}
+  .s-light{background:var(--paper)}
+  .s-dark{background:var(--ink);color:var(--on-dark)}
+  .pad{position:absolute;inset:0;padding:7cqh 6cqw;display:flex;flex-direction:column}
+  .ey{font:600 1.5cqw/1 "Hanken Grotesk";letter-spacing:.2em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:1.3cqw;margin-bottom:2.4cqh}
+  .ey-d{color:var(--green-bright)}
+  .ey::before{content:"";width:3.2cqw;height:.32cqh;background:currentColor;flex:none}
+  .h{font-family:"Newsreader",serif;font-weight:600;line-height:1.04;margin:0}
+  .hint{font:600 1.2cqw/1 var(--mono);letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:.8cqw}
+
+  /* ---------- P1 explorable schematic ---------- */
+  .ex-row{flex:1;min-height:0;display:grid;grid-template-columns:1.35fr 1fr;gap:3cqw;align-items:center}
+  .ex-svg{width:100%;height:auto}
+  .ex-part{cursor:pointer}
+  .ex-part .shp{transition:stroke .2s,fill .2s,stroke-width .2s}
+  .ex-part:hover .shp{stroke:var(--green-bright)}
+  .ex-part.on .shp{stroke:var(--green);stroke-width:2.6;fill:rgba(20,92,79,.08)}
+  .ex-part .lbl{font-family:var(--mono);font-size:7px;fill:var(--muted);letter-spacing:.04em}
+  .ex-panel{border-left:1px solid var(--line);padding-left:2.6cqw;min-height:0}
+  .ex-pk{font:600 1.15cqw/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .ex-pn{font-family:"Newsreader",serif;font-weight:600;font-size:2.7cqw;color:var(--green);line-height:1.05;margin:1.4cqh 0}
+  .ex-pd{font-size:1.6cqw;line-height:1.34;color:var(--ink-soft)}
+  .ex-dots{display:flex;gap:1cqw;margin-top:2.4cqh}
+  .ex-dot{width:1.1cqw;height:1.1cqw;border-radius:50%;border:1.5px solid var(--line)}
+  .ex-dot.on{background:var(--green);border-color:var(--green)}
+
+  /* ---------- P2 live instrument ---------- */
+  .in-row{flex:1;min-height:0;display:grid;grid-template-columns:1.25fr 1fr;gap:3cqw;align-items:center}
+  .in-gauge{width:100%;height:auto}
+  .in-tick{stroke:#5a5249;stroke-width:1.4}
+  .in-tick.go{stroke:var(--green-bright)}
+  .in-tick.lo{stroke:var(--rust)}
+  .in-tick.hi{stroke:var(--amber)}
+  #inNeedle line{stroke:var(--on-dark);stroke-width:3;stroke-linecap:round}
+  #inNeedle circle{fill:var(--green-bright)}
+  .in-ctrl{display:flex;flex-direction:column;align-items:center;gap:2cqh}
+  .in-readwrap{text-align:center}
+  .in-read{font-family:"Newsreader",serif;font-weight:600;font-size:5.4cqw;line-height:1;color:var(--on-dark);font-variant-numeric:tabular-nums}
+  .in-pill{display:inline-block;margin-top:1.4cqh;font:600 1.3cqw/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:.9cqh 1.6cqw;border-radius:100px;border:1.5px solid;}
+  .in-pill.go{color:var(--green-bright);border-color:var(--green-bright)}
+  .in-pill.lo{color:var(--rust);border-color:var(--rust)}
+  .in-pill.hi{color:var(--amber);border-color:var(--amber)}
+  .in-knob{width:13cqw;height:13cqw;border-radius:50%;cursor:grab;touch-action:none;position:relative;
+    background:radial-gradient(circle at 38% 32%,#4a443a,#2c2820 70%);border:.4cqw solid #5d564b;box-shadow:inset 0 0 1.4cqw rgba(0,0,0,.6),0 .6cqw 1.4cqw rgba(0,0,0,.4)}
+  .in-knob:active{cursor:grabbing}
+  .in-knob:focus-visible{outline:2.5px solid var(--green-bright);outline-offset:4px}
+  .in-grip{position:absolute;left:50%;top:8%;width:.45cqw;height:34%;background:var(--green-bright);border-radius:2px;transform-origin:bottom center;transform:translateX(-50%)}
+  .in-knoblabel{font:600 1.15cqw/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- P3 sequence ---------- */
+  .sq-row{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:3cqw}
+  .sq-col-h{font:600 1.1cqw/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4cqh}
+  .sq-bank{display:flex;flex-direction:column;gap:1.1cqh}
+  .sq-chip{appearance:none;text-align:left;cursor:pointer;font-family:inherit;font-size:1.5cqw;line-height:1.2;
+    background:#fbf9f4;border:1px solid var(--line);border-radius:6px;padding:1.5cqh 1.4cqw;color:var(--ink);transition:.18s;min-height:30px}
+  .sq-chip:hover{border-color:var(--green)}
+  .sq-chip:focus-visible{outline:2.5px solid var(--green);outline-offset:2px}
+  .sq-chip.used{opacity:.32;pointer-events:none;border-style:dashed}
+  .sq-slots{display:flex;flex-direction:column;gap:1.1cqh}
+  .sq-slot{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.2cqw;
+    border:1px dashed var(--line);border-radius:6px;padding:1.5cqh 1.4cqw;min-height:30px;font-size:1.5cqw;line-height:1.2;color:var(--ink-soft)}
+  .sq-slot .sn{font-family:"Newsreader",serif;font-weight:600;font-size:2cqw;color:var(--green)}
+  .sq-slot.filled{border-style:solid;background:#fbf9f4;color:var(--ink)}
+  .sq-slot.ok{border-color:var(--green);background:rgba(20,92,79,.08)}
+  .sq-slot.no{border-color:var(--rust);background:rgba(156,74,47,.08)}
+  .sq-foot{display:flex;align-items:center;gap:1.4cqw;margin-top:2cqh}
+  .sq-btn{appearance:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:1.4cqw;border-radius:100px;padding:1.3cqh 2.2cqw;border:1px solid var(--green);background:var(--green);color:#fff;transition:.18s}
+  .sq-btn.ghost{background:transparent;color:var(--green)}
+  .sq-btn:focus-visible{outline:2.5px solid var(--green);outline-offset:2px}
+  .sq-status{font:600 1.35cqw/1 var(--mono);letter-spacing:.04em;color:var(--muted)}
+  .sq-status.done{color:var(--green)}
+
+  /* ---------- P4 compare wipe ---------- */
+  #cw{cursor:ew-resize;touch-action:none}
+  .cw-layer{position:absolute;inset:0}
+  .cw-layer svg{width:100%;height:100%;display:block}
+  .cw-top{clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+  .cw-handle{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:var(--on-dark);transform:translateX(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+  .cw-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6cqw;height:6cqw;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;color:var(--ink)}
+  .cw-grip svg{width:3cqw;height:3cqw}
+  .cw-tag{position:absolute;top:5cqh;font:600 1.3cqw/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:.9cqh 1.4cqw;border-radius:5px}
+  .cw-tag.g{left:5cqw;background:rgba(20,92,79,.12);color:var(--green)}
+  .cw-tag.b{right:5cqw;background:rgba(156,74,47,.12);color:var(--rust)}
+  .cw-eyb{position:absolute;left:5cqw;bottom:4.5cqh}
+  .cw-flag{font-family:var(--mono);font-size:7px;letter-spacing:.04em}
+
+  /* ---------- P5 predict ---------- */
+  .pr-head{font-size:3cqw;max-width:74cqw;color:var(--on-dark);margin-bottom:3cqh}
+  .pr-opts{display:flex;gap:1.6cqw}
+  .pr-opt{appearance:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:1.7cqw;color:var(--on-dark);
+    background:rgba(241,237,228,.05);border:1px solid var(--line-dk);border-radius:8px;padding:2.4cqh 2.4cqw;flex:1;transition:.18s;min-height:44px}
+  .pr-opt:hover{border-color:var(--green-bright)}
+  .pr-opt:focus-visible{outline:2.5px solid var(--green-bright);outline-offset:3px}
+  .pr-opt.pick{border-color:var(--on-dark)}
+  .pr-opt.right{border-color:var(--green-bright);background:rgba(31,122,77,.14)}
+  .pr-opt.wrong{border-color:var(--rust);background:rgba(156,74,47,.14);opacity:.85}
+  .pr-opt:disabled{cursor:default}
+  .pr-reveal{margin-top:2.6cqh;display:grid;grid-template-columns:auto 1fr;gap:3cqw;align-items:center;opacity:0;transform:translateY(12px);transition:.5s var(--ease);pointer-events:none}
+  .pr-reveal.show{opacity:1;transform:none}
+  .pr-chart{width:24cqw;height:auto}
+  .pr-bar{transform:scaleY(0);transform-box:fill-box;transform-origin:bottom;transition:transform .7s var(--ease)}
+  .pr-reveal.show .pr-bar{transform:scaleY(1)}
+  .pr-reveal.show .pr-bar.b2{transition-delay:.15s}
+  .pr-verdict{font-family:"Newsreader",serif;font-weight:600;font-size:2.4cqw;line-height:1.1}
+  .pr-verdict.ok{color:var(--green-bright)}
+  .pr-verdict.no{color:var(--rust)}
+  .pr-why{font-size:1.55cqw;line-height:1.34;color:var(--on-dark-soft);margin-top:1.2cqh}
+  .pr-src{font:1.15cqw/1 var(--mono);letter-spacing:.05em;color:#8f877a;margin-top:1.6cqh}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (max-width:560px){
+    .ex-row,.in-row,.sq-row{grid-template-columns:1fr}
+    .ex-panel{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:2cqh}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="masthead">
+    <div class="kick">AERO Course Player &middot; Beyond Video</div>
+    <h1>Five slides where the learner does, not watches</h1>
+    <p>A video can only be received. Each of these forces a different action: explore, manipulate, perform, discriminate, predict. The action is the teaching. Play with every one.</p>
+  </div>
+
+  <!-- P1 -->
+  <section class="card">
+    <div class="spec-top"><span class="spec-num">01</span><h2 class="spec-name">Explorable Schematic</h2><span class="spec-job">Explore</span></div>
+    <p class="why"><b>Exploration.</b> The learner drives the diagram instead of watching a camera pan across it. Tap any component to interrogate it.</p>
+    <div class="stage s-light" id="ex">
+      <div class="pad">
+        <div class="ey">Avionics LRU &middot; tap a component</div>
+        <div class="ex-row">
+          <svg class="ex-svg" viewBox="0 0 360 210" role="img" aria-label="Avionics line replaceable unit, interactive">
+            <g class="ex-part" data-part="bezel" tabindex="0" role="button" aria-label="Bezel">
+              <rect class="shp" x="20" y="22" width="320" height="166" rx="11" fill="none" stroke="#23201b" stroke-width="1.6"/>
+              <rect x="20" y="22" width="320" height="166" rx="11" fill="transparent"/>
+            </g>
+            <g class="ex-part" data-part="display" tabindex="0" role="button" aria-label="Display">
+              <rect class="shp" x="44" y="46" width="120" height="64" rx="4" fill="#eae4d6" stroke="#23201b" stroke-width="1.4"/>
+              <line x1="56" y1="66" x2="138" y2="66" stroke="#bdb4a2" stroke-width="2"/>
+              <line x1="56" y1="80" x2="120" y2="80" stroke="#bdb4a2" stroke-width="2"/>
+            </g>
+            <g class="ex-part" data-part="card" tabindex="0" role="button" aria-label="Processor card">
+              <rect class="shp" x="186" y="46" width="130" height="64" rx="3" fill="#e7eee9" stroke="#23201b" stroke-width="1.4"/>
+              <rect x="232" y="64" width="26" height="26" rx="2" fill="#cdd8d1" stroke="#23201b" stroke-width="1"/>
+              <line x1="196" y1="58" x2="306" y2="58" stroke="#aebfb4" stroke-width="1"/>
+              <line x1="196" y1="100" x2="306" y2="100" stroke="#aebfb4" stroke-width="1"/>
+            </g>
+            <g class="ex-part" data-part="knob" tabindex="0" role="button" aria-label="Control knob">
+              <circle class="shp" cx="92" cy="150" r="27" fill="#ece6d8" stroke="#23201b" stroke-width="1.4"/>
+              <line x1="92" y1="150" x2="92" y2="128" stroke="#23201b" stroke-width="2.4" stroke-linecap="round"/>
+            </g>
+            <g class="ex-part" data-part="conn" tabindex="0" role="button" aria-label="Rear connector">
+              <rect class="shp" x="196" y="128" width="120" height="42" rx="3" fill="#efe9db" stroke="#23201b" stroke-width="1.4"/>
+              <g fill="#23201b"><rect x="208" y="138" width="4" height="22"/><rect x="220" y="138" width="4" height="22"/><rect x="232" y="138" width="4" height="22"/><rect x="244" y="138" width="4" height="22"/><rect x="256" y="138" width="4" height="22"/><rect x="268" y="138" width="4" height="22"/><rect x="280" y="138" width="4" height="22"/><rect x="292" y="138" width="4" height="22"/></g>
+            </g>
+          </svg>
+          <div class="ex-panel" id="exPanel">
+            <div class="ex-pk">Component</div>
+            <div class="ex-pn">Pick a part</div>
+            <div class="ex-pd">Tap any element in the unit to see what it is and what it does on the bench.</div>
+            <div class="ex-dots" id="exDots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P2 -->
+  <section class="card">
+    <div class="spec-top"><span class="spec-num">02</span><h2 class="spec-name">Live Instrument</h2><span class="spec-job">Manipulate</span></div>
+    <p class="why"><b>Manipulation.</b> Turn the input and feel the system respond in real time. Drag the knob to set bus voltage and watch the needle and the GO band react.</p>
+    <div class="stage s-dark" id="in">
+      <div class="pad">
+        <div class="ey ey-d">DC bus voltage check</div>
+        <div class="in-row">
+          <svg class="in-gauge" viewBox="0 0 300 180" role="img" aria-label="Analog voltage gauge">
+            <g id="inTicks"></g>
+            <g id="inNeedle"><line x1="150" y1="150" x2="150" y2="60"/><circle cx="150" cy="150" r="6"/></g>
+          </svg>
+          <div class="in-ctrl">
+            <div class="in-readwrap">
+              <div class="in-read" id="inRead">28.0 V</div>
+              <span class="in-pill go" id="inPill">GO</span>
+            </div>
+            <div class="in-knob" id="inKnob" tabindex="0" role="slider" aria-label="DC bus voltage" aria-valuemin="18" aria-valuemax="32" aria-valuenow="28"><span class="in-grip" id="inGrip"></span></div>
+            <div class="in-knoblabel">Drag &uarr;&darr; &middot; GO 24.0 to 28.5 V</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P3 -->
+  <section class="card">
+    <div class="spec-top"><span class="spec-num">03</span><h2 class="spec-name">Sequence It</h2><span class="spec-job">Perform</span></div>
+    <p class="why"><b>Performance.</b> They order the procedure themselves instead of watching it done. Tap the steps in the order you would run them, then check.</p>
+    <div class="stage s-light" id="sq">
+      <div class="pad">
+        <div class="ey">Build the safe LRU removal sequence</div>
+        <div class="sq-row">
+          <div><div class="sq-col-h">Steps (out of order)</div><div class="sq-bank" id="sqBank"></div></div>
+          <div><div class="sq-col-h">Your sequence</div><div class="sq-slots" id="sqSlots"></div></div>
+        </div>
+        <div class="sq-foot">
+          <button class="sq-btn" id="sqCheck">Check order</button>
+          <button class="sq-btn ghost" id="sqReset">Reset</button>
+          <span class="sq-status" id="sqStatus">5 steps to place.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P4 -->
+  <section class="card">
+    <div class="spec-top"><span class="spec-num">04</span><h2 class="spec-name">Compare Wipe</h2><span class="spec-job">Discriminate</span></div>
+    <p class="why"><b>Discrimination.</b> They find the line between good and bad with their own hand. Drag the divider across the solder joint.</p>
+    <div class="stage s-light" id="cw">
+      <div class="cw-layer cw-bottom">
+        <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Cold solder joint">
+          <rect x="0" y="150" width="400" height="75" fill="#efe9db"/>
+          <rect x="0" y="150" width="400" height="4" fill="#d4ccba"/>
+          <rect x="70" y="158" width="90" height="14" rx="2" fill="#c9a36a"/>
+          <rect x="240" y="158" width="90" height="14" rx="2" fill="#c9a36a"/>
+          <rect x="150" y="92" width="100" height="40" rx="4" fill="#cdbf9f" stroke="#23201b" stroke-width="1.4"/>
+          <rect x="118" y="120" width="10" height="40" fill="#9a9182"/>
+          <rect x="272" y="120" width="10" height="40" fill="#9a9182"/>
+          <path d="M104 160 q19 -8 38 0 q-6 14 -19 14 q-13 0 -19 -14 z" fill="#8f8576"/>
+          <path d="M258 160 q19 -8 38 0 q-6 14 -19 14 q-13 0 -19 -14 z" fill="#8f8576"/>
+          <line x1="122" y1="156" x2="130" y2="168" stroke="#5a5249" stroke-width="1.4"/>
+          <circle cx="123" cy="162" r="14" fill="none" stroke="#9c4a2f" stroke-width="1.6"/>
+          <text x="123" y="200" text-anchor="middle" class="cw-flag" fill="#9c4a2f">crack</text>
+          <circle cx="277" cy="162" r="14" fill="none" stroke="#9c4a2f" stroke-width="1.6"/>
+          <text x="277" y="200" text-anchor="middle" class="cw-flag" fill="#9c4a2f">poor wetting</text>
+        </svg>
+      </div>
+      <div class="cw-layer cw-top" id="cwTop">
+        <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Good solder joint">
+          <rect x="0" y="150" width="400" height="75" fill="#efe9db"/>
+          <rect x="0" y="150" width="400" height="4" fill="#d4ccba"/>
+          <rect x="70" y="158" width="90" height="14" rx="2" fill="#c9a36a"/>
+          <rect x="240" y="158" width="90" height="14" rx="2" fill="#c9a36a"/>
+          <rect x="150" y="92" width="100" height="40" rx="4" fill="#cdbf9f" stroke="#23201b" stroke-width="1.4"/>
+          <rect x="118" y="120" width="10" height="40" fill="#9a9182"/>
+          <rect x="272" y="120" width="10" height="40" fill="#9a9182"/>
+          <path d="M108 168 q15 -30 30 -8 l4 8 z" fill="#9aa6a0"/>
+          <path d="M138 168 q-15 -30 -30 -8" fill="none"/>
+          <path d="M106 168 C 112 142, 134 142, 140 168 Z" fill="#a7b2ac" stroke="#7d8882" stroke-width="1"/>
+          <path d="M260 168 C 266 142, 288 142, 294 168 Z" fill="#a7b2ac" stroke="#7d8882" stroke-width="1"/>
+          <line x1="116" y1="150" x2="120" y2="146" stroke="#e7edea" stroke-width="2" stroke-linecap="round"/>
+          <line x1="270" y1="150" x2="274" y2="146" stroke="#e7edea" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="cw-tag g">Good</span>
+      <span class="cw-tag b">Cold joint</span>
+      <div class="cw-eyb"><div class="ey">Solder joint &middot; drag to compare</div></div>
+      <div class="cw-handle" id="cwHandle"><div class="cw-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"/><polyline points="15 6 20 12 15 18"/></svg></div></div>
+    </div>
+  </section>
+
+  <!-- P5 -->
+  <section class="card">
+    <div class="spec-top"><span class="spec-num">05</span><h2 class="spec-name">Predict, then Reveal</h2><span class="spec-job">Predict</span></div>
+    <p class="why"><b>Prediction.</b> They commit to an answer before the data appears, so the result lands instead of washing over them. Make a call.</p>
+    <div class="stage s-dark" id="pr">
+      <div class="pad">
+        <div class="ey ey-d">Make the call first</div>
+        <h2 class="h pr-head">As faults get rarer, the technician&rsquo;s miss rate will...</h2>
+        <div class="pr-opts" id="prOpts">
+          <button class="pr-opt" data-i="0">Drop</button>
+          <button class="pr-opt" data-i="1">Stay about the same</button>
+          <button class="pr-opt" data-i="2">Climb sharply</button>
+        </div>
+        <div class="pr-reveal" id="prReveal">
+          <svg class="pr-chart" viewBox="0 0 200 150" role="img" aria-label="Miss rate by prevalence">
+            <line x1="44" y1="120" x2="190" y2="120" stroke="#4a443a" stroke-width="1.4"/>
+            <rect class="pr-bar" x="64" y="106" width="40" height="14" rx="2" fill="#cdbf9f"/>
+            <rect class="pr-bar b2" x="130" y="40" width="40" height="80" rx="2" fill="#1f7a4d"/>
+            <text x="84" y="134" text-anchor="middle" font-family="SFMono-Regular,monospace" font-size="9" fill="#8f877a">common</text>
+            <text x="150" y="134" text-anchor="middle" font-family="SFMono-Regular,monospace" font-size="9" fill="#8f877a">rare</text>
+            <text x="84" y="100" text-anchor="middle" font-family="Newsreader,serif" font-weight="600" font-size="13" fill="#c4bcad">7%</text>
+            <text x="150" y="34" text-anchor="middle" font-family="Newsreader,serif" font-weight="600" font-size="13" fill="#1f7a4d">30%</text>
+          </svg>
+          <div>
+            <div class="pr-verdict" id="prVerdict">.</div>
+            <div class="pr-why">When a fault appears on roughly 1 in 100 checks, miss rates climb from about 7% to near 30%. Rarity, not difficulty, drives the miss.</div>
+            <div class="pr-src">Wolfe, Horowitz and Kenner. Nature, 2005.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var clamp=function(x,a,b){return Math.max(a,Math.min(b,x));};
+
+  /* ---------- P1 explorable schematic ---------- */
+  (function(){
+    var root=document.getElementById('ex'); if(!root) return;
+    var info={
+      bezel:["Bezel / chassis","The sealed enclosure and front frame. Protects the internals and carries the mounting interface to the tray."],
+      display:["Display","The pilot-facing readout. Shows tuned frequency, mode, and fault annunciation."],
+      card:["Processor card","The main circuit card. Runs the logic and signal processing, and is the usual line-replaceable failure point."],
+      knob:["Control knob","Rotary input for tuning and mode selection. Encoder feeds the processor card."],
+      conn:["Rear connector","The blind-mate connector to the aircraft databus and power. Carries ARINC 429 to the rest of the stack."]
+    };
+    var parts=root.querySelectorAll('.ex-part'), panel=document.getElementById('exPanel'), dots=document.getElementById('exDots');
+    var keys=['bezel','display','card','knob','conn'];
+    keys.forEach(function(){ var d=document.createElement('span'); d.className='ex-dot'; dots.appendChild(d); });
+    function select(k){
+      parts.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-part')===k); });
+      Array.prototype.forEach.call(dots.children,function(d,i){ d.classList.toggle('on', keys[i]===k); });
+      panel.innerHTML="<div class='ex-pk'>Component</div><div class='ex-pn'>"+info[k][0]+"</div><div class='ex-pd'>"+info[k][1]+"</div>";
+      panel.appendChild(dots);
+    }
+    parts.forEach(function(p){
+      var k=p.getAttribute('data-part');
+      p.addEventListener('click',function(){select(k);});
+      p.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();select(k);} });
+    });
+  })();
+
+  /* ---------- P2 live instrument ---------- */
+  (function(){
+    var root=document.getElementById('in'); if(!root) return;
+    var v=28, knob=document.getElementById('inKnob'), needle=document.getElementById('inNeedle'),
+        read=document.getElementById('inRead'), pill=document.getElementById('inPill'),
+        grip=document.getElementById('inGrip'), ticksG=document.getElementById('inTicks');
+    var MIN=18,MAX=32, R=118, cx=150, cy=150;
+    function ang(val){ return -90+(val-MIN)/(MAX-MIN)*180; } // deg, 0 = up
+    // build ticks
+    var t='';
+    for(var vv=MIN; vv<=MAX; vv++){
+      var d=ang(vv)*Math.PI/180, ox=cx+R*Math.sin(d), oy=cy-R*Math.cos(d),
+          ix=cx+(R-10)*Math.sin(d), iy=cy-(R-10)*Math.cos(d);
+      var cls= vv<24?'lo':(vv>28?'hi':'go');
+      t+="<line class='in-tick "+cls+"' x1='"+ix.toFixed(1)+"' y1='"+iy.toFixed(1)+"' x2='"+ox.toFixed(1)+"' y2='"+oy.toFixed(1)+"'/>";
+      if(vv===18||vv===24||vv===28||vv===32){
+        var lx=cx+(R-24)*Math.sin(d), ly=cy-(R-24)*Math.cos(d)+3;
+        t+="<text x='"+lx.toFixed(1)+"' y='"+ly.toFixed(1)+"' text-anchor='middle' font-family='SFMono-Regular,monospace' font-size='9' fill='#8f877a'>"+vv+"</text>";
+      }
+    }
+    ticksG.innerHTML=t;
+    function update(){
+      needle.setAttribute('transform','rotate('+ang(v).toFixed(2)+' '+cx+' '+cy+')');
+      read.textContent=v.toFixed(1)+' V';
+      grip.style.transform='translateX(-50%) rotate('+((v-25)*16).toFixed(1)+'deg)';
+      var band= v<24?'lo':(v>28.5?'hi':'go'), lbl= band==='go'?'GO':(band==='lo'?'Low':'High');
+      pill.className='in-pill '+band; pill.textContent=lbl;
+      knob.setAttribute('aria-valuenow', v.toFixed(1));
+    }
+    var drag=false, sy=0, sv=0;
+    knob.addEventListener('pointerdown',function(e){drag=true;sy=e.clientY;sv=v;knob.setPointerCapture(e.pointerId);e.preventDefault();});
+    knob.addEventListener('pointermove',function(e){ if(!drag)return; v=clamp(sv+(sy-e.clientY)*0.07,MIN,MAX); update(); });
+    knob.addEventListener('pointerup',function(){drag=false;});
+    knob.addEventListener('keydown',function(e){
+      if(e.key==='ArrowUp'||e.key==='ArrowRight'){v=clamp(v+0.5,MIN,MAX);update();e.preventDefault();}
+      if(e.key==='ArrowDown'||e.key==='ArrowLeft'){v=clamp(v-0.5,MIN,MAX);update();e.preventDefault();}
+    });
+    update();
+  })();
+
+  /* ---------- P3 sequence ---------- */
+  (function(){
+    var root=document.getElementById('sq'); if(!root) return;
+    var steps=[
+      {t:"Open the bus circuit breaker",c:0},
+      {t:"Verify zero voltage at the connector",c:1},
+      {t:"Disconnect the rear connector",c:2},
+      {t:"Release hold-down, remove the unit",c:3},
+      {t:"Cap and protect open connectors",c:4}
+    ];
+    var bank=document.getElementById('sqBank'), slots=document.getElementById('sqSlots'),
+        status=document.getElementById('sqStatus'), placed=[];
+    function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)); var x=a[i];a[i]=a[j];a[j]=x;} return a; }
+    function build(){
+      bank.innerHTML=''; slots.innerHTML=''; placed=[];
+      shuffle(steps).forEach(function(s){
+        var b=document.createElement('button'); b.className='sq-chip'; b.textContent=s.t; b.dataset.c=s.c;
+        b.addEventListener('click',function(){ place(b,s); }); bank.appendChild(b);
+      });
+      for(var i=0;i<steps.length;i++){
+        var sl=document.createElement('div'); sl.className='sq-slot'; sl.dataset.idx=i;
+        sl.innerHTML="<span class='sn'>"+(i+1)+"</span><span class='sq-txt'></span>"; slots.appendChild(sl);
+      }
+      status.className='sq-status'; status.textContent=steps.length+' steps to place.';
+    }
+    function place(b,s){
+      if(placed.length>=steps.length) return;
+      var sl=slots.children[placed.length];
+      sl.classList.add('filled'); sl.querySelector('.sq-txt').textContent=s.t; sl.dataset.c=s.c;
+      b.classList.add('used'); placed.push(s.c);
+      status.textContent= placed.length<steps.length ? (steps.length-placed.length)+' to go.' : 'Ready. Check the order.';
+    }
+    document.getElementById('sqCheck').addEventListener('click',function(){
+      if(placed.length<steps.length){ status.textContent='Place all steps first.'; return; }
+      var right=0;
+      for(var i=0;i<slots.children.length;i++){
+        var sl=slots.children[i], ok=(+sl.dataset.c)===i;
+        sl.classList.add(ok?'ok':'no'); if(ok)right++;
+      }
+      status.className='sq-status'+(right===steps.length?' done':'');
+      status.textContent= right===steps.length ? 'Correct. Safe sequence locked in.' : right+' of '+steps.length+' in the right spot. Reset and retry.';
+    });
+    document.getElementById('sqReset').addEventListener('click',build);
+    build();
+  })();
+
+  /* ---------- P4 compare wipe ---------- */
+  (function(){
+    var stage=document.getElementById('cw'); if(!stage) return;
+    var p=50;
+    function set(x){ p=clamp(x,4,96); stage.style.setProperty('--p',p+'%'); }
+    function fromX(clientX){ var r=stage.getBoundingClientRect(); return (clientX-r.left)/r.width*100; }
+    var drag=false;
+    stage.addEventListener('pointerdown',function(e){drag=true;stage.setPointerCapture(e.pointerId);set(fromX(e.clientX));});
+    stage.addEventListener('pointermove',function(e){ if(drag) set(fromX(e.clientX)); });
+    stage.addEventListener('pointerup',function(){drag=false;});
+    set(50);
+  })();
+
+  /* ---------- P5 predict ---------- */
+  (function(){
+    var root=document.getElementById('pr'); if(!root) return;
+    var opts=document.getElementById('prOpts').querySelectorAll('.pr-opt'),
+        reveal=document.getElementById('prReveal'), verdict=document.getElementById('prVerdict');
+    var answered=false, correct=2;
+    opts.forEach(function(o){
+      o.addEventListener('click',function(){
+        if(answered) return; answered=true;
+        var i=+o.getAttribute('data-i');
+        opts.forEach(function(b){ b.disabled=true; });
+        o.classList.add('pick', i===correct?'right':'wrong');
+        if(i!==correct) opts[correct].classList.add('right');
+        verdict.textContent = i===correct ? 'Correct.' : 'Not quite.';
+        verdict.className='pr-verdict '+(i===correct?'ok':'no');
+        reveal.classList.add('show');
+      });
+    });
+  })();
+})();
+</script>
+</body>
+</html>

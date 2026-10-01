@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Predict, Then Reveal | How the CAET Course Was Built</title>
+<meta name="description" content="A live predict-then-reveal from the CAET Blocked Ports lesson: predict the airspeed with the static line blocked, then see the pressures.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M6 20h5l3-9 4 13 3-8h5' fill='none' stroke='%2339d7ff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/core/lesson-parts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/demo.css">
+<style>:root{--hero:#6ba7c4}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demo</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111318" stroke="#262b34"/><path d="M6 20h5l3-9 4 13 3-8h5" fill="none" stroke="#39d7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>How the CAET Course Was Built</a>
+    <nav class="site-nav" aria-label="Showcase">
+      <a href="../index.html#method">Method</a><a href="../index.html#rules">Rules</a><a href="../index.html#demos">Demos</a><a href="../index.html#lessons">Real lessons</a><a href="../index.html#library">Library</a>
+    </nav>
+    <a class="btn nav-short" href="../index.html#demos">All demos</a>
+  </div>
+</header>
+
+<header class="demo-head wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Showcase home</a><a href="../index.html#demos">All demos</a></nav>
+  <div class="kicker">Live demo 6 of 7</div>
+  <h1>Predict, Then Reveal</h1>
+  <p class="lede">Before the page shows what happens, the student commits to a prediction. Then the reveal shows what really happens next to the prediction, and explains why. Any choice is accepted: a prediction is not graded.</p>
+  <p class="from-line">From the lesson Blocked Ports and Altimeter Setting (Flight Instruments), page 8, "Airspeed". <a href="https://aero-hangar-claude.onrender.com/aero/courses/flight-instruments/lessons/blocked-ports.html#airspeed">Open it in the real lesson</a></p>
+</header>
+
+<main id="main" class="wrap">
+  <div class="stage">
+    <div class="stage-bar"><i></i>Lesson page, as the student sees it</div>
+    <div class="stage-in">
+      <div class="ph">
+        <div class="kicker">Static side</div>
+        <h2>Airspeed with the Static System Blocked</h2>
+        <p class="lede">The airspeed indicator compares two pressures: ram pressure from the pitot line, inside its diaphragm, and static pressure from the static line, in its case. When the static line blocks, the case keeps the pressure it had at that moment.</p>
+      </div>
+      <div class="terms">
+        <div class="term"><h3>Pitot line</h3><p>Carries ram pressure, the pressure of the air stopped in the pitot tube. It rises with speed, and it falls as the airplane climbs into thinner air.</p></div>
+        <div class="term"><h3>Case, static line blocked</h3><p>Holds the static pressure from the altitude where the line blocked. It does not change when the airplane climbs or descends.</p></div>
+      </div>
+      <div class="pred" id="pred" data-rows="predRows" data-reveal="#predReveal">
+        <p class="pred-set">The static line blocks at 8,500 feet while the airplane cruises at 120 knots. It keeps flying at 120 knots. Predict what the airspeed indicator shows at each altitude, then select Check.</p>
+        <div class="prow" data-k="up"><div class="prow-h">Climbed to 9,000 feet</div><div class="popts" role="group" aria-label="Climbed to 9,000 feet"><button class="popt" type="button" data-v="low" aria-pressed="false">Low</button><button class="popt" type="button" data-v="right" aria-pressed="false">120 knots</button><button class="popt" type="button" data-v="high" aria-pressed="false">High</button></div>
+          <div class="prow-out"><div class="pbars"><div class="pbar pp"><span>Pitot line</span><span class="pt"><i></i></span><b></b></div><div class="pbar pc"><span>Case, trapped</span><span class="pt"><i></i></span><b></b></div></div><p class="pread" aria-live="polite"></p></div></div>
+        <div class="prow" data-k="lvl"><div class="prow-h">Level at 8,500 feet</div><div class="popts" role="group" aria-label="Level at 8,500 feet"><button class="popt" type="button" data-v="low" aria-pressed="false">Low</button><button class="popt" type="button" data-v="right" aria-pressed="false">120 knots</button><button class="popt" type="button" data-v="high" aria-pressed="false">High</button></div>
+          <div class="prow-out"><div class="pbars"><div class="pbar pp"><span>Pitot line</span><span class="pt"><i></i></span><b></b></div><div class="pbar pc"><span>Case, trapped</span><span class="pt"><i></i></span><b></b></div></div><p class="pread" aria-live="polite"></p></div></div>
+        <div class="prow" data-k="dn"><div class="prow-h">Descended to 8,000 feet</div><div class="popts" role="group" aria-label="Descended to 8,000 feet"><button class="popt" type="button" data-v="low" aria-pressed="false">Low</button><button class="popt" type="button" data-v="right" aria-pressed="false">120 knots</button><button class="popt" type="button" data-v="high" aria-pressed="false">High</button></div>
+          <div class="prow-out"><div class="pbars"><div class="pbar pp"><span>Pitot line</span><span class="pt"><i></i></span><b></b></div><div class="pbar pc"><span>Case, trapped</span><span class="pt"><i></i></span><b></b></div></div><p class="pread" aria-live="polite"></p></div></div>
+        <div class="pred-foot"><button class="btn active pred-check" type="button" disabled>Check</button><button class="btn pred-again" type="button" hidden>Try again</button><span class="pred-score" aria-live="polite"></span></div>
+      </div>
+      <div class="reveal" id="predReveal" hidden>
+        <p class="verdict" tabindex="-1"></p>
+        <p class="plain">Each bar shows a pressure in inches of mercury (in Hg). The needle reads the difference between the pitot line and the case.</p>
+        <div class="terms">
+          <div class="term t-up"><h3>Climb</h3><p>Outside pressure falls, so ram pressure falls with it, while the case holds the higher trapped pressure. The difference is too small, and the airspeed reads low.</p></div>
+          <div class="term t-dn"><h3>Descent</h3><p>Outside pressure rises, so ram pressure rises, while the case holds the lower trapped pressure. The difference is too large, and the airspeed reads high.</p></div>
+        </div>
+        <div class="rulebox">The airspeed reads right only at the blockage altitude. The farther the airplane goes from it, up or down, the larger the error. At this speed, 500 feet is enough for an error of 30 to 45 knots.</div>
+        <figure class="docq"><span class="k">The FAA handbook (ASI means airspeed indicator)</span><p>If the static system becomes blocked but the pitot tube remains clear, the ASI continues to operate; however, it is inaccurate. The airspeed indicates lower than the actual airspeed when the aircraft is operated above the altitude where the static ports became blocked because the trapped static pressure is higher than normal for that altitude. When operating at a lower altitude, a faster than actual airspeed is displayed due to the relatively low static pressure trapped in the system.</p><span class="src">Source: FAA-H-8083-25B, Pilot&rsquo;s Handbook of Aeronautical Knowledge, Chapter 8, Blocked Static System. A US government work in the public domain.</span></figure>
+      </div>
+      <script type="application/json" id="predRows">{"blockAlt": 8500, "speed": 120, "rows": {"up": {"alt": 9000}, "lvl": {"alt": 8500}, "dn": {"alt": 8000}}}</script>
+    </div>
+  </div>
+
+  <section class="why-box" aria-labelledby="why-h">
+    <div>
+      <h2 id="why-h">Why It Teaches</h2>
+      <p>Committing to a prediction, even a wrong one, improves memory for the answer that follows. A 2024 meta-analysis of prequestions found an effect of about g = 0.54 on the predicted items (St. Hilaire, Chan and Ahn). The prediction error is what does the work.</p>
+      <p>So the options are the three real possibilities, the reveal comes on the same page within seconds, and the student's own pick stays marked beside what happens. The reveal is corrective feedback on the student's model of the instrument, not a score.</p>
+      <p>It needs a basis for the guess. In the lesson, this page comes after the pages that teach the pitot line, the static line and what a blockage traps, which is why the two cards above restate them.</p>
+    </div>
+    <div>
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/predict-before-reveal.md">Predict before reveal</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/01-learning-science/pretesting-effect.md">Pretesting effect</a></li>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/principles/04-delivery-patterns/error-analysis-corrective-feedback.md">Error analysis and corrective feedback</a></li>
+      </ul>
+      <h3>Craft note</h3>
+      <ul>
+        <li><a href="https://github.com/00ainick-cmd/pedagogy-library/blob/main/craft/interactions/predict-then-reveal.md">Predict, then reveal</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="made" aria-labelledby="made-h">
+    <h2 id="made-h">How It Is Built</h2>
+    <p>The numbers are not typed in. The page computes them with the lesson's own pressure model: the standard atmosphere gives the outside pressure at each altitude, and the airspeed indicator reads the pitot line minus its case. At 9,000 feet that gives about 76 knots, at 8,000 feet about 152 knots, and the bars fill from those pressures.</p>
+    <p>Predict, then reveal is a local part. The shared ask card says "Not quite" and asks to try again, which suits a check better than a prediction. The quoted handbook text is the real FAA wording, shown on its own paper.</p>
+  </section>
+
+  <nav class="demo-nav" aria-label="Other demos">
+    <a class="prev" href="process-stepper.html"><span>Previous demo</span><b>Process Stepper</b></a>
+    <a class="next" href="paged-lesson.html"><span>Next demo</span><b>A Paged Lesson</b></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <p>How the CAET Course Was Built. A showcase of the pedagogy library behind the CAET avionics course, by Nick Brown, Aircraft Electronics Association.</p>
+  <p>Text CC BY 4.0. Code MIT. <a href="../index.html#credits">Credits and licence</a></p>
+</footer>
+<script src="../assets/demo.js"></script>
+</body>
+</html>

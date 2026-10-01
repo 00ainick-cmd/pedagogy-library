@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Lamp (indicator or load), a circle with an X. Electric Ink parts bin.
+  Same geometry as lamp() in the approved Series Circuits lesson: radius
+  22 units, the X reaches 0.7 of the radius, a dark body fill.
+
+  Scale: drawn for a host drawing about 600 units wide. Stroke 3 units.
+  For another host width, scale the group by (host width / 600).
+  Origin: centered on 0,0. Leads run along the x axis from x = -40 to 40.
+
+  Color: the lamp is a load, so it is resistance amber #ff9e3d. The body
+  fill #0d0f14 hides any wire drawn behind it. Leads are #c6ccd6; recolor
+  them to current cyan #39d7ff when the wire is the current path you teach.
+
+  States: no glow and no gradient (one glow per page, and none inside a
+  schematic). Show a lit lamp by setting the body fill to #5a3d1c (the
+  dim amber token) AND writing ON beside it. Show a burned out lamp by
+  breaking the X with a gap at the center AND writing OPEN beside it.
+  Color is never the only cue.
+
+  Restyle from the page with the classes pb-body, pb-x and pb-lead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -26 88 52" width="88" height="52" role="img" aria-label="Lamp schematic symbol">
+  <path class="pb-lead" d="M -40 0 H -22 M 22 0 H 40" fill="none" stroke="#c6ccd6" stroke-width="3" stroke-linecap="round"/>
+  <circle class="pb-body" cx="0" cy="0" r="22" fill="#0d0f14" stroke="#ff9e3d" stroke-width="3"/>
+  <path class="pb-x" d="M -15.4 -15.4 L 15.4 15.4 M -15.4 15.4 L 15.4 -15.4" fill="none" stroke="#ff9e3d" stroke-width="3" stroke-linecap="round"/>
+</svg>

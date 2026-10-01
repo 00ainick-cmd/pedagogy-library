@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Whip (monopole) antenna on the skin, side view. Electric Ink parts bin.
+  The usual VHF comm antenna shape. Checked against the approved Antennas
+  and Coax lesson, and drawn the same way: the element in amber, a gray
+  base mount, the skin in a lighter gray.
+
+  Facts to keep with it: a quarter wave at 127 MHz is about 22 inches, so
+  a comm whip is about 2 feet tall. It is vertically polarized. On a metal
+  airplane the skin under the base is the ground plane, the second half of
+  the antenna; a composite skin needs a bonded foil or mesh ground plane.
+
+  Scale: drawn for a host drawing about 900 units wide (the size of the
+  Antennas and Coax figures). Element stroke 8 units. For another host
+  width, scale the group by (host width / 900).
+  Origin: the base of the whip sits at 0,0 on top of the skin.
+
+  Colors: element #ff9e3d, base mount #5c6470, skin #9aa3ad.
+  To name a part, use a numbered marker in clear space with a legend under
+  the figure (graphics standard, section 3); do not write on the skin.
+  Restyle from the page with the classes pb-element, pb-base and pb-skin.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -176 160 200" width="160" height="200" role="img" aria-label="Whip antenna standing on the aircraft skin, side view">
+  <rect class="pb-skin" x="-70" y="0" width="140" height="16" fill="#9aa3ad"/>
+  <line class="pb-element" x1="0" y1="-16" x2="0" y2="-166" stroke="#ff9e3d" stroke-width="8" stroke-linecap="round"/>
+  <rect class="pb-base" x="-16" y="-16" width="32" height="18" rx="4" fill="#5c6470"/>
+</svg>
