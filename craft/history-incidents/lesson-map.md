@@ -661,11 +661,14 @@ lesson, and notes. "None verified" means no candidate passed the test in `incide
 ### Room 6. AC Electricity
 
 **23. AC Principles** (`ac-principles`, CAET 2.5, rebuild)
-- History: Faraday; Edison, Tesla and Westinghouse (built). Add to the timeline: 20 March 1886, William Stanley's AC
-  system with transformers in Great Barrington (IEEE Milestone).
-- Check the built lesson: its timeline says Westinghouse "buys the rights to Tesla's patents" in 1888. The U.S.
-  Department of Energy and ETHW say Westinghouse licensed Tesla's polyphase induction motor patents (ETHW: July 1888).
-  Use "licensed" unless Britannica's wording is confirmed.
+- History: Faraday (built). Page 18 rebuilt 2026-10-02 as "The War of the Currents", a ten-chapter picture story at
+  Nick's request (1882 Pearl Street, 1884 Tesla at Edison, 1886 Great Barrington, 1888 Tesla's motor, 1888 the "Warning",
+  1890 the electric chair, 1892 General Electric, 1893 Chicago, 1896 Niagara, today). Every fact on two sources; the
+  fact sheet is `curriculum/revamp-kit/lessons/20-ac-principles/war-of-the-currents-facts.md` in the CAET repo and the
+  picture licences are in the lesson's `assets/ac-principles/CREDITS.md`.
+- Wording settled by that check: Westinghouse "acquired the rights" to Tesla's patents in July 1888 (sources split between
+  licensed and bought), with a royalty of $2.50 per horsepower; Great Barrington "in March 1886" (6, 16 or 20 March by
+  source); Niagara to Buffalo "more than 20 miles" (22 or 26 by source).
 - Incidents: none needed.
 
 **24. Capacitors and Inductors** (`capacitors-inductors`, CAET 2.6, keep-light)

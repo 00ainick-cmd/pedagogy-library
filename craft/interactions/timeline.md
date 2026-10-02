@@ -44,7 +44,8 @@ Selects a step or a year, or uses Back and Next. The figure updates to that mome
 ## Mobile and accessibility
 
 - Stops are buttons with `aria-current` on the current one. Keyboard: Tab to the stops; Left and Right only if the group is a toolbar with roving tabindex.
-- At 390 px a horizontal row of five stops will not fit with labels. Show numbers in the row and the label in the panel, or stack the stops vertically.
+- At 390 px a horizontal row of five stops will not fit with labels. Show numbers in the row and the label in the panel, or stack the stops vertically. Thumbnails in two rows of five also work (AC Principles page 18).
+- The shared answer dock (`core/lesson-dock.js`) copies a chapter that a tap changes off screen into a dock at the bottom, where it can cover the strip and Next. Keep the chapter on screen instead: put the chapter text right under the picture with Next under it, and scroll the story back to the picture when a thumbnail below is tapped.
 - No auto-play of the sequence.
 
 ## Our implementation
@@ -78,6 +79,17 @@ A shared timeline is gap 13 in [gaps.md](gaps.md). How to tell the story itself,
 
 - **fod-tool-control, "Concorde" (`#concorde`)**: Air France 4590, 25 July 2000, in five steps on a runway figure, from the BEA final report: the wear strip replaced on a DC-10, the strip lost on the runway, the postponed runway inspection, the tire failure, the tank rupture and fire. A rule box states what a technician controls. Built lesson: `frontend/public/aero/courses/handling-safety/lessons/fod-tool-control.html`.
 - **gyroscopic-instruments, "History" (`#history`)**: 1852, 1929, today.
+- **ac-principles, "The War of the Currents" (`#history`), the picture-story form** (built 2026-10-02): ten chapters from
+  Pearl Street (1882) to today. A picture stage shows each chapter's period picture (an engraving, a patent drawing, a
+  photograph) with a year tag in the side's color (coral for Edison's DC, the lesson teal for AC, gray for neither) and a
+  round portrait of the person driving the chapter. Under it a filmstrip of ten thumbnails, gray until visited, with a rail
+  that fills to the current chapter; Back, "Chapter N of 10", Next; arrow keys, Home and End on the strip. Two chapters add
+  a drawn map behind a "Map" switch, so the physics shows in the story: Pearl Street's district (under half a mile) and,
+  at the same scale, the line from Niagara Falls to Buffalo (more than 20 miles). A rule box ties it to the aircraft:
+  higher voltage, less current, less loss. Layout follows the content width with a container query: picture and chapter
+  side by side from 860 px, stacked below that like a picture book (picture, chapter, Back and Next, filmstrip), with the
+  chapter held at the height of the longest one so Next never moves. Source: `tools/curriculum/revamp/examples/ac-principles/`
+  (`content.py` STORY, `figs.py` pearl_map and niagara_map, `pages-3.tpl`, `script.tpl` warStory).
 
 ## A CAET idea
 

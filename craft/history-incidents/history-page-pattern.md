@@ -63,7 +63,9 @@ The lesson pager gives each page one idea. A history page has these parts, top t
 6. **Credit and sources line**: the portrait credit (linked to its file page) and the sources for every fact on the page.
 
 Length: about 120 to 180 words of body text, so the page fits one phone screen and a little more (390 by 844). If the
-story needs more, make it two pages (the AC Principles lesson does this: Faraday early, Edison, Tesla and Westinghouse late).
+story needs more, make it two pages (the AC Principles lesson does this: Faraday early, Edison, Tesla and Westinghouse late),
+or tell it as a picture story that shows one chapter at a time, so the screen stays one chapter long however many chapters
+there are (AC Principles page 18, "The War of the Currents": ten chapters of two to four sentences each).
 
 Placement: the history page sits where its concept is taught, not at the end of the lesson. Faraday sits beside the
 induction page; Kollsman sits beside the altimeter setting page. A story that explains the whole system (MIL-STD-704,
@@ -75,7 +77,8 @@ Use one. Do not repeat the same one in neighbouring lessons (Nick: "Keep every l
 
 | Interaction | Use it when | Built example |
 |---|---|---|
-| Timeline (year buttons or Next and Back) | The story is a sequence of three to six dated events | AC Principles: 1882, 1888, 1893, 1896 |
+| Timeline (year buttons or Next and Back) | The story is a sequence of three to six dated events | Gyroscopic Instruments: 1852, 1929, today |
+| Picture story (a picture stage, a filmstrip of thumbnails, Back and Next) | The story has a cast and a turn, six or more chapters, and a period picture for most of them | AC Principles page 18: the war of the currents in ten chapters, each with a scene picture, a round portrait of the person driving it, and a DC or AC color; two drawn maps carry the physics (Pearl Street's half mile against Niagara's 26 miles) |
 | Replay of the experiment | The experiment is simple enough to run in an SVG or canvas sketch and shows the lesson's concept | Capacitors and Inductors: Joseph Henry's coil, close and break the switch, see the spark |
 | Then and now compare | The old device and today's device do the same job in a different body | Braun's tube beside a digital scope (filled example below); the four-course range beside a VOR needle |
 | Unit flip cards | Two or more units are named for people in the same lesson | Capacitors and Inductors: the farad and the henry |
@@ -97,8 +100,11 @@ These are the brief's rules applied to history. Nick has rejected cute writing t
 - "First" only when a reliable source says first. Prefer "one of the first" or name the claim's source when sources differ.
 - Dates in the form "24 September 1929". Life years as "1791 to 1867". No em dashes or en dashes anywhere.
 - No chips or tags that are not lesson content ("history", "fun fact", "did you know").
-- Keep the person human and accurate: no heroes and villains. The war of the currents is told as two systems and a
-  physics reason, not as a feud.
+- Keep people human and accurate. A real rivalry may be told as a rivalry when the sources document each move (Nick,
+  2026-10-02, for the war of the currents: Edison's "Warning" pamphlet, Harold Brown's demonstrations, the electric chair).
+  State each move as a plain fact with its date and its source, give no motive a source does not give, and let the
+  facts carry the drama. End on the physics reason the winner won, which is what the student keeps. Dark facts go in
+  words only: no images of executions, injuries or animal deaths; pictures show the people, the places and the devices.
 
 ### Myths to keep out
 
@@ -108,6 +114,9 @@ Check the story against these before you write it.
 |---|---|
 | Franklin's kite was struck by lightning | Franklin's published account says charge from the storm cloud electrified the wet kite string, and sparks streamed from a key on the string when a knuckle came near; it does not describe a strike ("The Kite Experiment", Pennsylvania Gazette, 19 October 1752; Founders Online, National Archives, https://founders.archives.gov/documents/Franklin/01-04-02-0135). Historians also note the account is in the third person and the exact date of the flight is unknown, so do not give one. |
 | Tesla invented AC | AC with transformers was already lighting Main Street in Great Barrington, Massachusetts, on 20 March 1886, a system built by William Stanley for Westinghouse (IEEE Milestone, Alternating Current Electrification, 1886, https://ethw.org/Milestones:Alternating_Current_Electrification,_1886). Tesla's 1888 patents covered the polyphase AC induction motor and system, which Westinghouse licensed (U.S. Department of Energy, "The War of the Currents: AC vs. DC Power", https://www.energy.gov/articles/war-currents-ac-vs-dc-power). Say "Tesla designed AC motors and a complete AC power system", as the AC Principles lesson does. |
+| Edison electrocuted Topsy the elephant | Topsy was killed at Luna Park, Coney Island, on 4 January 1903, on the park owners' decision; Edison was not involved, and it came years after the war of the currents. The Edison Manufacturing Company's film unit filmed it (Thomas A. Edison Papers, "Myth Buster: Topsy the Elephant", https://edison.rutgers.edu/life-of-edison/essaying-edison/essay/myth-buster-topsy-the-elephant; Smithsonian Magazine, 4 January 2017). Smithsonian's 2011 article and a 2014 New-York Historical Society blog repeat the myth; do not cite them for it. |
+| Edison publicly electrocuted animals | Harold P. Brown ran the public demonstrations (Columbia College, 30 July 1888), with equipment and staff from Edison's West Orange laboratory; two calves and a horse were killed there on 5 December 1888 with Edison present (Reynolds and Bernstein, "Edison and 'The Chair'," IEEE Technology and Society Magazine, March 1989; The Electrical World, 11 August 1888). Say what each man did. |
+| Tesla said Edison promised him $50,000 | In his own account Tesla says "the Manager" made the promise ("My Inventions", Electrical Experimenter, May 1919, p. 65). "You don't understand our American humor" comes from O'Neill's 1944 biography, not from Tesla. |
 | Doolittle made the first instrument landing with an ILS | The 24 September 1929 flight used a radio range course shown on a vibrating-reed indicator, marker beacons, a Kollsman altimeter and a Sperry artificial horizon and directional gyro (IEEE Milestone, First Blind Takeoff, Flight and Landing, 1929, https://ethw.org/Milestones:First_Blind_Takeoff,_Flight_and_Landing,_1929). It had no glideslope, so call it the first blind takeoff, flight and landing, not an ILS approach. |
 | Marconi alone invented radio | Marconi shared the 1909 Nobel Prize in Physics with Karl Ferdinand Braun "in recognition of their contributions to the development of wireless telegraphy". Say what each one did. |
 
